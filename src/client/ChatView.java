@@ -46,21 +46,21 @@ import common.*;
 public class ChatView extends JFrame implements Runnable,ActionListener,KeyListener{
 	JPanel jPfriend=new JPanel();
 	JLabel jLfriendPortrait=new JLabel(new ImageIcon("src/file/personelView1.jpg"));
-	JLabel jLfriendName=new JLabel("Ò»Ö±ºÜ°²¾²¦á ");
-	JLabel jLfriendSign=new JLabel("ÈËÉú×îºÃµÄÂÃĞĞ£¬¾ÍÊÇÄãÔÚÒ»¸öÄ°ÉúµÄµØ·½£¬·¢ÏÖÒ»ÖÖ¾ÃÎ¥µÄ¸Ğ¶¯");
+	JLabel jLfriendName=new JLabel("ä¸€ç›´å¾ˆå®‰é™ï¸¶ ");
+	JLabel jLfriendSign=new JLabel("äººç”Ÿæœ€å¥½çš„æ—…è¡Œï¼Œå°±æ˜¯ä½ åœ¨ä¸€ä¸ªé™Œç”Ÿçš„åœ°æ–¹ï¼Œå‘ç°ä¸€ç§ä¹…è¿çš„æ„ŸåŠ¨");
 	JLabel image1=new JLabel(new ImageIcon("src/file/CVimage1.jpg"));//26*30
 	JLabel image2=new JLabel(new ImageIcon("src/file/CVimage2.jpg"));//28*28
 	JLabel image3=new JLabel(new ImageIcon("src/file/CVimage3.jpg"));//28*28
 	JLabel image4=new JLabel(new ImageIcon("src/file/CVimage4.jpg"));//30*32
 	JLabel image5=new JLabel(new ImageIcon("src/file/CVimage5.jpg"));//32*29
 	JLabel image6=new JLabel(new ImageIcon("src/file/CVimage6.jpg"));//31*32
-	/*------------ÏÔÊ¾ÓëºÃÓÑµÄÁÄÌìĞÅÏ¢------------------------------*/
+	/*------------æ˜¾ç¤ºä¸å¥½å‹çš„èŠå¤©ä¿¡æ¯------------------------------*/
 	JLabel point=new JLabel(new ImageIcon("src/file/CVpoint.jpg"));//17*19
-	JLabel jLpoint=new JLabel(" ½»Ì¸ÖĞÇëÎğÇáĞÅ»ã¿î¡¢ÖĞ½±ĞÅÏ¢¡¢Ä°Éúµç»°£¬ÎğÊ¹ÓÃÍâ¹ÒÈí¼ş¡£");
+	JLabel jLpoint=new JLabel(" äº¤è°ˆä¸­è¯·å‹¿è½»ä¿¡æ±‡æ¬¾ã€ä¸­å¥–ä¿¡æ¯ã€é™Œç”Ÿç”µè¯ï¼Œå‹¿ä½¿ç”¨å¤–æŒ‚è½¯ä»¶ã€‚");
 	JTextArea jTAshowChat=new JTextArea();
 	JScrollPane jSshowChat=new JScrollPane(jTAshowChat);
 	/*------------------------------------------------------*/
-	/*-------------ÖĞ¼ä¹¤¾ßÀ¸------------------------------*/
+	/*-------------ä¸­é—´å·¥å…·æ ------------------------------*/
 	JPanel jPinfo=new JPanel();
 	JButton jBshowinfo=new JButton(new ImageIcon("src/file/CVshowInfo.jpg"));//81*22
 	JLabel jLinfo=new JLabel(new ImageIcon("src/file/CVInfo.jpg"));//302*24
@@ -68,49 +68,49 @@ public class ChatView extends JFrame implements Runnable,ActionListener,KeyListe
 	/*------------------------------------------------------*/
 	JTextArea jTAshowsend=new JTextArea();
 	JScrollPane jSshowsend=new JScrollPane(jTAshowsend);
-	/*-------------²à²¿QQĞã------------------------------*/
+	/*-------------ä¾§éƒ¨QQç§€------------------------------*/
 	JPanel jPqq=new JPanel();
 	JLabel friend=new JLabel(new ImageIcon("src/file/friend.jpg"));//140*224
 	JLabel me=new JLabel(new ImageIcon("src/file/me.jpg"));//140*161
-//	JLabel friend=new JLabel(new ImageIcon("src/file/CVboy.jpg"));//140*224
+	//	JLabel friend=new JLabel(new ImageIcon("src/file/CVboy.jpg"));//140*224
 //	JLabel me=new JLabel(new ImageIcon("src/file/CVgirl.jpg"));//140*161
 	/*------------------------------------------------------*/
-	/*------------×îµ×²¿À¸---------------------------------*/
+	/*------------æœ€åº•éƒ¨æ ---------------------------------*/
 	ImageIcon close=new ImageIcon("src/file/CVclose.jpg");
 	ImageIcon send=new ImageIcon("src/file/CVsend.jpg");
-	JButton jBclose=new JButton(close);//¹Ø±Õ°´Å¥69*23
-	JButton jBsend=new JButton(send);//·¢ËÍĞÅÏ¢°´Å¥80*23
-	//JLabel jLspare=new JLabel("2012 ÊÀ½çÄ©ÈÕ¼´½«Ç¿ÊÆÀ´Ï®");
+	JButton jBclose=new JButton(close);//å…³é—­æŒ‰é’®69*23
+	JButton jBsend=new JButton(send);//å‘é€ä¿¡æ¯æŒ‰é’®80*23
+	//JLabel jLspare=new JLabel("2012 ä¸–ç•Œæœ«æ—¥å³å°†å¼ºåŠ¿æ¥è¢­");
 	/*------------------------------------------------------*/
 	private UserBean myInfo=null;
 	private UserBean currentFriend=null;
 	JFrame owner=null;
-	int usePort=0;//ÊÕ·¢Êı¾İµÄ¶Ë¿Ú
-	private String friendIp=null;//½ÓÊÕÊı¾İÖ÷»úµÄIPµØÖ·
-	private int friendPort=0;//½ÓÊÕÊı¾İµÄ¶Ë¿ÚºÅ
-	public static final int BUFFER_SIZE=5120;//»º³åÊı×éµÄ´óĞ¡
-	private byte outBuf[]=null;//·¢ËÍÊı¾İµÄ»º³åÊı×é
-	private DatagramSocket sendSocket;//ÉùÃ÷·¢ËÍĞÅÏ¢µÄÊı¾İ±¨Ì×½Ó×Ö
-	private DatagramPacket sendPacket;//ÉùÃ÷·¢ËÍĞÅÏ¢µÄÊı¾İ°ü
-	private DatagramSocket receiveSocket;//ÉùÃ÷½ÓÊÕĞÅÏ¢µÄÊı¾İ±¨Ì×½Ó×Ö
-	private DatagramPacket receivePacket;//ÉùÃ÷½ÓÊÕĞÅÏ¢µÄÊı¾İ°ü
-	Hashtable friendInfoTable;//ÉùÃ÷´æ´¢ºÃÓÑĞÅÏ¢µÄ¹şÏ£±í
-	String line_separator=System.getProperty("line.separator");//»ñÈ¡ÏµÍ³µÄ»»ĞĞ·û
-	//*--------------------´«ËÍÎÄ¼ş±äÁ¿ÉùÃ÷²¿·Ö--------------------------------------------*/
+	int usePort=0;//æ”¶å‘æ•°æ®çš„ç«¯å£
+	private String friendIp=null;//æ¥æ”¶æ•°æ®ä¸»æœºçš„IPåœ°å€
+	private int friendPort=0;//æ¥æ”¶æ•°æ®çš„ç«¯å£å·
+	public static final int BUFFER_SIZE=5120;//ç¼“å†²æ•°ç»„çš„å¤§å°
+	private byte outBuf[]=null;//å‘é€æ•°æ®çš„ç¼“å†²æ•°ç»„
+	private DatagramSocket sendSocket;//å£°æ˜å‘é€ä¿¡æ¯çš„æ•°æ®æŠ¥å¥—æ¥å­—
+	private DatagramPacket sendPacket;//å£°æ˜å‘é€ä¿¡æ¯çš„æ•°æ®åŒ…
+	private DatagramSocket receiveSocket;//å£°æ˜æ¥æ”¶ä¿¡æ¯çš„æ•°æ®æŠ¥å¥—æ¥å­—
+	private DatagramPacket receivePacket;//å£°æ˜æ¥æ”¶ä¿¡æ¯çš„æ•°æ®åŒ…
+	Hashtable friendInfoTable;//å£°æ˜å­˜å‚¨å¥½å‹ä¿¡æ¯çš„å“ˆå¸Œè¡¨
+	String line_separator=System.getProperty("line.separator");//è·å–ç³»ç»Ÿçš„æ¢è¡Œç¬¦
+	//*--------------------ä¼ é€æ–‡ä»¶å˜é‡å£°æ˜éƒ¨åˆ†--------------------------------------------*/
 	JFileChooser fc=new JFileChooser();
-	String str;//ÎÄ¼şÀïµÄÄÚÈİ
+	String str;//æ–‡ä»¶é‡Œçš„å†…å®¹
 	String title=null;
-	 BufferedReader in;//¶¨ÒåÊäÈëÁ÷
-	 PrintStream out;//¶¨ÒåÊä³öÁ÷
-	 //*---------------------ÁÄÌì¼ÇÂ¼---------------------------------------------------------*/
-	 BufferedWriter bw;//Íê³ÉÁÄÌì¼ÇÂ¼µÄĞ´
-	 BufferedReader bufr;//Íê³ÉÁÄÌì¼ÇÂ¼µÄ¶Á
-	 String path=null;
-	//**--------------------¹¹Ôì·½·¨£¬¶Ô³ÉÔ±±äÁ¿½øĞĞ³õÊ¼»¯------------------------------------*/
+	BufferedReader in;//å®šä¹‰è¾“å…¥æµ
+	PrintStream out;//å®šä¹‰è¾“å‡ºæµ
+	//*---------------------èŠå¤©è®°å½•---------------------------------------------------------*/
+	BufferedWriter bw;//å®ŒæˆèŠå¤©è®°å½•çš„å†™
+	BufferedReader bufr;//å®ŒæˆèŠå¤©è®°å½•çš„è¯»
+	String path=null;
+	//**--------------------æ„é€ æ–¹æ³•ï¼Œå¯¹æˆå‘˜å˜é‡è¿›è¡Œåˆå§‹åŒ–------------------------------------*/
 	public ChatView(UserBean myInfo, UserBean currentFriend,
-			JFrame owner, int usePort,
-			DatagramSocket receiveSocket, DatagramPacket receivePacket,
-			Hashtable friendInfoTable, BufferedReader in, PrintStream out) {
+					JFrame owner, int usePort,
+					DatagramSocket receiveSocket, DatagramPacket receivePacket,
+					Hashtable friendInfoTable, BufferedReader in, PrintStream out) {
 		// TODO Auto-generated constructor stub
 		this.myInfo=myInfo;
 		this.currentFriend=currentFriend;
@@ -123,41 +123,41 @@ public class ChatView extends JFrame implements Runnable,ActionListener,KeyListe
 		this.out=out;
 		friendIp=currentFriend.getIp();
 		friendPort=currentFriend.getPort();
-		System.out.println("ºÃÓÑIP£º"+friendIp);
+		System.out.println("å¥½å‹IPï¼š"+friendIp);
 		friendIp=friendIp.substring(friendIp.indexOf("/")+1);
-		System.out.println("½ØÈ¡ºóµÄºÃÓÑIP£º"+friendIp);
-		System.out.println("ºÃÓÑ¶Ë¿Ú£º"+friendPort);
-		System.out.println("ÎÒµÄ¶Ë¿ÚºÅ£º"+usePort);
+		System.out.println("æˆªå–åçš„å¥½å‹IPï¼š"+friendIp);
+		System.out.println("å¥½å‹ç«¯å£ï¼š"+friendPort);
+		System.out.println("æˆ‘çš„ç«¯å£å·ï¼š"+usePort);
 		init();
 		this.setLocationRelativeTo(null);
 		this.setLayout(null);
 		this.add(jPfriend);
-	    this.add(jPqq);
-	    this.add(point);
-	    this.add(jLpoint);
-	    this.add(jSshowChat);
-	    this.add(jPinfo);
-	    this.add(jBshowinfo);
-	    this.add(jSshowsend);
-	    //this.add(jLspare);
-	    this.add(jBclose);
-	    this.add(jBsend);
+		this.add(jPqq);
+		this.add(point);
+		this.add(jLpoint);
+		this.add(jSshowChat);
+		this.add(jPinfo);
+		this.add(jBshowinfo);
+		this.add(jSshowsend);
+		//this.add(jLspare);
+		this.add(jBclose);
+		this.add(jBsend);
 		this.setSize(420, 545);
 		this.setVisible(true);
-		 try {
-			 //´´½¨·¢ËÍĞÅÏ¢µÄÊı¾İ±¨Ì×½Ó×Ö
+		try {
+			//åˆ›å»ºå‘é€ä¿¡æ¯çš„æ•°æ®æŠ¥å¥—æ¥å­—
 			sendSocket=new DatagramSocket();
 		} catch (SocketException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("³öÏÖÒì³££º"+e.getMessage());
+			System.out.println("å‡ºç°å¼‚å¸¸ï¼š"+e.getMessage());
 		}
-		 //--------------------ÒÔ×Ô¼ºQQºÅ+ºÃÓÑQQºÅ´´½¨ÎÄ¼ş±£´æÁÄÌì¼ÇÂ¼------------------------------------------//
-		 try {
-			path="src/ÁÄÌì¼ÇÂ¼/"+myInfo.getUserNum()+"-"+currentFriend.getUserNum()+".txt";
-			 bw=new BufferedWriter(
-						new OutputStreamWriter(
-						new FileOutputStream(path,true)));
+		//--------------------ä»¥è‡ªå·±QQå·+å¥½å‹QQå·åˆ›å»ºæ–‡ä»¶ä¿å­˜èŠå¤©è®°å½•------------------------------------------//
+		try {
+			path="src/èŠå¤©è®°å½•/"+myInfo.getUserNum()+"-"+currentFriend.getUserNum()+".txt";
+			bw=new BufferedWriter(
+					new OutputStreamWriter(
+							new FileOutputStream(path,true)));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -172,7 +172,7 @@ public class ChatView extends JFrame implements Runnable,ActionListener,KeyListe
 	}
 	public void init()
 	{
-		//ÉèÖÃ¶¥²¿Ãæ°å
+		//è®¾ç½®é¡¶éƒ¨é¢æ¿
 		jPfriend.setBounds(0, 0, 540, 82);
 		jPfriend.setLayout(null);
 		jPfriend.setBackground(Color.PINK);
@@ -180,12 +180,12 @@ public class ChatView extends JFrame implements Runnable,ActionListener,KeyListe
 		jLfriendPortrait.setBounds(5, 5, 60, 60);
 		jPfriend.add(jLfriendPortrait);
 		jLfriendName.setText(currentFriend.getUserName());
-		jLfriendName.setFont(new Font("ËÎÌå",Font.BOLD,15));
+		jLfriendName.setFont(new Font("å®‹ä½“",Font.BOLD,15));
 		jLfriendName.setForeground(Color.WHITE);
 		jLfriendName.setBounds(70, 4, 200, 20);
 		jPfriend.add(jLfriendName);
 		jLfriendSign.setText(currentFriend.getSign());
-		jLfriendSign.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jLfriendSign.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jLfriendSign.setForeground(Color.WHITE);
 		jLfriendSign.setBounds(75, 26, 400, 20);
 		jPfriend.add(jLfriendSign);
@@ -226,17 +226,17 @@ public class ChatView extends JFrame implements Runnable,ActionListener,KeyListe
 						}
 //						out.println("Over");
 //						out.flush();
-						System.out.println("ÎÄ¼şÃû£º"+title+"ÎÄ¼şÄÚÈİ"+str);
+						System.out.println("æ–‡ä»¶åï¼š"+title+"æ–‡ä»¶å†…å®¹"+str);
 //						out.println(str);
 //						out.flush();
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-				}	
-			
+				}
+
 			}
-			
+
 		});
 		jPfriend.add(image3);
 		image4.setBounds(197,48, 30, 32);
@@ -248,31 +248,31 @@ public class ChatView extends JFrame implements Runnable,ActionListener,KeyListe
 		image6.setBounds(289, 48, 31, 32);
 		image6.setBackground(Color.PINK);
 		jPfriend.add(image6);
-		//ÏÔÊ¾ÓëºÃÓÑµÄÁÄÌìĞÅÏ¢
+		//æ˜¾ç¤ºä¸å¥½å‹çš„èŠå¤©ä¿¡æ¯
 		point.setBounds(5, 85, 17, 19);
 		point.setBackground(Color.WHITE);
 		jLpoint.setBounds(25, 85, 375, 25);
-		jLpoint.setFont(new Font("ËÎÌå",Font.PLAIN,12));
+		jLpoint.setFont(new Font("å®‹ä½“",Font.PLAIN,12));
 		jLpoint.setForeground(Color.GRAY);
 		jLpoint.setBackground(Color.WHITE);
 		jTAshowChat.setBackground(Color.WHITE);
-		jTAshowChat.setLineWrap(true);//×Ô¶¯»»ĞĞ
-		jTAshowChat.setFont(new Font("ºÚÌå",Font.PLAIN,17));
+		jTAshowChat.setLineWrap(true);//è‡ªåŠ¨æ¢è¡Œ
+		jTAshowChat.setFont(new Font("é»‘ä½“",Font.PLAIN,17));
 		jSshowChat.setBounds(0, 110, 400, 255);
-		//ÉèÖÃQQĞã
-		if(currentFriend.getSex().equals("Å®"))
+		//è®¾ç½®QQç§€
+		if(currentFriend.getSex().equals("å¥³"))
 		{
 			friend.setIcon(new ImageIcon("src/file/friend.jpg"));
 		}
-		if(currentFriend.getSex().equals("ÄĞ"))
+		if(currentFriend.getSex().equals("ç”·"))
 		{
 			friend.setIcon(new ImageIcon("src/file/CVboy.jpg"));
 		}
-		if(myInfo.getSex().equals("ÄĞ"))
+		if(myInfo.getSex().equals("ç”·"))
 		{
 			me.setIcon(new ImageIcon("src/file/me.jpg"));
 		}
-		if(myInfo.getSex().equals("Å®"))
+		if(myInfo.getSex().equals("å¥³"))
 		{
 			me.setIcon(new ImageIcon("src/file/CVgirl.jpg"));
 		}
@@ -283,7 +283,7 @@ public class ChatView extends JFrame implements Runnable,ActionListener,KeyListe
 		jPqq.add(BorderLayout.NORTH,friend);
 		me.setSize(0, 0);
 		jPqq.add(BorderLayout.SOUTH,me);
-		//ÖĞ²¿¹¤¾ßÀ¸
+		//ä¸­éƒ¨å·¥å…·æ 
 		jPinfo.setBounds(0, 365, 319, 22);
 		jPinfo.setLayout(new BorderLayout());
 		jPinfo.setBackground(Color.WHITE);
@@ -298,24 +298,24 @@ public class ChatView extends JFrame implements Runnable,ActionListener,KeyListe
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				 try {
+				try {
 					bufr=new BufferedReader(
-								new InputStreamReader(new FileInputStream(
-										path)));
+							new InputStreamReader(new FileInputStream(
+									path)));
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				SaveChat save=new SaveChat(ChatView.this, "ÁÄÌì¼ÇÂ¼", true, bufr);
+				SaveChat save=new SaveChat(ChatView.this, "èŠå¤©è®°å½•", true, bufr);
 				save.setVisible(true);
 			}});
 		jPinfo.add(BorderLayout.WEST,jLinfo);
 		jPinfo.add(BorderLayout.EAST,jLinfo1);
-		//·¢ËÍĞÅÏ¢
+		//å‘é€ä¿¡æ¯
 		jTAshowsend.setBackground(Color.WHITE);
-		jTAshowsend.setFont(new Font("ºÚÌå",Font.PLAIN,15));
+		jTAshowsend.setFont(new Font("é»‘ä½“",Font.PLAIN,15));
 		jSshowsend.setBounds(0, 387, 400, 100);
-		//×îµ×²¿¹¤¾ßÀ¸
+		//æœ€åº•éƒ¨å·¥å…·æ 
 		jBclose.setSize(69, 23);
 		jBsend.setSize(80, 23);
 		jBsend.setLocation(310, 487);
@@ -327,82 +327,82 @@ public class ChatView extends JFrame implements Runnable,ActionListener,KeyListe
 				// TODO Auto-generated method stub
 				ChatView.this.setVisible(false);
 			}
-			
+
 		});
 		jBsend.addActionListener(this);
-		//Ìí¼Ó¹ã¸æ±êÇ©£¬²¢ÎªÆäÌí¼ÓäÖÈ¾Æ÷
+		//æ·»åŠ å¹¿å‘Šæ ‡ç­¾ï¼Œå¹¶ä¸ºå…¶æ·»åŠ æ¸²æŸ“å™¨
 		class JLspare extends JLabel
 		{
 			private boolean isSupported;
 			private String spare;
-			
+
 			public JLspare(String spare) {
 				// TODO Auto-generated constructor stub
 				this.spare=spare;
-			 try {
-			      this.isSupported = Desktop.isDesktopSupported()
-			        && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE);
-			     } catch (Exception e) {
-			      this.isSupported = false;
-			     }
-			     setText(false);
-			     addMouseListener(new MouseAdapter() {
-			      public void mouseEntered(MouseEvent e) {
-			       setText(isSupported);
-			       if (isSupported)
-			        setCursor(new Cursor(Cursor.HAND_CURSOR));
-			      }
-			     
-			public void mouseExited(MouseEvent e) {
-			       setText(false);
-			      }
-			      public void mouseClicked(MouseEvent e) {
-			    	 
-			    	   try {
-					        Desktop.getDesktop().browse(
-					          new java.net.URI("http://news.qihoo.com/zt/doomsday.html"));	
-					       } catch (Exception ex) {
-					       }
-			      }
-			     });
+				try {
+					this.isSupported = Desktop.isDesktopSupported()
+							&& Desktop.getDesktop().isSupported(Desktop.Action.BROWSE);
+				} catch (Exception e) {
+					this.isSupported = false;
+				}
+				setText(false);
+				addMouseListener(new MouseAdapter() {
+					public void mouseEntered(MouseEvent e) {
+						setText(isSupported);
+						if (isSupported)
+							setCursor(new Cursor(Cursor.HAND_CURSOR));
+					}
+
+					public void mouseExited(MouseEvent e) {
+						setText(false);
+					}
+					public void mouseClicked(MouseEvent e) {
+
+						try {
+							Desktop.getDesktop().browse(
+									new java.net.URI("http://news.qihoo.com/zt/doomsday.html"));
+						} catch (Exception ex) {
+						}
+					}
+				});
 			}
 			private void setText(boolean b) {
-			     if (!b)
-			      setText( spare);
-			     else
-			      setText("<html><font color=blue><u>" + spare);
-			  }
+				if (!b)
+					setText( spare);
+				else
+					setText("<html><font color=blue><u>" + spare);
+			}
 		}
-	
+
 	}
 
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
 		String receiveInfo="";
-				while(true)
-				{
+		while(true)
+		{
 //					 ReceiveFile f=new ReceiveFile(ChatView.this, in, out, myInfo, currentFriend);
 //						f.receive();
-					 Date time = new java.util.Date();
-				     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
-				      String timeInfo = format.format(time);
-					try {
+			Date time = new java.util.Date();
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
+			String timeInfo = format.format(time);
+			try {
 				receiveSocket.receive(receivePacket);
 				receiveInfo=new String(receivePacket.getData(),0,receivePacket.getLength());
-				int num_index=receiveInfo.indexOf("*");//»ñÈ¡*³öÏÖµÄÎ»ÖÃ
+				int num_index=receiveInfo.indexOf("*");//è·å–*å‡ºç°çš„ä½ç½®
 				int name_index=receiveInfo.indexOf("/");
-				String friendNum=receiveInfo.substring(0,num_index).trim();//»ñÈ¡·¢ËÍ·½µÄQQºÅ
-				String friendName=receiveInfo.substring(num_index+1, name_index);//»ñÈ¡·¢ËÍ·½µÄÓÃ»§Ãû
-				String friendInfo=receiveInfo.substring(name_index+1);//»ñÈ¡·¢ËÍ·½µÄĞÅÏ¢
+				String friendNum=receiveInfo.substring(0,num_index).trim();//è·å–å‘é€æ–¹çš„QQå·
+				String friendName=receiveInfo.substring(num_index+1, name_index);//è·å–å‘é€æ–¹çš„ç”¨æˆ·å
+				String friendInfo=receiveInfo.substring(name_index+1);//è·å–å‘é€æ–¹çš„ä¿¡æ¯
 				if(!friendInfoTable.containsKey(friendNum))
 				{
-					ChatStrange strange=new ChatStrange(null,"ÊÕµ½Ä°ÉúÈËĞÅÏ¢",true,friendNum,friendName,friendInfo);
+					ChatStrange strange=new ChatStrange(null,"æ”¶åˆ°é™Œç”Ÿäººä¿¡æ¯",true,friendNum,friendName,friendInfo);
 					strange.setVisible(true);
 				}
 				else
 				{
-			      System.out.println("ÊÕµ½ÏûÏ¢£º"+friendInfo);
+					System.out.println("æ”¶åˆ°æ¶ˆæ¯ï¼š"+friendInfo);
 					jTAshowChat.append(" "+friendName+"  "+timeInfo+line_separator);
 					jTAshowChat.append("  "+friendInfo+line_separator+line_separator);
 					jTAshowChat.append(line_separator);
@@ -415,26 +415,26 @@ public class ChatView extends JFrame implements Runnable,ActionListener,KeyListe
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				System.out.println("»ñÈ¡ÁÄÌìĞÅÏ¢Ê§°Ü");
+				System.out.println("è·å–èŠå¤©ä¿¡æ¯å¤±è´¥");
 			}
-			
+
 		}
 	}
 	public void jBsend_actionPerformed()
 	{
-		String myNum=myInfo.getUserNum();//»ñÈ¡ÎÒµÄQQºÅ
-		String myName=myInfo.getUserName();//»ñÈ¡ÎÒµÄÓÃ»§Ãû
-		String initInfo=jTAshowsend.getText().trim();//»ñÈ¡ÎÒÒª·¢ËÍµÄĞÅÏ¢
-		String sendInfo=myNum+"*"+myName+"/"+initInfo;//×°ÅäÎÒÒª·¢ËÍµÄĞÅÏ¢£¬ÓÉ3²¿·Ö×é³É£¬°üÀ¨ÎÒµÄQQºÅ£¬ÎÒµÄÓÃ»§ÃûºÍÒª·¢ËÍµÄĞÅÏ¢
-		outBuf=sendInfo.getBytes();//½«ÎÒÒª·¢ËÍµÄĞÅÏ¢×ª»»³É×Ö½ÚÊı×é
+		String myNum=myInfo.getUserNum();//è·å–æˆ‘çš„QQå·
+		String myName=myInfo.getUserName();//è·å–æˆ‘çš„ç”¨æˆ·å
+		String initInfo=jTAshowsend.getText().trim();//è·å–æˆ‘è¦å‘é€çš„ä¿¡æ¯
+		String sendInfo=myNum+"*"+myName+"/"+initInfo;//è£…é…æˆ‘è¦å‘é€çš„ä¿¡æ¯ï¼Œç”±3éƒ¨åˆ†ç»„æˆï¼ŒåŒ…æ‹¬æˆ‘çš„QQå·ï¼Œæˆ‘çš„ç”¨æˆ·åå’Œè¦å‘é€çš„ä¿¡æ¯
+		outBuf=sendInfo.getBytes();//å°†æˆ‘è¦å‘é€çš„ä¿¡æ¯è½¬æ¢æˆå­—èŠ‚æ•°ç»„
 		if(initInfo.length()!=0)
 		{
 			try {
-			     Date time = new java.util.Date();
-			       SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
-			       String timeInfo = format.format(time);
+				Date time = new java.util.Date();
+				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
+				String timeInfo = format.format(time);
 				sendPacket=new DatagramPacket(outBuf,outBuf.length,InetAddress.getByName(friendIp),friendPort);
-				System.out.println("·¢ËÍ¸øºÃÓÑĞÅÏ¢£º"+friendIp+"¶Ë¿Ú"+friendPort+"  "+sendInfo);
+				System.out.println("å‘é€ç»™å¥½å‹ä¿¡æ¯ï¼š"+friendIp+"ç«¯å£"+friendPort+"  "+sendInfo);
 				sendSocket.send(sendPacket);
 				jTAshowChat.append(myInfo.getUserName()+"  "+timeInfo+line_separator);
 				jTAshowChat.append("  "+initInfo+line_separator);
@@ -446,47 +446,47 @@ public class ChatView extends JFrame implements Runnable,ActionListener,KeyListe
 				bw.newLine();
 				bw.flush();
 			} catch (UnknownHostException e) {
-				JOptionPane.showMessageDialog(jBsend, "¶Ô·½²»ÔÚÏß£¬ÎŞ·¨Á¬½Óµ½Ö¸¶¨µØÖ·");
+				JOptionPane.showMessageDialog(jBsend, "å¯¹æ–¹ä¸åœ¨çº¿ï¼Œæ— æ³•è¿æ¥åˆ°æŒ‡å®šåœ°å€");
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			} 	
+			}
 			catch(SocketException e)
 			{
-				JOptionPane.showMessageDialog(jBsend, "ÎŞ·¨´ò¿ªÖ¸¶¨¶Ë¿Ú");
+				JOptionPane.showMessageDialog(jBsend, "æ— æ³•æ‰“å¼€æŒ‡å®šç«¯å£");
 			}
 			catch (IOException e) {
-				JOptionPane.showMessageDialog(jBsend, "·¢ËÍÊı¾İÊ§°Ü");
+				JOptionPane.showMessageDialog(jBsend, "å‘é€æ•°æ®å¤±è´¥");
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
 		}
 		else
-			JOptionPane.showMessageDialog(jBsend, "·¢ËÍĞÅÏ¢²»ÄÜÎª¿Õ£¬ÇëÖØĞÂÊäÈë");
+			JOptionPane.showMessageDialog(jBsend, "å‘é€ä¿¡æ¯ä¸èƒ½ä¸ºç©ºï¼Œè¯·é‡æ–°è¾“å…¥");
 	}
-	//ÓÃ»§ÔÚÁÄÌìÖĞÊäÈëÁËAlt+»Ø³µ·û
+	//ç”¨æˆ·åœ¨èŠå¤©ä¸­è¾“å…¥äº†Alt+å›è½¦ç¬¦
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 		if(e.isAltDown()&&(e.getKeyChar()=='\n'))
 			jBsend_actionPerformed();
 	}
-	//ÏìÓ¦·¢ËÍ°´Å¥ÊÂ¼ş
+	//å“åº”å‘é€æŒ‰é’®äº‹ä»¶
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		jBsend_actionPerformed();
 	}
-	//------------------------------------ÏÂÃæÁ½¸ö·½·¨¶¼ÊÇÎªÁËÊµÏÖ½Ó¿ÚËù±ØĞëµÄ----------------------------------*/
+	//------------------------------------ä¸‹é¢ä¸¤ä¸ªæ–¹æ³•éƒ½æ˜¯ä¸ºäº†å®ç°æ¥å£æ‰€å¿…é¡»çš„----------------------------------*/
 	@Override
 	public void keyPressed(KeyEvent arg0)
 	{
-		//´ı¶¨
+		//å¾…å®š
 	}
 	@Override
-	public void keyReleased(KeyEvent arg0) 
-	{	
-		//´ı¶¨
+	public void keyReleased(KeyEvent arg0)
+	{
+		//å¾…å®š
 	}
 	//--------------------------------------------------------------------------------------------------------------*/
 }

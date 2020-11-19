@@ -13,14 +13,14 @@ import javax.swing.JList;
 import common.FriendLabel;
 import common.UserBean;
 
-/*¹ÜÀíµÇÂ½ÓÃ»§Ä£¿é£¬½«Ä¿Ç°µÇÂ½µÄÓÃ»§Çé¿öÏÔÊ¾µ½ServerFrameÖĞ*/
+/*ç®¡ç†ç™»é™†ç”¨æˆ·æ¨¡å—ï¼Œå°†ç›®å‰ç™»é™†çš„ç”¨æˆ·æƒ…å†µæ˜¾ç¤ºåˆ°ServerFrameä¸­*/
 public class LoginUser extends TimerTask{
 	private DefaultListModel listModel=null;
 	private JList userList=null;
 	private JLabel jCount=null;
-	private Hashtable userTable=new Hashtable();//´æ·ÅÃ¿Ò»¸öÓÃ»§µÄ»ù±¾ĞÅÏ¢
-	private int count=0;//ÉÏÏßÈËÊı
-	private Connection con=null;//Êı¾İ¿âÁ¬½Ó
+	private Hashtable userTable=new Hashtable();//å­˜æ”¾æ¯ä¸€ä¸ªç”¨æˆ·çš„åŸºæœ¬ä¿¡æ¯
+	private int count=0;//ä¸Šçº¿äººæ•°
+	private Connection con=null;//æ•°æ®åº“è¿æ¥
 	public LoginUser(DefaultListModel listModel,JList userList,JLabel jCount,Hashtable userTable,Connection con) {
 		// TODO Auto-generated constructor stub
 		this.listModel=listModel;
@@ -29,16 +29,16 @@ public class LoginUser extends TimerTask{
 		this.userTable=userTable;
 		this.con=con;
 	}		
-//¶¨Ê±Æ÷µÄ·½·¨
+//å®šæ—¶å™¨çš„æ–¹æ³•
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
 		count=0;
 		userTable.clear();
 		listModel.clear();
-		getUser();//²éÑ¯Êı¾İ¿â£¬ÒÑ»ñµÃÉÏÏßÓÃ»§
-		getUserInfo();//´´½¨ÁĞ±íµÄ·½·¨
-		userList.setCellRenderer(new FriendLabel());//µ÷ÓÃFriendLabelÏÔÊ¾Í·Ïñ
+		getUser();//æŸ¥è¯¢æ•°æ®åº“ï¼Œå·²è·å¾—ä¸Šçº¿ç”¨æˆ·
+		getUserInfo();//åˆ›å»ºåˆ—è¡¨çš„æ–¹æ³•
+		userList.setCellRenderer(new FriendLabel());//è°ƒç”¨FriendLabelæ˜¾ç¤ºå¤´åƒ
 		jCount.setText(new Integer(count).toString());
 	}
 	public void getUser()
@@ -50,11 +50,11 @@ public class LoginUser extends TimerTask{
 		ResultSet rs=stmt.executeQuery(sql);
 		while(rs.next())
 		{
-			++count;//ÈËÊı¼Ó1
-			//´´½¨´æ´¢ÓÃ»§ĞÅÏ¢µÄÀà
+			++count;//äººæ•°åŠ 1
+			//åˆ›å»ºå­˜å‚¨ç”¨æˆ·ä¿¡æ¯çš„ç±»
 			UserBean user=new UserBean();
 			userNum=rs.getString("UserNum");
-			//½«ÓÃ»§ĞÅÏ¢´æ´¢µ½¸ÃÀàÖĞ
+			//å°†ç”¨æˆ·ä¿¡æ¯å­˜å‚¨åˆ°è¯¥ç±»ä¸­
 			user.setUserNum(userNum);
 			user.setUserName(rs.getString("UserName"));
 			user.setPassword(rs.getString("Password"));
@@ -73,10 +73,10 @@ public class LoginUser extends TimerTask{
 		e.printStackTrace();
 	}	
 	}
-	//»ñµÃÓÃ»§ĞÅÏ¢£¬ÒÔ´´½¨ÁĞ±í
+	//è·å¾—ç”¨æˆ·ä¿¡æ¯ï¼Œä»¥åˆ›å»ºåˆ—è¡¨
 	public void getUserInfo()
 	{
-		//ÊµÏÖEnumeration ½Ó¿ÚµÄ¶ÔÏó£¬ËüÉú³ÉÒ»ÏµÁĞÔªËØ£¬Ò»´ÎÉú³ÉÒ»¸ö¡£Á¬Ğøµ÷ÓÃ nextElement ·½·¨½«·µ»ØÒ»ÏµÁĞµÄÁ¬ĞøÔªËØ¡£ 
+		//å®ç°Enumeration æ¥å£çš„å¯¹è±¡ï¼Œå®ƒç”Ÿæˆä¸€ç³»åˆ—å…ƒç´ ï¼Œä¸€æ¬¡ç”Ÿæˆä¸€ä¸ªã€‚è¿ç»­è°ƒç”¨ nextElement æ–¹æ³•å°†è¿”å›ä¸€ç³»åˆ—çš„è¿ç»­å…ƒç´ ã€‚ 
 		Enumeration it=userTable.elements();
 		String userName="";
 		String userNum="";

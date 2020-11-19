@@ -11,7 +11,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-//ÊäÈëQQºÅ½çÃæ
+//è¾“å…¥QQå·ç•Œé¢
 public class PrintNumFindUser extends JDialog{
 	PersonelView father=null;
 	String title;
@@ -35,12 +35,12 @@ public PrintNumFindUser(JFrame owner,String title,Boolean modal,PersonelView fat
 	}
 	public void init()
 	{
-		jLpoint.setText("Ç×£¬ÇëÊäÈëÄãÒª"+title+"µÄÕËºÅÄØ~~");
+		jLpoint.setText("äº²ï¼Œè¯·è¾“å…¥ä½ è¦"+title+"çš„è´¦å·å‘¢~~");
 		jLpoint.setBounds(5, 5, 250, 25);
-		jTnum.setFont(new Font("ËÎÌå",Font.BOLD,14));
+		jTnum.setFont(new Font("å®‹ä½“",Font.BOLD,14));
 		jTnum.setForeground(Color.GRAY);
 		jTnum.setBounds(30, 45, 180, 25);
-		jBfind.setFont(new Font("¿¬Ìå",Font.PLAIN,10));
+		jBfind.setFont(new Font("æ¥·ä½“",Font.PLAIN,10));
 		jBfind.setBounds(135, 80, 85, 26);
 		jBfind.addActionListener(new ActionListener(){
 

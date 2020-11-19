@@ -18,7 +18,7 @@ public class ReceiveFile{
 	PrintStream out;
 	UserBean myInfo;
 	UserBean currentFriend;
-	String line_separator=System.getProperty("line.separator");//»ñÈ¡ÏµÍ³µÄ»»ĞĞ·û
+	String line_separator=System.getProperty("line.separator");//è·å–ç³»ç»Ÿçš„æ¢è¡Œç¬¦
 	public ReceiveFile(ChatView father, BufferedReader in, PrintStream out,UserBean myInfo, UserBean currentFriend)
 	{
 		this.father=father;
@@ -29,34 +29,34 @@ public class ReceiveFile{
 	}
 	public void receive()
 	{
-		String receiveQQ=null;//ÎÒÊÇÊôÓÚ½ÓÊÕ·½
+		String receiveQQ=null;//æˆ‘æ˜¯å±äºæ¥æ”¶æ–¹
 		String sendQQ=null;
 		String fileName=null;
 		String judge=null;
 		//String fileContent=null;
-		//-------------------------------------½ÓÊÕÎÄ¼ş----------------------------------//
+		//-------------------------------------æ¥æ”¶æ–‡ä»¶----------------------------------//
 		Date time = new java.util.Date();
 	     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
 	      String timeInfo = format.format(time);
 		try {
 			judge=in.readLine();
-			System.out.println("¿Í»§¶Ë£º´«ËÍÎÄ¼ş"+judge);
+			System.out.println("å®¢æˆ·ç«¯ï¼šä¼ é€æ–‡ä»¶"+judge);
 			if(judge.equals("FILE"))
 			{
-			System.out.println("¿Í»§¶Ë£º´«ËÍÎÄ¼şÒÑ¾­Ö´ĞĞµ½ÕâÀïÁË");
+			System.out.println("å®¢æˆ·ç«¯ï¼šä¼ é€æ–‡ä»¶å·²ç»æ‰§è¡Œåˆ°è¿™é‡Œäº†");
 			receiveQQ=in.readLine();
-			System.out.println("½ÓÊÕÈËISTORMºÅ£º"+receiveQQ);
-			System.out.println("ÎÒµÄISTORMºÅ£º"+myInfo.getUserNum());
-			System.out.println("ºÃÓÑµÄISTORMºÅ£º"+currentFriend.getUserNum());
+			System.out.println("æ¥æ”¶äººISTORMå·ï¼š"+receiveQQ);
+			System.out.println("æˆ‘çš„ISTORMå·ï¼š"+myInfo.getUserNum());
+			System.out.println("å¥½å‹çš„ISTORMå·ï¼š"+currentFriend.getUserNum());
 			if(receiveQQ.equals(myInfo.getUserNum()))
 			{
 				sendQQ=in.readLine();
-				System.out.println("·¢ËÍ·½ISTORM£º"+sendQQ);
+				System.out.println("å‘é€æ–¹ISTORMï¼š"+sendQQ);
 				fileName=in.readLine();
-				System.out.println("ÎÄ¼şÃû£º"+fileName);
+				System.out.println("æ–‡ä»¶åï¼š"+fileName);
 				BufferedWriter bw=new BufferedWriter(
 						new OutputStreamWriter(
-						new FileOutputStream("src/½ÓÊÕÎÄ¼ş/"+fileName)));
+						new FileOutputStream("src/æ¥æ”¶æ–‡ä»¶/"+fileName)));
 				String j;
 				do
 				{
@@ -77,7 +77,7 @@ public class ReceiveFile{
 				bw.flush();
 				bw.close();
 				father.jTAshowChat.append(" "+sendQQ+"  "+timeInfo+line_separator);
-				father.jTAshowChat.append("ÎÄ¼şÒÑ³É¹¦½ÓÊÕ"+line_separator+line_separator);
+				father.jTAshowChat.append("æ–‡ä»¶å·²æˆåŠŸæ¥æ”¶"+line_separator+line_separator);
 				father.jTAshowChat.append(line_separator);
 			}
 		} 

@@ -20,10 +20,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-//ÊÕµ½À´×ÔÄ°ÉúÈËµÄÏûÏ¢µÄ´¦Àí
+//æ”¶åˆ°æ¥è‡ªé™Œç”Ÿäººçš„æ¶ˆæ¯çš„å¤„ç†
 public class ChatStrange extends JDialog{
 
-	JLabel jLshow=new JLabel("  ÊÕµ½À´×ÔÄ°ÉúÈËµÄÏûÏ¢");
+	JLabel jLshow=new JLabel("  æ”¶åˆ°æ¥è‡ªé™Œç”Ÿäººçš„æ¶ˆæ¯");
 	JLabel jLname=new JLabel();
 	JTextArea jTchat=new JTextArea();
 	JScrollPane jSchat=new JScrollPane(jTchat);
@@ -32,7 +32,7 @@ public class ChatStrange extends JDialog{
 	String friendNum;
 	String friendName;
 	String friendInfo;
-	String line_separator=System.getProperty("line.separator");//»ñÈ¡ÏµÍ³µÄ»»ĞĞ·û
+	String line_separator=System.getProperty("line.separator");//è·å–ç³»ç»Ÿçš„æ¢è¡Œç¬¦
 	public ChatStrange(JFrame owner, String title, boolean b,
 			String friendNum, String friendName, String friendInfo) {
 		// TODO Auto-generated constructor stub
@@ -51,11 +51,11 @@ public class ChatStrange extends JDialog{
 	public void init()
 	{
 		jLshow.setForeground(Color.WHITE);
-		jLshow.setFont(new Font("ºÚÌå",Font.BOLD,16));
+		jLshow.setFont(new Font("é»‘ä½“",Font.BOLD,16));
 		jLshow.setSize(400, 25);
 		jLname.setText("     "+friendNum+" ("+friendName+")");
 		jLname.setForeground(Color.WHITE);
-		jLname.setFont(new Font("¿¬Ìå",Font.BOLD,16));
+		jLname.setFont(new Font("æ¥·ä½“",Font.BOLD,16));
 		jLname.setSize(400, 25);
 		jP1.setBackground(Color.PINK);
 		jP1.setBounds(0, 0, 408, 50);
@@ -64,11 +64,11 @@ public class ChatStrange extends JDialog{
 		jP1.add(BorderLayout.SOUTH,jLname);
 		jTchat.setBackground(Color.WHITE);
 		jTchat.setForeground(Color.BLACK);
-		jTchat.setFont(new Font("ºÚÌå",Font.PLAIN,17));
+		jTchat.setFont(new Font("é»‘ä½“",Font.PLAIN,17));
 		 Date time = new java.util.Date();
 	     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
 	      String timeInfo = format.format(time);
-	      System.out.println("ÊÕµ½ÏûÏ¢£º"+friendInfo);
+	      System.out.println("æ”¶åˆ°æ¶ˆæ¯ï¼š"+friendInfo);
 	      jTchat.append(" "+friendName+"  "+timeInfo+line_separator);
 	      jTchat.append(friendInfo+line_separator+line_separator);
 	      jTchat.append(line_separator);
@@ -83,7 +83,7 @@ public class ChatStrange extends JDialog{
 			}
 	    	  
 	      });
-			//Ìí¼Ó¹ã¸æ±êÇ©£¬²¢ÎªÆäÌí¼ÓäÖÈ¾Æ÷
+			//æ·»åŠ å¹¿å‘Šæ ‡ç­¾ï¼Œå¹¶ä¸ºå…¶æ·»åŠ æ¸²æŸ“å™¨
 			class JLspare extends JLabel
 			{
 				private boolean isSupported;

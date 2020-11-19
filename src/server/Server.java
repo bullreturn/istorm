@@ -16,23 +16,23 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 
-/*Îª¿Í»§¶ËÌá¹©¹¦ÄÜ·şÎñÄ£¿é
- * 1.×¢²áĞÂÓÃ»§
- * 2.ÓÃ»§µÇÂ¼
- * 3.²éÕÒºÃÓÑ
- * 4.Ìí¼ÓºÃÓÑ
- * 5.É¾³ıºÃÓÑ
- * 6.ĞŞ¸Ä×Ô¼ºĞÅÏ¢
- * 7.ÓÃ»§ÏÂÏß
- * 8.ĞŞ¸ÄÍ·Ïñ
- * 9.ÎÄ¼ş´«Êä*/
+/*ä¸ºå®¢æˆ·ç«¯æä¾›åŠŸèƒ½æœåŠ¡æ¨¡å—
+ * 1.æ³¨å†Œæ–°ç”¨æˆ·
+ * 2.ç”¨æˆ·ç™»å½•
+ * 3.æŸ¥æ‰¾å¥½å‹
+ * 4.æ·»åŠ å¥½å‹
+ * 5.åˆ é™¤å¥½å‹
+ * 6.ä¿®æ”¹è‡ªå·±ä¿¡æ¯
+ * 7.ç”¨æˆ·ä¸‹çº¿
+ * 8.ä¿®æ”¹å¤´åƒ
+ * 9.æ–‡ä»¶ä¼ è¾“*/
 public class Server extends Thread{
-	private Socket socket=null;//Ì×½Ó×Ö
-	private BufferedReader in=null;//ÊäÈëÁ÷
-	private PrintStream out=null;//Êä³öÁ÷
-	private Connection con=null;//Êı¾İ¿âÁ¬½Ó 
-	private Boolean flag=true;//¿ØÖÆ·şÎñÆ÷Ïß³ÌµÄÆô¶¯ÓëÍ£Ö¹
-	/*-------------------´«ËÍÎÄ¼ş----------------------------*/
+	private Socket socket=null;//å¥—æ¥å­—
+	private BufferedReader in=null;//è¾“å…¥æµ
+	private PrintStream out=null;//è¾“å‡ºæµ
+	private Connection con=null;//æ•°æ®åº“è¿æ¥ 
+	private Boolean flag=true;//æ§åˆ¶æœåŠ¡å™¨çº¿ç¨‹çš„å¯åŠ¨ä¸åœæ­¢
+	/*-------------------ä¼ é€æ–‡ä»¶----------------------------*/
 	//ServerThread father=null;
 	/*-----------------------------------------------------------*/
 	//public Server(Socket socket,ServerThread father)
@@ -49,7 +49,7 @@ public class Server extends Thread{
 			e.printStackTrace();
 		}
 	}
-	//±¾Ïß³ÌµÄÖ÷·½·¨£¬¸ù¾İ¿Í»§¶Ë·¢ËÍµÄÃüÁî£¬µ÷ÓÃ¶ÔÓ¦µÄ·½·¨Ö´ĞĞ
+	//æœ¬çº¿ç¨‹çš„ä¸»æ–¹æ³•ï¼Œæ ¹æ®å®¢æˆ·ç«¯å‘é€çš„å‘½ä»¤ï¼Œè°ƒç”¨å¯¹åº”çš„æ–¹æ³•æ‰§è¡Œ
 	public void run()
 	{
 		try {
@@ -60,36 +60,36 @@ public class Server extends Thread{
 				{
 					break;
 				}
-				else if(str.equals("registNewUser"))//×¢²áĞÂÓÃ»§
+				else if(str.equals("registNewUser"))//æ³¨å†Œæ–°ç”¨æˆ·
 				{
 					registNewUser();
 				}
-				else if(str.equals("login"))//µÇÂ½
+				else if(str.equals("login"))//ç™»é™†
 				{
 					login();
 				}
-				else if(str.equals("queryUser"))//²éÕÒÓÃ»§ĞÅÏ¢
+				else if(str.equals("queryUser"))//æŸ¥æ‰¾ç”¨æˆ·ä¿¡æ¯
 				{
 					String userNum=in.readLine();
 					queryUser(userNum);
 				}
-				else if(str.equals("addFriend"))//Ìí¼ÓºÃÓÑ
+				else if(str.equals("addFriend"))//æ·»åŠ å¥½å‹
 				{
 					addFriend();
 				}
-				else if(str.equals("deleteFriend"))//É¾³ıºÃÓÑ
+				else if(str.equals("deleteFriend"))//åˆ é™¤å¥½å‹
 				{
 					deleteFriend();
 				}
-				else if(str.equals("updateOwnInformation"))//ĞŞ¸Ä×Ô¼ºĞÅÏ¢
+				else if(str.equals("updateOwnInformation"))//ä¿®æ”¹è‡ªå·±ä¿¡æ¯
 				{
 					updateOwnInformation();
 				}
-				else if(str.equals("logout"))//ÓÃ»§ÏÂÏß
+				else if(str.equals("logout"))//ç”¨æˆ·ä¸‹çº¿
 				{
 					logout();
 				}
-				else if(str.equals("UpdateMyportrait"))//ĞŞ¸ÄÍ·Ïñ
+				else if(str.equals("UpdateMyportrait"))//ä¿®æ”¹å¤´åƒ
 				{
 					UpdateMyportrait();
 				}
@@ -113,7 +113,7 @@ public class Server extends Thread{
 			stmt1=con.createStatement();
 			rs=stmt1.executeQuery(sql2);
 			rs.next();
-			String userNum=rs.getString("UserNum");//´ÓQQNum±í»ñÈ¡Ò»¸öºÏ·¨QQºÅ	
+			String userNum=rs.getString("UserNum");//ä»QQNumè¡¨è·å–ä¸€ä¸ªåˆæ³•QQå·	
 		
 			PreparedStatement pstmt=con.prepareStatement(sql1);
 			String userName=in.readLine();
@@ -127,19 +127,19 @@ public class Server extends Thread{
 			pstmt.setString(4, sex);
 			pstmt.setString(5, birth);
 			pstmt.setString(6, address);
-			pstmt.setString(7, "¸öĞÔÇ©Ãû");
-			pstmt.setString(8, "src/head/head.png");//µ±ÓÃ»§×¢²áµÄÊ±ºò£¬Ä¬ÈÏ¸øÓÃ»§Ö¸¶¨Ò»¸öÍ·Ïñ
-			pstmt.setInt(9, 0);//Ä¬ÈÏÓÃ»§µÄ×´Ì¬Îª²»ÔÚÏß
-			pstmt.executeUpdate();//ÏòUerInformationÖĞ²åÈëĞÅÏ¢½áÊø
+			pstmt.setString(7, "ä¸ªæ€§ç­¾å");
+			pstmt.setString(8, "src/head/head.png");//å½“ç”¨æˆ·æ³¨å†Œçš„æ—¶å€™ï¼Œé»˜è®¤ç»™ç”¨æˆ·æŒ‡å®šä¸€ä¸ªå¤´åƒ
+			pstmt.setInt(9, 0);//é»˜è®¤ç”¨æˆ·çš„çŠ¶æ€ä¸ºä¸åœ¨çº¿
+			pstmt.executeUpdate();//å‘UerInformationä¸­æ’å…¥ä¿¡æ¯ç»“æŸ
 			pstmt.close();
-			//ĞŞ¸ÄQQNumÖĞµÄMarkÖµ£¬¸ÄÎª0£¬±íÊ¾¸ÃQQÒÑ±»ÓÃ»§×¢²á
+			//ä¿®æ”¹QQNumä¸­çš„Markå€¼ï¼Œæ”¹ä¸º0ï¼Œè¡¨ç¤ºè¯¥QQå·²è¢«ç”¨æˆ·æ³¨å†Œ
 			System.out.println(userNum);
 			String sql3="UPDATE QQNum SET Mark = 0 where UserNum = '"+userNum+"'";
 			stmt2=con.createStatement();
 			stmt2.executeUpdate(sql3);
-			out.println("registerOver");//×¢²áÍê±Ï
+			out.println("registerOver");//æ³¨å†Œå®Œæ¯•
 			out.flush();
-			//¸æËß¿Í»§¶Ë£¬Äã×¢²áËù»ñÈ¡µÄQQºÅ
+			//å‘Šè¯‰å®¢æˆ·ç«¯ï¼Œä½ æ³¨å†Œæ‰€è·å–çš„QQå·
 			out.println(userNum);
 			out.flush();
 			
@@ -168,7 +168,7 @@ public class Server extends Thread{
 			stmt1=con.createStatement();
 			rs=stmt1.executeQuery(sql1);
 			//System.out.println(userNum+password+ip+port);
-			//Èç¹ûµÇÂ¼³É¹¦
+			//å¦‚æœç™»å½•æˆåŠŸ
 			if(rs.next())
 			{
 		      //String ip=String.valueOf(socket.getInetAddress().getLocalHost());
@@ -183,7 +183,7 @@ public class Server extends Thread{
 				queryUser(userNum);
 				out.println("loginSuccess");
 				out.flush();
-				//²éÕÒtaµÄºÃÓÑ
+				//æŸ¥æ‰¾taçš„å¥½å‹
 				queryFriend(userNum);
 				stmt2.close();
 				}
@@ -207,7 +207,7 @@ public class Server extends Thread{
 		Statement stmt2=null;
 		ResultSet rs1=null;
 		ResultSet rs2=null;
-		Vector friendNum=new Vector();//´ËÏòÁ¿ÓÃÓÚ´æ´¢ºÃÓÑµÄQQºÅÂë
+		Vector friendNum=new Vector();//æ­¤å‘é‡ç”¨äºå­˜å‚¨å¥½å‹çš„QQå·ç 
 		try {
 			String sql1="select FriendNum from UserFriend where UserNum = "+userNum;
 			stmt1=con.createStatement();
@@ -225,7 +225,7 @@ public class Server extends Thread{
 				stmt2=con.createStatement();
 				rs2=stmt2.executeQuery(sql2);
 				rs2.next();
-				out.println(friend);//QQºÅÂë
+				out.println(friend);//QQå·ç 
 				out.flush();
 				out.println(rs2.getString("UserName"));
 				out.flush();
@@ -265,7 +265,7 @@ public class Server extends Thread{
 			rs=stmt.executeQuery(sql);
 			if(rs.next())
 			{
-				out.println(userNum);//QQºÅÂë
+				out.println(userNum);//QQå·ç 
 				out.flush();
 				out.println(rs.getString("UserName"));
 				out.flush();
@@ -382,7 +382,7 @@ public class Server extends Thread{
 		try {
 			String num=in.readLine();
 			String image=in.readLine();
-			//System.out.println("ĞŞ¸ÄÍ·ÏñÁË¹ş"+num+image);
+			//System.out.println("ä¿®æ”¹å¤´åƒäº†å“ˆ"+num+image);
 			String sql="UPDATE UserInformation SET Portrait = '"+image+"' where UserNum = '"+num+"'";
 			PreparedStatement pstmt=con.prepareStatement(sql);
 			pstmt.executeUpdate();
@@ -405,12 +405,12 @@ public class Server extends Thread{
 //		String judge=null;
 //		String temp=null;
 //		try {	
-//			receiveQQ=in.readLine();//½ÓÊÕ·½µÄQQºÅ
-//			sendQQ=in.readLine();//·¢ËÍ·½µÄQQºÅ
+//			receiveQQ=in.readLine();//æ¥æ”¶æ–¹çš„QQå·
+//			sendQQ=in.readLine();//å‘é€æ–¹çš„QQå·
 //			fileName=in.readLine();
 //			BufferedWriter bw=new BufferedWriter(
 //					new OutputStreamWriter(
-//					new FileOutputStream("src/½ÓÊÕÎÄ¼ş/ÁÙÊ±ÎÄ¼ş")));
+//					new FileOutputStream("src/æ¥æ”¶æ–‡ä»¶/ä¸´æ—¶æ–‡ä»¶")));
 //			do
 //			{
 //				judge=in.readLine();
@@ -434,9 +434,9 @@ public class Server extends Thread{
 //			System.out.println(fileContent);
 //			BufferedReader bufr=new BufferedReader(
 //					new InputStreamReader(new FileInputStream(
-//							"src/½ÓÊÕÎÄ¼ş/ÁÙÊ±ÎÄ¼ş.txt")));
+//							"src/æ¥æ”¶æ–‡ä»¶/ä¸´æ—¶æ–‡ä»¶.txt")));
 //			Socket socket1;
-//			PrintStream out1=null;//Êä³öÁ÷
+//			PrintStream out1=null;//è¾“å‡ºæµ
 //			for(int i=0;i<father.clients.size();i++)
 //			{
 //				socket1=(Socket) father.clients.elementAt(i);
@@ -458,7 +458,7 @@ public class Server extends Thread{
 //					}
 //					out1.println("All");
 //					out1.flush();
-//					System.out.println("i µÄÖµ×îºóÎª¶àÉÙ°¡£º"+i);
+//					System.out.println("i çš„å€¼æœ€åä¸ºå¤šå°‘å•Šï¼š"+i);
 //				}
 //			}
 //		} catch (IOException e) {

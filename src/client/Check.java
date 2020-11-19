@@ -1,5 +1,5 @@
 package client;
-//»ñÈ¡ISTORMºÅÂë
+//è·å–ISTORMå·ç 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -17,17 +17,17 @@ public class Check extends JFrame {
     	JLabel jLtop=new JLabel(new ImageIcon("src/file/checkQQ1.jpg"));
     	JLabel jLeft=new JLabel(new ImageIcon("src/file/checkQQ2.jpg"));
     	JLabel jLgetqq=new JLabel(new ImageIcon("src/file/checkGet.jpg"));
-    	JLabel jLtext1=new JLabel("ÉêÇë³É¹¦");
-    	JLabel jLtext2=new JLabel("Äú»ñµÃºÅÂë£º");
+    	JLabel jLtext1=new JLabel("ç”³è¯·æˆåŠŸ");
+    	JLabel jLtext2=new JLabel("æ‚¨è·å¾—å·ç ï¼š");
     	JLabel jLqq=new JLabel();
-    	JButton jBenter=new JButton("µÇÂ½ISTORM");
+    	JButton jBenter=new JButton("ç™»é™†ISTORM");
 	public Check(String userNum) {
 		// TODO Auto-generated constructor stub
 		this.userNum=userNum;
 		this.setSize(600, 389);
 		this.setLocationRelativeTo(null);
 		this.setLayout(null);
-		this.setTitle("ISTORMºÅ»ñÈ¡");
+		this.setTitle("ISTORMå·è·å–");
 		init();
 		this.add(jLeft);
 		this.add(jLtop);
@@ -43,18 +43,18 @@ public class Check extends JFrame {
 		jLeft.setBounds(0, 56, 201, 330);
 		jLgetqq.setBounds(220, 85, 45, 43);
 		jLtext1.setForeground(Color.BLACK);
-		jLtext1.setFont(new Font("ËÎÌå",Font.BOLD,24));
+		jLtext1.setFont(new Font("å®‹ä½“",Font.BOLD,24));
 		jLtext1.setBounds(285, 60, 220, 50);
 		jLtext2.setForeground(Color.BLACK);
-		jLtext2.setFont(new Font("ËÎÌå",Font.BOLD,24));
+		jLtext2.setFont(new Font("å®‹ä½“",Font.BOLD,24));
 		jLtext2.setBounds(285, 100, 150, 50);
 		jLqq.setText(userNum);
 		jLqq.setForeground(Color.RED);
-		jLqq.setFont(new Font("ËÎÌå",Font.BOLD,24));
+		jLqq.setFont(new Font("å®‹ä½“",Font.BOLD,24));
 		jLqq.setBounds(435, 100, 165, 50);
 		jBenter.setForeground(Color.WHITE);
 		jBenter.setBackground(Color.GREEN);
-		jBenter.setFont(new Font("ËÎÌå",Font.BOLD,24));
+		jBenter.setFont(new Font("å®‹ä½“",Font.BOLD,24));
 		jBenter.setBounds(285, 200, 120, 50);
 		jBenter.addActionListener(new ActionListener(){
 

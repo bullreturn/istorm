@@ -1,5 +1,5 @@
 package common;
-//ÊµÏÖÍ·ÏñÏÔÊ¾µÄ¹«ÓÃÀà
+//å®ç°å¤´åƒæ˜¾ç¤ºçš„å…¬ç”¨ç±»
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.border.*;
@@ -23,14 +23,14 @@ public class FriendLabel extends JLabel implements ListCellRenderer {
                                                   int index, boolean isSelected,
                                                   boolean cellHasFocus) {
         String s = value.toString();
-        int beginIndex = s.indexOf("*src/head/");// ·µ»ØÖ¸¶¨×Ó×Ö·û´®ÔÚ´Ë×Ö·û´®ÖĞµÚÒ»´Î³öÏÖ´¦µÄË÷Òı¡£
-        //ÔÚÏßÓÃ»§µÄÍ·Ïñ
+        int beginIndex = s.indexOf("*src/head/");// è¿”å›æŒ‡å®šå­å­—ç¬¦ä¸²åœ¨æ­¤å­—ç¬¦ä¸²ä¸­ç¬¬ä¸€æ¬¡å‡ºç°å¤„çš„ç´¢å¼•ã€‚
+        //åœ¨çº¿ç”¨æˆ·çš„å¤´åƒ
         /*public String substring(int beginIndex,
-            int endIndex)·µ»ØÒ»¸öĞÂ×Ö·û´®£¬ËüÊÇ´Ë×Ö·û´®µÄÒ»¸ö×Ó×Ö·û´®¡£
-             ¸Ã×Ó×Ö·û´®´ÓÖ¸¶¨µÄ beginIndex ´¦¿ªÊ¼£¬Ö±µ½Ë÷Òı endIndex - 1 ´¦µÄ×Ö·û¡£
-              Òò´Ë£¬¸Ã×Ó×Ö·û´®µÄ³¤¶ÈÎª endIndex-beginIndex¡£ */
+            int endIndex)è¿”å›ä¸€ä¸ªæ–°å­—ç¬¦ä¸²ï¼Œå®ƒæ˜¯æ­¤å­—ç¬¦ä¸²çš„ä¸€ä¸ªå­å­—ç¬¦ä¸²ã€‚
+             è¯¥å­å­—ç¬¦ä¸²ä»æŒ‡å®šçš„ beginIndex å¤„å¼€å§‹ï¼Œç›´åˆ°ç´¢å¼• endIndex - 1 å¤„çš„å­—ç¬¦ã€‚
+              å› æ­¤ï¼Œè¯¥å­å­—ç¬¦ä¸²çš„é•¿åº¦ä¸º endIndex-beginIndexã€‚ */
         String picURL = s.substring(beginIndex + 1, s.indexOf("^"));
-        //ÀëÏßÓÃ»§µÄÍ·Ïñ
+        //ç¦»çº¿ç”¨æˆ·çš„å¤´åƒ
         String offLinePicURL = picURL.substring(0, picURL.indexOf("-") + 1) +
                                "2" +
                                picURL.substring(picURL.indexOf("-") + 2,
@@ -52,7 +52,7 @@ public class FriendLabel extends JLabel implements ListCellRenderer {
             this.setBorder(emptyBorder);
             this.setForeground(list.getForeground());
         }
-        //Èç¹ûºÃÓÑ²»ÔÚÏß£¬Ó¦½«Æä±³¾°ÉèÎª»ÒÉ«
+        //å¦‚æœå¥½å‹ä¸åœ¨çº¿ï¼Œåº”å°†å…¶èƒŒæ™¯è®¾ä¸ºç°è‰²
         if (status == 0) {
             this.setIcon(new ImageIcon(offLinePicURL));
         } else if (status == 1) {
@@ -65,6 +65,6 @@ public class FriendLabel extends JLabel implements ListCellRenderer {
     }
 
     private void jbInit() throws Exception {
-        this.setFont(new java.awt.Font("ËÎÌå", Font.PLAIN, 15));
+        this.setFont(new java.awt.Font("å®‹ä½“", Font.PLAIN, 15));
     }
 }

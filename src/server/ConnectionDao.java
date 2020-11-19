@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-/*Êı¾İ¿âÁ¬½Ó*/
+/*æ•°æ®åº“è¿æ¥*/
 public class ConnectionDao {
 	public static Connection getConnection() {
 		Connection conn=null;
@@ -14,15 +14,15 @@ public class ConnectionDao {
 			Class.forName("com.mysql.jdbc.Driver");
 			System.out.print("");
 		}catch(ClassNotFoundException ex){
-			System.out.println("¼ÓÔØÇı¶¯Ê§°Ü");
+			System.out.println("åŠ è½½é©±åŠ¨å¤±è´¥");
 		}
 		try{
 			String url="jdbc:mysql://localhost:3306/test?user=root&password=123456";
 		    conn=DriverManager.getConnection(url);	
-			System.out.print("Á¬½Ó³É¹¦");
+			System.out.print("è¿æ¥æˆåŠŸ");
 			return conn;
 		}catch(SQLException ex){
-			System.out.println("Á¬½ÓÊ§°Ü"+ex);
+			System.out.println("è¿æ¥å¤±è´¥"+ex);
 			return null;
 		}
 

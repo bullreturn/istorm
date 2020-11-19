@@ -23,17 +23,17 @@ import common.ShowTimeTask;
 import common.UserBean;
 import common.UserInfo;
 
-/*·şÎñÆ÷Ö÷½çÃæ*/
+/*æœåŠ¡å™¨ä¸»ç•Œé¢*/
 public class ServerFrame extends JFrame {
-	JLabel jshowList=new JLabel("ÔÚÏßÓÃ»§ÁĞ±í<10ÃëË¢ĞÂÒ»´Î>");
-	JLabel jshowServerLog=new JLabel("·şÎñÆ÷ÈÕÖ¾");
-	JLabel jUserCount=new JLabel("ÔÚÏßÈËÊı :");
+	JLabel jshowList=new JLabel("åœ¨çº¿ç”¨æˆ·åˆ—è¡¨<10ç§’åˆ·æ–°ä¸€æ¬¡>");
+	JLabel jshowServerLog=new JLabel("æœåŠ¡å™¨æ—¥å¿—");
+	JLabel jUserCount=new JLabel("åœ¨çº¿äººæ•° :");
 	JLabel jCount=new JLabel("0");
 	JLabel jLtime=new JLabel();
-	JButton jBgetInfo=new JButton("²é¿´ĞÅÏ¢");
-	JButton jBkickOut=new JButton("Ìß³ö");
-	JButton jBpauseServer=new JButton("ÔİÍ£·şÎñ");
-	JButton jBexit=new JButton("ÍË³ö");
+	JButton jBgetInfo=new JButton("æŸ¥çœ‹ä¿¡æ¯");
+	JButton jBkickOut=new JButton("è¸¢å‡º");
+	JButton jBpauseServer=new JButton("æš‚åœæœåŠ¡");
+	JButton jBexit=new JButton("é€€å‡º");
 	DefaultListModel listModel=new DefaultListModel();
 	JList userList=new JList(listModel);
 	JScrollPane jSuserList=new JScrollPane(userList);
@@ -41,14 +41,14 @@ public class ServerFrame extends JFrame {
 	JScrollPane jServerLog=new JScrollPane(jTServerLog);
 	private Connection con=null;
 	ServerThread serverThread=null;
-	private Hashtable userTable= new Hashtable();//½«UserBeanµÄ¶ÔÏóÍ³Ò»´æ´¢µ½HashTableÖĞ
+	private Hashtable userTable= new Hashtable();//å°†UserBeançš„å¯¹è±¡ç»Ÿä¸€å­˜å‚¨åˆ°HashTableä¸­
 	public ServerFrame()
 	{
 		this.setSize(800, 700);
 		this.setLocationRelativeTo(null);
 		this.setLayout(null);
-		this.setTitle("·şÎñÆ÷¶Ë¿ØÖÆ½çÃæ");
-		//´´½¨Êı¾İ¿âÁ¬½Ó
+		this.setTitle("æœåŠ¡å™¨ç«¯æ§åˆ¶ç•Œé¢");
+		//åˆ›å»ºæ•°æ®åº“è¿æ¥
 		con=ConnectionDao.getConnection();
 		init();
 		this.add(jshowList);
@@ -62,15 +62,15 @@ public class ServerFrame extends JFrame {
 		this.add(jBpauseServer);
 		this.add(jBexit);
 		this.add(jLtime);
-	   serverThread=new ServerThread(jTServerLog);//Æô¶¯ServerSocketÌ×½Ó×Ö£¬²¢×öºÃµÈ´ı¿Í»§¶ËÁ¬½ÓµÄ×¼±¸
+	   serverThread=new ServerThread(jTServerLog);//å¯åŠ¨ServerSocketå¥—æ¥å­—ï¼Œå¹¶åšå¥½ç­‰å¾…å®¢æˆ·ç«¯è¿æ¥çš„å‡†å¤‡
 		serverThread.start();
-		//Ê¹jLtime¶¯Ì¬ÏÔÊ¾Ê±¼ä
+		//ä½¿jLtimeåŠ¨æ€æ˜¾ç¤ºæ—¶é—´
 		java.util.Timer myTime=new java.util.Timer();
 		java.util.TimerTask task_showtime=new ShowTimeTask(jLtime);
 		myTime.schedule(task_showtime, 0,1000);
 		java.util.Timer time=new java.util.Timer();
 		java.util.TimerTask task_time=new LoginUser(listModel,userList,jCount,userTable,con);
-		time.schedule(task_time, 0,10000);//Ã¿10ÃëË¢ĞÂÒ»´Î
+		time.schedule(task_time, 0,10000);//æ¯10ç§’åˆ·æ–°ä¸€æ¬¡
 		try {
 			System.out.println(InetAddress.getLocalHost());
 		} catch (UnknownHostException e) {
@@ -78,15 +78,15 @@ public class ServerFrame extends JFrame {
 			e.printStackTrace();
 		}
 	}
-	//²¼ÖÃ·şÎñÆ÷Ö÷½çÃæ
+	//å¸ƒç½®æœåŠ¡å™¨ä¸»ç•Œé¢
 	public void init()
 	{
 		jshowList.setBounds(20, 10, 150, 25);
-		jshowList.setFont(new Font("ËÎÌå",Font.PLAIN,11));
+		jshowList.setFont(new Font("å®‹ä½“",Font.PLAIN,11));
 		jSuserList.setBounds(10, 40, 190, 500);
 		jBgetInfo.setBounds(20, 550, 75, 25);
-		jBgetInfo.setFont(new Font("ËÎÌå",Font.PLAIN,10));
-		//²é¿´ĞÅÏ¢°´Å¥¼àÌı
+		jBgetInfo.setFont(new Font("å®‹ä½“",Font.PLAIN,10));
+		//æŸ¥çœ‹ä¿¡æ¯æŒ‰é’®ç›‘å¬
 		jBgetInfo.addActionListener(new ActionListener(){
 
 			@Override
@@ -97,22 +97,22 @@ public class ServerFrame extends JFrame {
 				selectedUser=(String)userList.getSelectedValue();
 				if(selectedUser==null)
 				{
-					JOptionPane.showMessageDialog(jBgetInfo, "Çëµ¥»÷Ñ¡ÔñÒ»¸öÓÃ»§");
+					JOptionPane.showMessageDialog(jBgetInfo, "è¯·å•å‡»é€‰æ‹©ä¸€ä¸ªç”¨æˆ·");
 				}
 				else
 				{
 					System.out.println(selectedUser);
 					userNum=selectedUser.substring(selectedUser.indexOf("<")+1,selectedUser.indexOf(">"));
 					UserBean user=(UserBean)userTable.get(userNum);
-					UserInfo userInfo=new UserInfo(ServerFrame.this,"ĞÅÏ¢²é¿´",true,user);
+					UserInfo userInfo=new UserInfo(ServerFrame.this,"ä¿¡æ¯æŸ¥çœ‹",true,user);
 					userInfo.setVisible(true);
 				}
 			}
 			
 		});
 		jBkickOut.setBounds(110, 550, 60, 25);
-		jBkickOut.setFont(new Font("ËÎÌå",Font.PLAIN,10));
-		//Ìß³ö°´Å¥¼àÌı
+		jBkickOut.setFont(new Font("å®‹ä½“",Font.PLAIN,10));
+		//è¸¢å‡ºæŒ‰é’®ç›‘å¬
 		jBkickOut.addActionListener(new ActionListener(){
 
 			@Override
@@ -122,7 +122,7 @@ public class ServerFrame extends JFrame {
 				String userNum=null;
 				if(index==-1)
 				{
-					JOptionPane.showMessageDialog(jBkickOut, "Çëµ¥»÷Ñ¡ÔñÒ»¸öÓÃ»§");
+					JOptionPane.showMessageDialog(jBkickOut, "è¯·å•å‡»é€‰æ‹©ä¸€ä¸ªç”¨æˆ·");
 				}
 				else{
 					String userInfo=(String)listModel.getElementAt(index);
@@ -137,48 +137,48 @@ public class ServerFrame extends JFrame {
 			
 		});
 		jUserCount.setBounds(25, 595, 100, 30);
-		jUserCount.setFont(new Font("ËÎÌå",Font.PLAIN,12));
+		jUserCount.setFont(new Font("å®‹ä½“",Font.PLAIN,12));
 		jCount.setBounds(125, 595, 20, 30);
-		jCount.setFont(new Font("ËÎÌå",Font.PLAIN,12));
+		jCount.setFont(new Font("å®‹ä½“",Font.PLAIN,12));
 		jshowServerLog.setBounds(220, 10, 150, 25);
-		jshowServerLog.setFont(new Font("ËÎÌå",Font.PLAIN,11));
+		jshowServerLog.setFont(new Font("å®‹ä½“",Font.PLAIN,11));
 		jServerLog.setBounds(210, 40, 575, 550);
 		jBpauseServer.setBounds(340, 595, 90, 25);
-		jBpauseServer.setFont(new Font("ËÎÌå",Font.PLAIN,11));
-		//ÔİÍ£·şÎñ°´Å¥¼àÌı
+		jBpauseServer.setFont(new Font("å®‹ä½“",Font.PLAIN,11));
+		//æš‚åœæœåŠ¡æŒ‰é’®ç›‘å¬
 		jBpauseServer.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				String command=e.getActionCommand();
-				if(command.equals("ÔİÍ£·şÎñ"))
+				if(command.equals("æš‚åœæœåŠ¡"))
 				{
 					serverThread.pauseThread();
-					jBpauseServer.setText("»Ö¸´·şÎñ");
+					jBpauseServer.setText("æ¢å¤æœåŠ¡");
 				}
-				else if(command.equals("»Ö¸´·şÎñ"))
+				else if(command.equals("æ¢å¤æœåŠ¡"))
 				{
 					serverThread.reStartThread();
-					jBpauseServer.setText("ÔİÍ£·şÎñ");
+					jBpauseServer.setText("æš‚åœæœåŠ¡");
 				}
 			}
 			
 		});
 		jBexit.setBounds(470, 595, 60, 25);
-		jBexit.setFont(new Font("ËÎÌå",Font.PLAIN,11));
-		//ÍË³ö°´Å¥¼àÌı
+		jBexit.setFont(new Font("å®‹ä½“",Font.PLAIN,11));
+		//é€€å‡ºæŒ‰é’®ç›‘å¬
 		jBexit.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				int option=JOptionPane.showConfirmDialog(jBexit, "Ç×£¬ÄãÈ·¶¨ÒªÍË³öÂğ£¿");
+				int option=JOptionPane.showConfirmDialog(jBexit, "äº²ï¼Œä½ ç¡®å®šè¦é€€å‡ºå—ï¼Ÿ");
 				if(option==JOptionPane.YES_OPTION)
 				{
 					try {
-						con.close();//¹Ø±ÕÊı¾İ¿âÁ¬½Ó
-						//¹Ø±Õ·şÎñÆ÷Ïß³ÌµÄÊı¾İ¿âÁ¬½Ó
+						con.close();//å…³é—­æ•°æ®åº“è¿æ¥
+						//å…³é—­æœåŠ¡å™¨çº¿ç¨‹çš„æ•°æ®åº“è¿æ¥
 						System.exit(0);
 					} catch (SQLException e1) {
 						// TODO Auto-generated catch block
@@ -189,19 +189,19 @@ public class ServerFrame extends JFrame {
 			
 		});
 		jLtime.setBounds(600, 615, 250, 50);
-		jLtime.setFont(new Font("ËÎÌå",Font.PLAIN,12));
+		jLtime.setFont(new Font("å®‹ä½“",Font.PLAIN,12));
 	}
-	//´°¿Ú¹Ø±ÕÇ°£¬ÏÈÈ·¶¨ÓÃ»§²Ù×÷£¬ÔÙ¹Ø±ÕÊı¾İ¿âÁ¬½Ó
+	//çª—å£å…³é—­å‰ï¼Œå…ˆç¡®å®šç”¨æˆ·æ“ä½œï¼Œå†å…³é—­æ•°æ®åº“è¿æ¥
 //	protected void processWindowEvent(WindowEvent e)
 //	{
 //		if(e.getID()==WindowEvent.WINDOW_CLOSED)
 //		{
-//			int option=JOptionPane.showConfirmDialog(new ServerFrame(), "Ç×£¬ÄãÈ·¶¨ÒªÍË³öÂğ£¿");
+//			int option=JOptionPane.showConfirmDialog(new ServerFrame(), "äº²ï¼Œä½ ç¡®å®šè¦é€€å‡ºå—ï¼Ÿ");
 //			if(option==JOptionPane.YES_OPTION)
 //			{
 //				try {
-//					con.close();//¹Ø±ÕÊı¾İ¿âÁ¬½Ó
-//					//¹Ø±Õ·şÎñÆ÷Ïß³ÌµÄÊı¾İ¿âÁ¬½Ó
+//					con.close();//å…³é—­æ•°æ®åº“è¿æ¥
+//					//å…³é—­æœåŠ¡å™¨çº¿ç¨‹çš„æ•°æ®åº“è¿æ¥
 //					System.exit(0);
 //				} catch (SQLException e1) {
 //					// TODO Auto-generated catch block
@@ -210,7 +210,7 @@ public class ServerFrame extends JFrame {
 //			}
 //		}
 //	}
-	//Ìß³öÓÃ»§£¬ÔÚÊı¾İ¿âÖĞ°ÑStatus¼°ÓÃ»§×´Ì¬¸ÄÎª0
+	//è¸¢å‡ºç”¨æˆ·ï¼Œåœ¨æ•°æ®åº“ä¸­æŠŠStatusåŠç”¨æˆ·çŠ¶æ€æ”¹ä¸º0
 	public void removeUser(String userNum)
 	{
 		String sql="UPDATE UserInformation SET Status = 0 where UserNum= '"+userNum+"'";

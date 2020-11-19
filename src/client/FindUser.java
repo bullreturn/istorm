@@ -12,11 +12,11 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 
 import common.*;
-/*---------------¿Í»§¶Ë²éÕÒºÃÓÑºóĞÅÏ¢ÏÔÊ¾--------------------*/
+/*---------------å®¢æˆ·ç«¯æŸ¥æ‰¾å¥½å‹åä¿¡æ¯æ˜¾ç¤º--------------------*/
 public class FindUser extends JDialog{
 	JLabel jLtitlepic=new JLabel(new ImageIcon("src/file/showInfo1.jpg"));
-	JLabel jLtitlename=new JLabel("ÎÒµÄ×ÊÁÏ");
-	JLabel jLhead=new JLabel(new ImageIcon("src/file/1-1.jpg"));//ÏÔÊ¾Í·Ïñ
+	JLabel jLtitlename=new JLabel("æˆ‘çš„èµ„æ–™");
+	JLabel jLhead=new JLabel(new ImageIcon("src/file/1-1.jpg"));//æ˜¾ç¤ºå¤´åƒ
 	JLabel jLinfo5=new JLabel(new ImageIcon("src/file/info5.jpg"));
 	JLabel jLchageHead=new JLabel(new ImageIcon("src/file/head.jpg"));
 	JLabel info1=new JLabel(new ImageIcon("src/file/info1.jpg"));
@@ -24,24 +24,24 @@ public class FindUser extends JDialog{
 	JLabel info3=new JLabel(new ImageIcon("src/file/info3.jpg"));
 	JLabel info4=new JLabel(new ImageIcon("src/file/info4.jpg"));
 	JLabel jLname_num=new JLabel();
-	JLabel jLqqage=new JLabel("ISTORM  Áä: ");
-	JLabel jLrank=new JLabel("µÈ  ¼¶: ");
+	JLabel jLqqage=new JLabel("ISTORM  é¾„: ");
+	JLabel jLrank=new JLabel("ç­‰  çº§: ");
 	JLabel jLrankPic=new JLabel(new ImageIcon("src/file/rank.jpg"));
 	JLabel jLqq_age=new JLabel("---");
-	JLabel jLrealName=new JLabel("ĞÕ  Ãû: -");
-	JLabel jLengName=new JLabel("Ó¢ÎÄÃû: -");
-	JLabel jLcomment=new JLabel("±¸  ×¢: -");
-	JLabel jLsign=new JLabel("¸öĞÔÇ©Ãû: ");
+	JLabel jLrealName=new JLabel("å§“  å: -");
+	JLabel jLengName=new JLabel("è‹±æ–‡å: -");
+	JLabel jLcomment=new JLabel("å¤‡  æ³¨: -");
+	JLabel jLsign=new JLabel("ä¸ªæ€§ç­¾å: ");
 	JLabel jLshowInfo5=new JLabel(new ImageIcon("src/file/1.jpg"));
-	JLabel jLsex=new JLabel("ĞÔ  ±ğ: ");
-	JLabel jLage=new JLabel("Äê  Áä: ");
-	JLabel jLbirth=new JLabel("Éú  ÈÕ: ");
-	JLabel jLblood=new JLabel("Ñª  ĞÍ: OĞÍ");
-	JLabel jLanimal=new JLabel("Éú  Ğ¤: ºï");
-	JLabel jLconstellation=new JLabel("ĞÇ  ×ù: Ê¨×Ó×ù");
-	JLabel jLlocation=new JLabel("µØ  Ö·: ");
-	JLabel jLaddress=new JLabel("ËùÔÚµØ: ");
-	JLabel jLmail=new JLabel("ÓÊ Ïä: -");
+	JLabel jLsex=new JLabel("æ€§  åˆ«: ");
+	JLabel jLage=new JLabel("å¹´  é¾„: ");
+	JLabel jLbirth=new JLabel("ç”Ÿ  æ—¥: ");
+	JLabel jLblood=new JLabel("è¡€  å‹: Oå‹");
+	JLabel jLanimal=new JLabel("ç”Ÿ  è‚–: çŒ´");
+	JLabel jLconstellation=new JLabel("æ˜Ÿ  åº§: ç‹®å­åº§");
+	JLabel jLlocation=new JLabel("åœ°  å€: ");
+	JLabel jLaddress=new JLabel("æ‰€åœ¨åœ°: ");
+	JLabel jLmail=new JLabel("é‚® ç®±: -");
 	ImageIcon add=new ImageIcon("src/file/FUaddUser.jpg");//64*23
 	ImageIcon close=new ImageIcon("src/file/FUclose.jpg");//65*21
 	JButton jBclose=new JButton(close);
@@ -94,7 +94,7 @@ public class FindUser extends JDialog{
 	public void init()
 	{
 		jLtitlepic.setBounds(5, 5, 20, 18);
-		jLtitlename.setFont(new Font("ËÎÌå",Font.BOLD,11));
+		jLtitlename.setFont(new Font("å®‹ä½“",Font.BOLD,11));
 		jLtitlename.setBounds(30, 2, 200, 25);
 		jLhead.setBounds(15, 40, 96, 93);
 		jLinfo5.setBounds(15, 40, 96, 93);
@@ -103,57 +103,57 @@ public class FindUser extends JDialog{
 		info2.setBounds(0, 40, 15, 93);
 		info3.setBounds(0, 0, 111, 40);
 		info4.setBounds(133, 0, 432, 40);
-		jLname_num.setFont(new Font("ºÚÌå",Font.PLAIN,13));
+		jLname_num.setFont(new Font("é»‘ä½“",Font.PLAIN,13));
 		jLname_num.setForeground(Color.BLACK);
 		jLname_num.setBounds(150, 50, 200, 25);
-		jLqqage.setFont(new Font("ºÚÌå",Font.PLAIN,13));
+		jLqqage.setFont(new Font("é»‘ä½“",Font.PLAIN,13));
 		jLqqage.setForeground(Color.BLACK);
 		jLqqage.setBounds(150, 80, 60, 25);
-		jLqq_age.setFont(new Font("ºÚÌå",Font.PLAIN,13));
+		jLqq_age.setFont(new Font("é»‘ä½“",Font.PLAIN,13));
 		jLqq_age.setForeground(Color.BLACK);
 		jLqq_age.setBounds(210, 80, 30, 25);
-		jLrank.setFont(new Font("ºÚÌå",Font.PLAIN,13));
+		jLrank.setFont(new Font("é»‘ä½“",Font.PLAIN,13));
 		jLrank.setForeground(Color.BLACK);
 		jLrank.setBounds(280, 80,65,25);
 		jLrankPic.setBounds(350, 84, 15, 17);
-		jLrealName.setFont(new Font("ºÚÌå",Font.PLAIN,13));
+		jLrealName.setFont(new Font("é»‘ä½“",Font.PLAIN,13));
 		jLrealName.setForeground(Color.BLACK);
 		jLrealName.setBounds(150, 110, 130, 25);
-		jLengName.setFont(new Font("ºÚÌå",Font.PLAIN,13));
+		jLengName.setFont(new Font("é»‘ä½“",Font.PLAIN,13));
 		jLengName.setForeground(Color.BLACK);
 		jLengName.setBounds(280, 110, 130, 25);
-		jLcomment.setFont(new Font("ºÚÌå",Font.PLAIN,13));
+		jLcomment.setFont(new Font("é»‘ä½“",Font.PLAIN,13));
 		jLcomment.setForeground(Color.BLACK);
 		jLcomment.setBounds(150, 140, 130, 25);
-		jLsign.setFont(new Font("ºÚÌå",Font.PLAIN,13));
+		jLsign.setFont(new Font("é»‘ä½“",Font.PLAIN,13));
 		jLsign.setForeground(Color.BLACK);
 		jLsign.setBounds(150, 170, 405, 25);
 		jLshowInfo5.setBounds(111, 200, 454, 20);
-		jLsex.setFont(new Font("ºÚÌå",Font.PLAIN,13));
+		jLsex.setFont(new Font("é»‘ä½“",Font.PLAIN,13));
 		jLsex.setForeground(Color.BLACK);
 		jLsex.setBounds(150, 230, 80, 25);
-		jLage.setFont(new Font("ºÚÌå",Font.PLAIN,13));
+		jLage.setFont(new Font("é»‘ä½“",Font.PLAIN,13));
 		jLage.setForeground(Color.BLACK);
 		jLage.setBounds(250, 230, 70, 25);
-		jLbirth.setFont(new Font("ºÚÌå",Font.PLAIN,13));
+		jLbirth.setFont(new Font("é»‘ä½“",Font.PLAIN,13));
 		jLbirth.setForeground(Color.BLACK);
 		jLbirth.setBounds(340, 230, 215, 25);
-		jLblood.setFont(new Font("ºÚÌå",Font.PLAIN,13));
+		jLblood.setFont(new Font("é»‘ä½“",Font.PLAIN,13));
 		jLblood.setForeground(Color.BLACK);
 		jLblood.setBounds(150, 260, 80, 25);
-		jLanimal.setFont(new Font("ºÚÌå",Font.PLAIN,13));
+		jLanimal.setFont(new Font("é»‘ä½“",Font.PLAIN,13));
 		jLanimal.setForeground(Color.BLACK);
 		jLanimal.setBounds(250, 260,70, 25);
-		jLconstellation.setFont(new Font("ºÚÌå",Font.PLAIN,13));
+		jLconstellation.setFont(new Font("é»‘ä½“",Font.PLAIN,13));
 		jLconstellation.setForeground(Color.BLACK);
 		jLconstellation.setBounds(340,260 , 215, 25);
-		jLlocation.setFont(new Font("ºÚÌå",Font.PLAIN,13));
+		jLlocation.setFont(new Font("é»‘ä½“",Font.PLAIN,13));
 		jLlocation.setForeground(Color.BLACK);
 		jLlocation.setBounds(150, 290, 405, 25);
-		jLaddress.setFont(new Font("ºÚÌå",Font.PLAIN,13));
+		jLaddress.setFont(new Font("é»‘ä½“",Font.PLAIN,13));
 		jLaddress.setForeground(Color.BLACK);
 		jLaddress.setBounds(150,320 ,405, 25);
-		jLmail.setFont(new Font("ºÚÌå",Font.PLAIN,13));
+		jLmail.setFont(new Font("é»‘ä½“",Font.PLAIN,13));
 		jLmail.setForeground(Color.BLACK);
 		jLmail.setBounds(150, 350, 405, 25);
 		jBaddUser.setBounds(392, 388, 64, 23);
@@ -183,57 +183,57 @@ public class FindUser extends JDialog{
 		String age;
 		int month;
 		String constellation = null;
-		jLtitlename.setText(user.getUserName().trim()+"µÄ×ÊÁÏ");
+		jLtitlename.setText(user.getUserName().trim()+"çš„èµ„æ–™");
 		jLname_num.setText(user.getUserName()+" "+user.getUserNum());
-		jLsign.setText("¸öĞÔÇ©Ãû: "+user.getSign());
-		jLsex.setText("ĞÔ  ±ğ: "+user.getSex());
-		jLbirth.setText("Éú  ÈÕ: "+user.getBirth());
-		jLaddress.setText("ËùÔÚµØ: "+user.getAddress());
-		jLlocation.setText("µØ  Ö·: "+user.getAddress());
+		jLsign.setText("ä¸ªæ€§ç­¾å: "+user.getSign());
+		jLsex.setText("æ€§  åˆ«: "+user.getSex());
+		jLbirth.setText("ç”Ÿ  æ—¥: "+user.getBirth());
+		jLaddress.setText("æ‰€åœ¨åœ°: "+user.getAddress());
+		jLlocation.setText("åœ°  å€: "+user.getAddress());
 		jLhead.setIcon(new ImageIcon(user.getPortrait()));
-		 age=String.valueOf((2012-Integer.valueOf(user.getBirth().substring(user.getBirth().indexOf("-")+1,user.getBirth().indexOf("Äê")))));
+		 age=String.valueOf((2012-Integer.valueOf(user.getBirth().substring(user.getBirth().indexOf("-")+1,user.getBirth().indexOf("å¹´")))));
 		 System.out.println(age);
-		 jLage.setText("Äê  Áä: "+age);
-		 month=Integer.valueOf(user.getBirth().substring(user.getBirth().indexOf("Äê")+1,user.getBirth().indexOf("ÔÂ")));
+		 jLage.setText("å¹´  é¾„: "+age);
+		 month=Integer.valueOf(user.getBirth().substring(user.getBirth().indexOf("å¹´")+1,user.getBirth().indexOf("æœˆ")));
 		 switch(month)
 		 {
 		 case 1:
-			 constellation="Ä§ôÉ×ù";
+			 constellation="é­”ç¾¯åº§";
 			 break;
 		 case 2:
-			 constellation="Ë®Æ¿×ù";
+			 constellation="æ°´ç“¶åº§";
 			 break;
 		 case 3:
-			 constellation="Ë«Óã×ù";
+			 constellation="åŒé±¼åº§";
 		     break;
 		 case 4:
-			 constellation="ÄµÑò×ù";
+			 constellation="ç‰¡ç¾Šåº§";
 			 break;
 		 case 5:
-			 constellation="½ğÅ£×ù";
+			 constellation="é‡‘ç‰›åº§";
 			 break;
 		 case 6:
-			 constellation="Ë«×Ó×ù";
+			 constellation="åŒå­åº§";
 			 break;
 		 case 7:
-			 constellation="¾ŞĞ·×ù";
+			 constellation="å·¨èŸ¹åº§";
 			 break;
 		 case 8:
-			 constellation="Ê¨×Ó×ù";
+			 constellation="ç‹®å­åº§";
 			 break;
 		 case 9:
-			 constellation="´¦Å®×ù";
+			 constellation="å¤„å¥³åº§";
 			 break;
 		 case 10:
-			 constellation="Ìì³Ó×ù";
+			 constellation="å¤©ç§¤åº§";
 			 break;
 		 case 11:
-			 constellation="ÌìĞ«×ù";
+			 constellation="å¤©èåº§";
 			 break;
 		 case 12:
-			 constellation="ÉäÊÖ×ù";
+			 constellation="å°„æ‰‹åº§";
 			 break;
 		 }
-		 jLconstellation.setText("ĞÇ  ×ù: "+constellation);
+		 jLconstellation.setText("æ˜Ÿ  åº§: "+constellation);
 	}
 }

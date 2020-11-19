@@ -28,39 +28,39 @@ import javax.swing.JTextField;
 
 import common.*;
 
-//ĞŞ¸Ä¸öÈË×ÊÁÏ
+//ä¿®æ”¹ä¸ªäººèµ„æ–™
 public class ChangeMyInfo extends JDialog{
-	JPanel jp1=new JPanel();//ÉÏ²¿£¬¸öÈË×ÊÁÏÏÔÊ¾
-	JPanel jp2=new JPanel();//ÖĞ²¿
+	JPanel jp1=new JPanel();//ä¸Šéƒ¨ï¼Œä¸ªäººèµ„æ–™æ˜¾ç¤º
+	JPanel jp2=new JPanel();//ä¸­éƒ¨
 	JPanel jp3=new JPanel();
 	JPanel jp4=new JPanel();
 	JPanel jp5=new JPanel();
 	JPanel jp6=new JPanel();
 	JLabel jLmyPortrait=new JLabel(new ImageIcon("src/file/personelView1.jpg"));
 	JButton jBchange=new JButton(new ImageIcon("src/file/CMchange.jpg"));//77*18
-	JLabel jLmyName=new JLabel("ÎÒÊÇÃ«Ã«³æ");
+	JLabel jLmyName=new JLabel("æˆ‘æ˜¯æ¯›æ¯›è™«");
 	JLabel jLmyNum=new JLabel("593253716");
-	JLabel jLmySign=new JLabel("ºÙºÙ£¬½ĞÎÒ½ãµÄº¢×Ó×¢ÒâÁË£¬²»Òª½ĞÎÒµ¤½ã£¬Ñ§½ã¡¤¡¤¡¤¡¤¡¤¡¤Please call me µ¤µ¤½ã~~~");
-	JLabel jLmyother=new JLabel("Å®   20Ëê   ³É¶¼");
+	JLabel jLmySign=new JLabel("å˜¿å˜¿ï¼Œå«æˆ‘å§çš„å­©å­æ³¨æ„äº†ï¼Œä¸è¦å«æˆ‘ä¸¹å§ï¼Œå­¦å§ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»Please call me ä¸¹ä¸¹å§~~~");
+	JLabel jLmyother=new JLabel("å¥³   20å²   æˆéƒ½");
 	JButton jBsave=new JButton(new ImageIcon("src/file/CMsave.jpg"));//63*19
 	JButton jBclose=new JButton(new ImageIcon("src/file/CMclose.jpg"));//62*19
-	JLabel jLsign=new JLabel("¸öĞÔÇ©Ãû£º");
-	JTextArea jTsign=new JTextArea("ºÙºÙ£¬½ĞÎÒ½ãµÄº¢×Ó×¢ÒâÁË£¬²»Òª½ĞÎÒµ¤½ã£¬Ñ§½ã¡¤¡¤¡¤¡¤¡¤¡¤Please call me µ¤µ¤½ã~~~");
-	JLabel jLName=new JLabel("êÇ³Æ£º");
-	JTextField jTname=new JTextField("ÎÒÊÇÃ«Ã«³æ");
-	JLabel jLenglishName=new JLabel("Ó¢ÎÄÃû£º");
+	JLabel jLsign=new JLabel("ä¸ªæ€§ç­¾åï¼š");
+	JTextArea jTsign=new JTextArea("å˜¿å˜¿ï¼Œå«æˆ‘å§çš„å­©å­æ³¨æ„äº†ï¼Œä¸è¦å«æˆ‘ä¸¹å§ï¼Œå­¦å§ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»Please call me ä¸¹ä¸¹å§~~~");
+	JLabel jLName=new JLabel("æ˜µç§°ï¼š");
+	JTextField jTname=new JTextField("æˆ‘æ˜¯æ¯›æ¯›è™«");
+	JLabel jLenglishName=new JLabel("è‹±æ–‡åï¼š");
 	JTextField jTenglishName=new JTextField("Sweety");
-	JLabel jLsex=new JLabel("ĞÔ±ğ£º");
-	String sex[]={"ÄĞ","Å®"};
+	JLabel jLsex=new JLabel("æ€§åˆ«ï¼š");
+	String sex[]={"ç”·","å¥³"};
 	JComboBox jTsex=new JComboBox(sex);
-	JLabel jLblood=new JLabel("Ñª ĞÍ£º");
-	String blood[]={"AĞÍ","BĞÍ","ABĞÍ","OĞÍ","ÆäËüĞÍ"};
+	JLabel jLblood=new JLabel("è¡€ å‹ï¼š");
+	String blood[]={"Aå‹","Bå‹","ABå‹","Oå‹","å…¶å®ƒå‹"};
 	JComboBox jTblood=new JComboBox(blood);
-	JLabel jLbirth=new JLabel("ÉúÈÕ£º");
-	String timeT[]={"¹«Àú","Å©Àú"};
-	JLabel jyear=new JLabel("Äê");
-	JLabel jmonth=new JLabel("ÔÂ");
-	JLabel jday=new JLabel("ÈÕ");
+	JLabel jLbirth=new JLabel("ç”Ÿæ—¥ï¼š");
+	String timeT[]={"å…¬å†","å†œå†"};
+	JLabel jyear=new JLabel("å¹´");
+	JLabel jmonth=new JLabel("æœˆ");
+	JLabel jday=new JLabel("æ—¥");
 	JComboBox timeType=new JComboBox(timeT);
     DefaultComboBoxModel yearModel = new DefaultComboBoxModel();
     DefaultComboBoxModel monthModel = new DefaultComboBoxModel();
@@ -68,12 +68,12 @@ public class ChangeMyInfo extends JDialog{
     JComboBox year = new JComboBox();
     JComboBox month = new JComboBox();
     JComboBox day=new JComboBox();
-    JLabel jLaddress=new JLabel("ËùÔÚµØ£º");
-    JTextField jTaddress=new JTextField("ËÄ´¨ ³É¶¼");
-    JLabel jLplace=new JLabel("µØÖ·£º");
-    JTextField jTplace=new JTextField("ËÄ´¨ ³É¶¼");
-	 BufferedReader in;//¶¨ÒåÊäÈëÁ÷
-	 PrintStream out;//¶¨ÒåÊä³öÁ÷
+    JLabel jLaddress=new JLabel("æ‰€åœ¨åœ°ï¼š");
+    JTextField jTaddress=new JTextField("å››å· æˆéƒ½");
+    JLabel jLplace=new JLabel("åœ°å€ï¼š");
+    JTextField jTplace=new JTextField("å››å· æˆéƒ½");
+	 BufferedReader in;//å®šä¹‰è¾“å…¥æµ
+	 PrintStream out;//å®šä¹‰è¾“å‡ºæµ
 	 UserBean myInfo=null;
 	 PersonelView father=null;
 	String age=null;
@@ -161,16 +161,16 @@ public class ChangeMyInfo extends JDialog{
 			
 		});
 		jLmyName.setForeground(Color.WHITE);
-		jLmyName.setFont(new Font("ËÎÌå",Font.BOLD,24));
+		jLmyName.setFont(new Font("å®‹ä½“",Font.BOLD,24));
 		jLmyName.setBounds(80, 25, 150, 25);
 		jLmyNum.setForeground(Color.WHITE);
-		jLmyNum.setFont(new Font("¿¬Ìå",Font.PLAIN,18));
+		jLmyNum.setFont(new Font("æ¥·ä½“",Font.PLAIN,18));
 		jLmyNum.setBounds(230, 27, 150, 23);
 		jLmySign.setForeground(Color.WHITE);
-		jLmySign.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jLmySign.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jLmySign.setBounds(80, 60, 370, 25);
 		jLmyother.setForeground(Color.WHITE);
-		jLmyother.setFont(new Font("ËÎÌå",Font.PLAIN,14));
+		jLmyother.setFont(new Font("å®‹ä½“",Font.PLAIN,14));
 		jLmyother.setBounds(100, 90, 150, 25);
 		jp1.add(jLmyPortrait);
 		jp1.add(jBchange);
@@ -178,7 +178,7 @@ public class ChangeMyInfo extends JDialog{
 		jp1.add(jLmyNum);
 		jp1.add(jLmySign);
 		jp1.add(jLmyother);
-		//ÖĞ²¿£¬Á½¸ö°´Å¥
+		//ä¸­éƒ¨ï¼Œä¸¤ä¸ªæŒ‰é’®
 		jp2.setBounds(0,126,250, 19);
 		jp2.setBackground(Color.WHITE);
 		jp3.setBackground(Color.WHITE);
@@ -198,7 +198,7 @@ public class ChangeMyInfo extends JDialog{
 				// TODO Auto-generated method stub
 				if(type!=null&&myear!=null&&mymonth!=null&&myday!=null)
 				{
-					 birth=type+"-"+myear+"Äê"+mymonth+"ÔÂ"+myday+"ÈÕ";
+					 birth=type+"-"+myear+"å¹´"+mymonth+"æœˆ"+myday+"æ—¥";
 				}
 				sign=jTsign.getText();
 				name=jTname.getText();
@@ -222,13 +222,13 @@ public class ChangeMyInfo extends JDialog{
 					if(judge.equals("updateOver"))
 					{
 						ChangeMyInfo.this.setVisible(false);
-						System.out.println("ĞŞ¸Ä³É¹¦");
+						System.out.println("ä¿®æ”¹æˆåŠŸ");
 					}
 					else if(judge.equals("updateFail"))
 					{
 						ChangeMyInfo.this.setVisible(false);
-						JOptionPane.showConfirmDialog(father, "ÏµÍ³·±Ã¦,ÇëÉÔºóÔÙÊÔ£¡");
-						System.out.println("ÏµÍ³·±Ã¦");
+						JOptionPane.showConfirmDialog(father, "ç³»ç»Ÿç¹å¿™,è¯·ç¨åå†è¯•ï¼");
+						System.out.println("ç³»ç»Ÿç¹å¿™");
 					}
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
@@ -248,34 +248,34 @@ public class ChangeMyInfo extends JDialog{
 			}
 			
 		});
-		//ĞŞ¸Ä×ÊÁÏ²¿·Ö
+		//ä¿®æ”¹èµ„æ–™éƒ¨åˆ†
 		jLsign.setForeground(Color.BLACK);
-		jLsign.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jLsign.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jLsign.setBounds(10, 165, 100, 25);
-		jTsign.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jTsign.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jTsign.setForeground(Color.BLACK);
 		jTsign.setBackground(Color.WHITE);
 		jTsign.setBounds(10, 200, 415, 40);
-		jTsign.setLineWrap(true);//×Ô¶¯»»ĞĞ
+		jTsign.setLineWrap(true);//è‡ªåŠ¨æ¢è¡Œ
 		jLName.setForeground(Color.BLACK);
-		jLName.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jLName.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jLName.setBounds(10, 260, 45, 25);
 		jTname.setForeground(Color.BLACK);
-		jTname.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jTname.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jTname.setBackground(Color.WHITE);
 		jTname.setBounds(55, 261, 130, 22);
 		jLenglishName.setForeground(Color.BLACK);
-		jLenglishName.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jLenglishName.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jLenglishName.setBounds(215, 260, 65, 25);
 		jTenglishName.setForeground(Color.BLACK);
-		jTenglishName.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jTenglishName.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jTenglishName.setBackground(Color.WHITE);
 		jTenglishName.setBounds(280, 261, 130, 22);
 		jLsex.setForeground(Color.BLACK);
-		jLsex.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jLsex.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jLsex.setBounds(10, 300, 45, 25);
 		jTsex.setForeground(Color.BLACK);
-		jTsex.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jTsex.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jTsex.setBackground(Color.WHITE);
 		jTsex.setBounds(55, 301, 130, 22);
 		jTsex.addItemListener(new ItemListener(){
@@ -288,17 +288,17 @@ public class ChangeMyInfo extends JDialog{
 			
 		});
 		jLblood.setForeground(Color.BLACK);
-		jLblood.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jLblood.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jLblood.setBounds(215, 300, 65, 25);
 		jTblood.setForeground(Color.BLACK);
-		jTblood.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jTblood.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jTblood.setBackground(Color.WHITE);
 		jTblood.setBounds(280, 301, 130, 22);
 		jLbirth.setForeground(Color.BLACK);
-		jLbirth.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jLbirth.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jLbirth.setBounds(10, 340, 45, 25);
 		timeType.setForeground(Color.BLACK);
-		timeType.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		timeType.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		timeType.setBackground(Color.WHITE);
 		timeType.setBounds(55, 341, 60, 22);
 		timeType.addItemListener(new ItemListener(){
@@ -311,7 +311,7 @@ public class ChangeMyInfo extends JDialog{
 			
 		});
 		year.setForeground(Color.BLACK);
-		year.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		year.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		year.setBackground(Color.WHITE);
 		year.setBounds(120, 341, 60, 22);
 		year.addItemListener(new ItemListener(){
@@ -324,10 +324,10 @@ public class ChangeMyInfo extends JDialog{
 			
 		});
 		jyear.setForeground(Color.BLACK);
-		jyear.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jyear.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jyear.setBounds(182, 341, 20, 22);
 		month.setForeground(Color.BLACK);
-		month.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		month.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		month.setBackground(Color.WHITE);
 		month.setBounds(205, 341, 60, 22);
 		month.addItemListener(new ItemListener(){
@@ -340,10 +340,10 @@ public class ChangeMyInfo extends JDialog{
 			
 		});
 		jmonth.setForeground(Color.BLACK);
-		jmonth.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jmonth.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jmonth.setBounds(267, 341, 20, 22);
 		day.setForeground(Color.BLACK);
-		day.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		day.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		day.setBackground(Color.WHITE);
 		day.setBounds(290, 341, 60, 22);
 		day.addItemListener(new ItemListener(){
@@ -356,27 +356,27 @@ public class ChangeMyInfo extends JDialog{
 			
 		});
 		jday.setForeground(Color.BLACK);
-		jday.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jday.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jday.setBounds(352, 341, 20, 22);
 		jLaddress.setForeground(Color.BLACK);
-		jLaddress.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jLaddress.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jLaddress.setBounds(10, 380, 65, 25);
 		jTaddress.setForeground(Color.BLACK);
-		jTaddress.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jTaddress.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jTaddress.setBackground(Color.WHITE);
 		jTaddress.setBounds(75, 381, 340, 22);
 		jLplace.setForeground(Color.BLACK);
-		jLplace.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jLplace.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jLplace.setBounds(10, 420, 65, 25);
 		jTplace.setForeground(Color.BLACK);
-		jTplace.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jTplace.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jTplace.setBackground(Color.WHITE);
 		jTplace.setBounds(75, 421, 340, 22);
 		jLmyPortrait.setIcon(new ImageIcon(myInfo.getPortrait()));
 		jLmyName.setText(myInfo.getUserName());
 		jLmyNum.setText(myInfo.getUserNum());
 		jLmySign.setText(myInfo.getSign());
-	   age=String.valueOf((2012-Integer.valueOf(myInfo.getBirth().substring(myInfo.getBirth().indexOf("-")+1,myInfo.getBirth().indexOf("Äê")))));
+	   age=String.valueOf((2012-Integer.valueOf(myInfo.getBirth().substring(myInfo.getBirth().indexOf("-")+1,myInfo.getBirth().indexOf("å¹´")))));
 	   jLmyother.setText(myInfo.getSex()+" "+age+" "+myInfo.getAddress());
 	   jTsign.setText(myInfo.getSign());
 	   jTname.setText(myInfo.getUserName());

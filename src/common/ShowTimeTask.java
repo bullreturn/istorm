@@ -5,7 +5,7 @@ import java.util.Date;
 
 import javax.swing.JLabel;
 
-//ÏÔÊ¾Ê±¼äµÄ¹«ÓÃÀà
+//æ˜¾ç¤ºæ—¶é—´çš„å…¬ç”¨ç±»
 public class ShowTimeTask extends java.util.TimerTask {
     private JLabel showTime = null;
 
@@ -16,7 +16,7 @@ public class ShowTimeTask extends java.util.TimerTask {
         Date time = new java.util.Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
         String timeInfo = format.format(time);
-        showTime.setText("ÏÖÔÚÊ±¼ä£º" + timeInfo + "    ");
+        showTime.setText("çŽ°åœ¨æ—¶é—´ï¼š" + timeInfo + "    ");
         try {
 			Thread.sleep(1000); 
 		} catch (InterruptedException e) {
