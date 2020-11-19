@@ -11,7 +11,7 @@ public class ConnectionDao {
 	public static Connection getConnection() {
 		Connection conn=null;
 		try{
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			System.out.print("");
 		}catch(ClassNotFoundException ex){
 			System.out.println("加载驱动失败");
@@ -20,7 +20,7 @@ public class ConnectionDao {
 			// Who cares :(
 			String url="jdbc:mysql://ecs.cnstl.tech:13306/test?user=root&password=123456";
 		    conn=DriverManager.getConnection(url);	
-			System.out.print("连接成功");
+			System.out.print("连接成功\n");
 			return conn;
 		}catch(SQLException ex){
 			System.out.println("连接失败"+ex);
