@@ -9,59 +9,59 @@ import java.util.Vector;
 
 import javax.swing.JTextArea;
 
-/*·şÎñÆ÷Á¬½ÓÏß³Ì*/
+/*æœåŠ¡å™¨è¿æ¥çº¿ç¨‹*/
 public class ServerThread extends Thread{
 	JTextArea jTServerLog=null;
 	Boolean flag=true;
 	String line_separator=System.getProperty("line.separator");
 	ServerSocket server;
-	/*-------------------´«ËÍÎÄ¼ş----------------------------*/
+	/*-------------------ä¼ é€æ–‡ä»¶----------------------------*/
 	Vector clients=new Vector();
 	/*-----------------------------------------------------------*/
 	public ServerThread(JTextArea jTServerLog) {
 		// TODO Auto-generated constructor stub
 		this.jTServerLog=jTServerLog;
 	}
-//»Ö¸´·şÎñ
+//æ¢å¤æœåŠ¡
 	public void reStartThread() {
 		// TODO Auto-generated method stub
 		this.flag=true;	
 	}
-//ÔİÍ£·şÎñ
+//æš‚åœæœåŠ¡
 	public void pauseThread() {
 		// TODO Auto-generated method stub
 		this.flag=false;
 	}
-	//Ïß³ÌÖĞµÄÖ÷·½·¨
+	//çº¿ç¨‹ä¸­çš„ä¸»æ–¹æ³•
 	public void  run()
 	{
 		try {
 			 server=new ServerSocket(6544);
-			jTServerLog.append("ÁÄÌì·şÎñÆ÷ÏµÍ³¿ªÊ¼Æô¶¯¡¤ ¡¤ ¡¤ ¡¤ ¡¤ "+line_separator);
+			jTServerLog.append("èŠå¤©æœåŠ¡å™¨ç³»ç»Ÿå¼€å§‹å¯åŠ¨ãƒ» ãƒ» ãƒ» ãƒ» ãƒ» "+line_separator);
 			jTServerLog.append(line_separator);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			jTServerLog.append("·şÎñÆ÷¶Ë¿Ú´ò¿ª³ö´í¡¤ ¡¤ ¡¤ ¡¤ ¡¤ ¡¤"+line_separator);
+			jTServerLog.append("æœåŠ¡å™¨ç«¯å£æ‰“å¼€å‡ºé”™ãƒ» ãƒ» ãƒ» ãƒ» ãƒ» ãƒ»"+line_separator);
 			jTServerLog.append(line_separator);
 		}
-		//½»»¥ÏµÍ³·şÎñÆ÷¶ËÁ¬½ÓÏß³Ì³ÌĞò
+		//äº¤äº’ç³»ç»ŸæœåŠ¡å™¨ç«¯è¿æ¥çº¿ç¨‹ç¨‹åº
 		if(server!=null)
 		{
 		while(flag)
 		{
 			try {
-				System.out.println("·şÎñÆ÷£º"+flag);
-				//¼àÌı¿Í»§¶ËµÄÁ¬½ÓÇëÇó
+				System.out.println("æœåŠ¡å™¨ï¼š"+flag);
+				//ç›‘å¬å®¢æˆ·ç«¯çš„è¿æ¥è¯·æ±‚
 				Socket socket=server.accept();
 				jTServerLog.append("****************************"+line_separator);
 				jTServerLog.append("Connection accept : "+socket+line_separator);
 				Date time=new java.util.Date();
 				SimpleDateFormat format=new SimpleDateFormat("yyy-MM-dd kk:mm:ss");
 				String timeInfo=format.format(time);
-				jTServerLog.append("´¦ÀíÊ±¼ä : "+timeInfo+line_separator);
+				jTServerLog.append("å¤„ç†æ—¶é—´ : "+timeInfo+line_separator);
 				jTServerLog.append("****************************"+line_separator);
-				//´´½¨Ì×½Ó×ÖÓë¿Í»§¶ËÍ¨Ñ¶
+				//åˆ›å»ºå¥—æ¥å­—ä¸å®¢æˆ·ç«¯é€šè®¯
 //				Server c=new Server(socket,clients);
 //				Server c=new Server(socket,ServerThread.this);
 //				clients.addElement(c);
@@ -72,7 +72,7 @@ public class ServerThread extends Thread{
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				jTServerLog.append("¿Í»§Á¬½ÓÊ§°Ü¡¤ ¡¤ ¡¤ ¡¤ ¡¤ ¡¤"+line_separator);
+				jTServerLog.append("å®¢æˆ·è¿æ¥å¤±è´¥ãƒ» ãƒ» ãƒ» ãƒ» ãƒ» ãƒ»"+line_separator);
 				jTServerLog.append(line_separator);
 			}
 		}

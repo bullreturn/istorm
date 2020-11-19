@@ -1,5 +1,5 @@
 package common;
-/*´æ´¢Ã¿Ò»¸öÓÃ»§µÄÓĞ¹ØĞÅÏ¢*/
+/*å­˜å‚¨æ¯ä¸€ä¸ªç”¨æˆ·çš„æœ‰å…³ä¿¡æ¯*/
 public class UserBean {
 	private String userNum;
 	private String userName;
@@ -7,11 +7,11 @@ public class UserBean {
 	private String sex;
 	private String birth;
 	private String address;
-	private String sign;//¸öĞÔÇ©Ãû
-	private String portrait;//Í·ÏñÎÄ¼şÃû
-	private int status;//ÓÃ»§×´Ì¬
-	private int port;//Í¨ĞÅÓÃµÄ¶Ë¿ÚºÅ
-	private String ip;//ÓÃ»§IPµØÖ·
+	private String sign;//ä¸ªæ€§ç­¾å
+	private String portrait;//å¤´åƒæ–‡ä»¶å
+	private int status;//ç”¨æˆ·çŠ¶æ€
+	private int port;//é€šä¿¡ç”¨çš„ç«¯å£å·
+	private String ip;//ç”¨æˆ·IPåœ°å€
 	public String getUserNum() {
 		return userNum;
 	}

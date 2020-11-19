@@ -14,16 +14,16 @@ import javax.swing.JPanel;
 
 public class AboutMy extends JDialog{
 	JPanel jp=new JPanel();
-	JLabel jl=new JLabel("ISTORMÊÔÑé°æ");
+	JLabel jl=new JLabel("ISTORMè¯•éªŒç‰ˆ");
 	JLabel jimage=new JLabel(new ImageIcon("src/file/about.jpg"));
-	JLabel j1=new JLabel("Èç¹ûÄú¶Ô´ËÈí¼şÓĞÒìÒé»òÔÚÊ¹ÓÃISTORMºÅÂë");
-	JLabel j2=new JLabel("µÄ¹ı³ÌÖĞÓĞÆäËûÎÊÌâµÄ£¬¾ù¿ÉÁªÏµ±¾¹«Ë¾¿Í»§");
-	JLabel j3=new JLabel("·şÎñ²¿ÃÅ¡£");
+	JLabel j1=new JLabel("å¦‚æœæ‚¨å¯¹æ­¤è½¯ä»¶æœ‰å¼‚è®®æˆ–åœ¨ä½¿ç”¨ISTORMå·ç ");
+	JLabel j2=new JLabel("çš„è¿‡ç¨‹ä¸­æœ‰å…¶ä»–é—®é¢˜çš„ï¼Œå‡å¯è”ç³»æœ¬å…¬å¸å®¢æˆ·");
+	JLabel j3=new JLabel("æœåŠ¡éƒ¨é—¨ã€‚");
 	JLabel j4=new JLabel("-----------------------------------------");
-	JLabel j5=new JLabel("¸ù¾İISTORMÈí¼şÏà¹ØÌõ¿î£¬±¾²úÆ·Ò»ÇĞ");
-	JLabel j6=new JLabel("Ê¹ÓÃÈ¨Óë½âÊÍÈ¨ÊôÓÚ£º");
-	JLabel j7=new JLabel("Äã²Â²Â");
-	JButton jb=new JButton("È·¶¨");
+	JLabel j5=new JLabel("æ ¹æ®ISTORMè½¯ä»¶ç›¸å…³æ¡æ¬¾ï¼Œæœ¬äº§å“ä¸€åˆ‡");
+	JLabel j6=new JLabel("ä½¿ç”¨æƒä¸è§£é‡Šæƒå±äºï¼š");
+	JLabel j7=new JLabel("ä½ çŒœçŒœ");
+	JButton jb=new JButton("ç¡®å®š");
 public AboutMy(
 		Frame info, String title, boolean b) {
 	// TODO Auto-generated constructor stub
@@ -42,32 +42,32 @@ public void init()
 	jp.setBackground(Color.WHITE);
 	jimage.setBounds(10,20, 100, 100);
 	jp.add(jimage);
-	jl.setFont(new Font("¿¬Ìå",Font.BOLD,38));
+	jl.setFont(new Font("æ¥·ä½“",Font.BOLD,38));
 	jl.setBounds(165, 55, 300, 40);
 	jp.add(jl);
-	j1.setFont(new Font("¿¬Ìå",Font.PLAIN,18));
+	j1.setFont(new Font("æ¥·ä½“",Font.PLAIN,18));
 	j1.setBounds(80,140, 380, 25);
 	jp.add(j1);
-	j2.setFont(new Font("¿¬Ìå",Font.PLAIN,18));
+	j2.setFont(new Font("æ¥·ä½“",Font.PLAIN,18));
 	j2.setBounds(44, 190, 380, 25);
 	jp.add(j2);
-	j3.setFont(new Font("¿¬Ìå",Font.PLAIN,18));
+	j3.setFont(new Font("æ¥·ä½“",Font.PLAIN,18));
 	j3.setBounds(44, 240, 380, 25);
 	jp.add(j3);
-	j4.setFont(new Font("¿¬Ìå",Font.PLAIN,18));
+	j4.setFont(new Font("æ¥·ä½“",Font.PLAIN,18));
 	j4.setBounds(44, 290, 380, 25);
 	jp.add(j4);
-	j5.setFont(new Font("¿¬Ìå",Font.PLAIN,18));
+	j5.setFont(new Font("æ¥·ä½“",Font.PLAIN,18));
 	j5.setBounds(80, 330, 380, 25);
 	jp.add(j5);
-	j6.setFont(new Font("¿¬Ìå",Font.PLAIN,18));
+	j6.setFont(new Font("æ¥·ä½“",Font.PLAIN,18));
 	j6.setBounds(44, 380, 380, 25);
 	jp.add(j6);
-	j7.setFont(new Font("¿¬Ìå",Font.PLAIN,18));
+	j7.setFont(new Font("æ¥·ä½“",Font.PLAIN,18));
 	j7.setBounds(220, 430, 100, 25);
 	jp.add(j7);
 	jb.setBounds(345, 480, 70, 25);
-	jb.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+	jb.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 	jb.addActionListener(new ActionListener(){
 
 		@Override

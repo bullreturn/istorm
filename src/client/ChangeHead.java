@@ -25,22 +25,22 @@ import javax.swing.JPanel;
 import common.*;
 
 public class ChangeHead extends JDialog {
-	 BufferedReader in;//¶¨ÒåÊäÈëÁ÷
-	 PrintStream out;//¶¨ÒåÊä³öÁ÷
+	 BufferedReader in;//å®šä¹‰è¾“å…¥æµ
+	 PrintStream out;//å®šä¹‰è¾“å‡ºæµ
 	 UserBean myInfo;
 	 JLabel jLtop=new JLabel(new ImageIcon("src/file/changeHeadtop.jpg"));//530*25
-	 JButton jB1=new JButton(new ImageIcon("src/file/changeHead1.jpg"));//75*20×Ô¶¨ÒåÍ·Ïñ
-	 JPanel jP=new JPanel();//ÏÔÊ¾ÏµÍ³Í·ÏñÄ£¿é
+	 JButton jB1=new JButton(new ImageIcon("src/file/changeHead1.jpg"));//75*20è‡ªå®šä¹‰å¤´åƒ
+	 JPanel jP=new JPanel();//æ˜¾ç¤ºç³»ç»Ÿå¤´åƒæ¨¡å—
 	 //JScrollPane js=new JScrollPane(jP);
-	 JButton jB2=new JButton(new ImageIcon("src/file/changeHead2.jpg"));//65*20ÏµÍ³Í·Ïñ
-	 JButton jB3=new JButton(new ImageIcon("src/file/changeHead3.jpg"));//90*20»áÔ±Í·Ïñ
-	 JButton jB4=new JButton(new ImageIcon("src/file/changeHead4.jpg"));//70*20»áÔ±Í·Ïñ
+	 JButton jB2=new JButton(new ImageIcon("src/file/changeHead2.jpg"));//65*20ç³»ç»Ÿå¤´åƒ
+	 JButton jB3=new JButton(new ImageIcon("src/file/changeHead3.jpg"));//90*20ä¼šå‘˜å¤´åƒ
+	 JButton jB4=new JButton(new ImageIcon("src/file/changeHead4.jpg"));//70*20ä¼šå‘˜å¤´åƒ
 	 JLabel jLtop2=new JLabel(new ImageIcon("src/file/changeHeadtop2.jpg"));//140*20
-	 JLabel jLshow=new JLabel("ÍÆ¼öÍ·Ïñ");
-	 JLabel jLprepare=new JLabel("Ô¤ÀÀ");
+	 JLabel jLshow=new JLabel("æ¨èå¤´åƒ");
+	 JLabel jLprepare=new JLabel("é¢„è§ˆ");
 	 JButton jBsure=new JButton(new ImageIcon("src/file/changeHeadSure.jpg"));//65*20
 	 JLabel por=new JLabel(new ImageIcon("src/file/personelView1.jpg"));
-	 String imagePath="src/head/10-1.gif";//ÓÃ»§Ñ¡ÔñµÄÍ¼ÏñµÄÂ·¾¶
+	 String imagePath="src/head/10-1.gif";//ç”¨æˆ·é€‰æ‹©çš„å›¾åƒçš„è·¯å¾„
 	 PersonelView father;
 	public ChangeHead(JFrame owner, String title, boolean b,
 			UserBean myInfo, BufferedReader in, PrintStream out,PersonelView father) {
@@ -79,12 +79,12 @@ public class ChangeHead extends JDialog {
 		 jB3.setBounds(140, 25, 90, 20);
 		 jB4.setBounds(230, 25, 70, 20);
 		 jLtop2.setBounds(300, 25, 100, 20);
-		 jLshow.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		 jLshow.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		 jLshow.setForeground(Color.BLACK);
 		 jLshow.setBounds(10,45, 400, 25);
 		 jLshow.setBackground(Color.WHITE);
 		 
-		 jLprepare.setFont(new Font("¿¬Ìå",Font.PLAIN,16));
+		 jLprepare.setFont(new Font("æ¥·ä½“",Font.PLAIN,16));
 		 jLprepare.setForeground(Color.BLACK);
 		 jLprepare.setBounds(410,30, 100, 25);
 		 jLprepare.setBackground(Color.WHITE);
@@ -109,14 +109,14 @@ public class ChangeHead extends JDialog {
 					if(judge.equals("updateMyportraitOver"))
 					{
 						ChangeHead.this.setVisible(false);
-						//JOptionPane.showMessageDialog(father, "¸ü»»Í·Ïñ³É¹¦£¡");
-						System.out.println("¸ü»»Í·Ïñ³É¹¦£¡");
+						//JOptionPane.showMessageDialog(father, "æ›´æ¢å¤´åƒæˆåŠŸï¼");
+						System.out.println("æ›´æ¢å¤´åƒæˆåŠŸï¼");
 					}
 					else if(judge.equals("updateMyportraitFail"))
 					{
 						ChangeHead.this.setVisible(false);
-						JOptionPane.showMessageDialog(father, "¸ü»»Í·Ïñ³É¹¦£¡");
-						System.out.println("ÏµÍ³·±Ã¦£¬ÇëÉÔºóÔÙÊÔ£¡");
+						JOptionPane.showMessageDialog(father, "æ›´æ¢å¤´åƒæˆåŠŸï¼");
+						System.out.println("ç³»ç»Ÿç¹å¿™ï¼Œè¯·ç¨åå†è¯•ï¼");
 					}
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block

@@ -28,7 +28,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-/*×¢²áÄ£¿é*/
+/*æ³¨å†Œæ¨¡å—*/
 public class Register extends JFrame {
 	String userName;
 	String userPass;
@@ -41,24 +41,24 @@ public class Register extends JFrame {
 	String d;
 	JLabel jLtop=new JLabel(new ImageIcon("src/file/regist1.jpg"));
 	JLabel jLeft=new JLabel(new ImageIcon("src/file/regist2.jpg"));
-	JLabel jLname=new JLabel("êÇ³Æ");
-	JLabel alertName=new JLabel("ÇëÊäÈëêÇ³Æ");
-	JLabel alertPass=new JLabel("³¤¶ÈÎª6-16¸ö×Ö·û£¬²»ÄÜ°üº¬¿Õ¸ñ");
-	JLabel alertRePass=new JLabel("ÇëÔÙ´ÎÊäÈëÃÜÂë");
+	JLabel jLname=new JLabel("æ˜µç§°");
+	JLabel alertName=new JLabel("è¯·è¾“å…¥æ˜µç§°");
+	JLabel alertPass=new JLabel("é•¿åº¦ä¸º6-16ä¸ªå­—ç¬¦ï¼Œä¸èƒ½åŒ…å«ç©ºæ ¼");
+	JLabel alertRePass=new JLabel("è¯·å†æ¬¡è¾“å…¥å¯†ç ");
 	JTextField jTname=new JTextField();
-	JLabel jLpass=new JLabel("ÃÜÂë");
+	JLabel jLpass=new JLabel("å¯†ç ");
 	JPasswordField jPass=new JPasswordField();
-	JLabel jLRepass=new JLabel("È·ÈÏÃÜÂë");
+	JLabel jLRepass=new JLabel("ç¡®è®¤å¯†ç ");
 	JPasswordField jRepass=new JPasswordField();
-	JLabel jLsex=new JLabel("ĞÔ±ğ");
+	JLabel jLsex=new JLabel("æ€§åˆ«");
 	ButtonGroup radioGroup=new ButtonGroup();
-	JRadioButton  jRboy=new JRadioButton("ÄĞ",false);
-	JRadioButton  jRgirl=new JRadioButton("Å®",false);
-	JLabel jLbirth=new JLabel("ÉúÈÕ");
-	String timeT[]={"¹«Àú","Å©Àú"};
-	JLabel jyear=new JLabel("Äê");
-	JLabel jmonth=new JLabel("ÔÂ");
-	JLabel jday=new JLabel("ÈÕ");
+	JRadioButton  jRboy=new JRadioButton("ç”·",false);
+	JRadioButton  jRgirl=new JRadioButton("å¥³",false);
+	JLabel jLbirth=new JLabel("ç”Ÿæ—¥");
+	String timeT[]={"å…¬å†","å†œå†"};
+	JLabel jyear=new JLabel("å¹´");
+	JLabel jmonth=new JLabel("æœˆ");
+	JLabel jday=new JLabel("æ—¥");
 	JComboBox timeType=new JComboBox(timeT);
     DefaultComboBoxModel yearModel = new DefaultComboBoxModel();
     DefaultComboBoxModel monthModel = new DefaultComboBoxModel();
@@ -66,19 +66,19 @@ public class Register extends JFrame {
     JComboBox year = new JComboBox();
     JComboBox month = new JComboBox();
     JComboBox day=new JComboBox();
-    JLabel jLplace=new JLabel("ËùÔÚµØ");
+    JLabel jLplace=new JLabel("æ‰€åœ¨åœ°");
     JTextField jTplace=new JTextField();
-    JCheckBox jService =new JCheckBox("ÎÒÒÑÔÄ¶Á²¢Í¬ÒâÏà¹Ø·şÎñÌõ¿î",true);
-	JButton jBregist=new JButton("Á¢¼´×¢²á");
+    JCheckBox jService =new JCheckBox("æˆ‘å·²é˜…è¯»å¹¶åŒæ„ç›¸å…³æœåŠ¡æ¡æ¬¾",true);
+	JButton jBregist=new JButton("ç«‹å³æ³¨å†Œ");
 	Socket socket;
-	private BufferedReader in=null;//ÊäÈëÁ÷
-	private PrintStream out=null;//Êä³öÁ÷
+	private BufferedReader in=null;//è¾“å…¥æµ
+	private PrintStream out=null;//è¾“å‡ºæµ
 	public Register()
 	{
 		this.setSize(800, 700);
 		this.setLocationRelativeTo(null);
 		this.setLayout(null);
-		this.setTitle("ISTORM×¢²á");
+		this.setTitle("ISTORMæ³¨å†Œ");
 		init();
 		this.add(jLtop);
 		this.add(jLeft);
@@ -126,26 +126,26 @@ public class Register extends JFrame {
         jLtop.setBounds(0, 0, 800, 100);
         jLeft.setBounds(0, 100, 227, 600);
         jLname.setBounds(300, 151, 50, 50);
-        jLname.setFont(new Font("ËÎÌå",Font.PLAIN,20));
-        alertName.setFont(new Font("ËÎÌå",Font.PLAIN,12));
+        jLname.setFont(new Font("å®‹ä½“",Font.PLAIN,20));
+        alertName.setFont(new Font("å®‹ä½“",Font.PLAIN,12));
         alertName.setForeground(Color.BLACK);
         alertName.setBounds(580, 155, 200, 20);
-        alertPass.setFont(new Font("ËÎÌå",Font.PLAIN,12));
+        alertPass.setFont(new Font("å®‹ä½“",Font.PLAIN,12));
         alertPass.setForeground(Color.BLACK);
         alertPass.setBounds(580, 225, 200, 20);
-        alertRePass.setFont(new Font("ËÎÌå",Font.PLAIN,12));
+        alertRePass.setFont(new Font("å®‹ä½“",Font.PLAIN,12));
         alertRePass.setForeground(Color.BLACK);
         alertRePass.setBounds(580, 295, 200, 20);
         jTname.setBounds(355, 150, 220, 45);
-        jLpass.setFont(new Font("ËÎÌå",Font.PLAIN,20));
+        jLpass.setFont(new Font("å®‹ä½“",Font.PLAIN,20));
         jLpass.setBounds(300, 221, 50, 50);
         jPass.setBounds(355, 220, 220, 45);
-        jLRepass.setFont(new Font("ËÎÌå",Font.PLAIN,20));
+        jLRepass.setFont(new Font("å®‹ä½“",Font.PLAIN,20));
         jLRepass.setBounds(260, 291, 90, 50);
         jRepass.setBounds(355, 290, 220, 45);
-        jLsex.setFont(new Font("ËÎÌå",Font.PLAIN,20));
+        jLsex.setFont(new Font("å®‹ä½“",Font.PLAIN,20));
         jLsex.setBounds(300, 361, 50, 50);
-        jRboy.setFont(new Font("ËÎÌå",Font.PLAIN,16));
+        jRboy.setFont(new Font("å®‹ä½“",Font.PLAIN,16));
         jRboy.setForeground(Color.BLUE);
         jRboy.setBounds(355, 360, 50, 50);
         jRboy.addActionListener(new ActionListener(){
@@ -155,12 +155,12 @@ public class Register extends JFrame {
 				// TODO Auto-generated method stub
 				if(e.getSource()==jRboy)
 				{
-					sex="ÄĞ";
+					sex="ç”·";
 				}
 			}
         	
         });
-        jRgirl.setFont(new Font("ËÎÌå",Font.PLAIN,16));
+        jRgirl.setFont(new Font("å®‹ä½“",Font.PLAIN,16));
         jRgirl.setForeground(Color.BLUE);
         jRgirl.setBounds(430, 360, 50, 50);
         jRgirl.addActionListener(new ActionListener(){
@@ -170,7 +170,7 @@ public class Register extends JFrame {
 				// TODO Auto-generated method stub\
 				if(e.getSource()==jRgirl)
 				{
-					sex="Å®";
+					sex="å¥³";
 				}
 				
 			}
@@ -178,10 +178,10 @@ public class Register extends JFrame {
         });
         radioGroup.add(jRboy);
         radioGroup.add(jRgirl);
-        jLbirth.setFont(new Font("ËÎÌå",Font.PLAIN,20));
+        jLbirth.setFont(new Font("å®‹ä½“",Font.PLAIN,20));
         jLbirth.setBounds(300, 431, 50, 50);
 		timeType.setBackground(Color.WHITE);
-        timeType.setFont(new Font("ËÎÌå",Font.PLAIN,16));
+        timeType.setFont(new Font("å®‹ä½“",Font.PLAIN,16));
         timeType.setForeground(Color.BLUE);
         timeType.setBounds(355, 440, 65, 35);
         timeType.addItemListener(new ItemListener() {
@@ -192,7 +192,7 @@ public class Register extends JFrame {
 				type=timeType.getSelectedItem().toString();
 			}
 		});
-        year.setFont(new Font("ËÎÌå",Font.PLAIN,16));
+        year.setFont(new Font("å®‹ä½“",Font.PLAIN,16));
         year.setForeground(Color.BLUE);
         year.setBounds(430, 440, 65, 35);
         year.setBackground(Color.WHITE);
@@ -204,9 +204,9 @@ public class Register extends JFrame {
 				y=year.getSelectedItem().toString();
 			}
 		});
-        jyear.setFont(new Font("ËÎÌå",Font.PLAIN,16));
+        jyear.setFont(new Font("å®‹ä½“",Font.PLAIN,16));
         jyear.setBounds(500, 440, 25, 35);
-        month.setFont(new Font("ËÎÌå",Font.PLAIN,16));
+        month.setFont(new Font("å®‹ä½“",Font.PLAIN,16));
         month.setForeground(Color.BLUE);
         month.setBounds(523, 440, 55, 35);
         month.setBackground(Color.WHITE);
@@ -218,9 +218,9 @@ public class Register extends JFrame {
 				m=month.getSelectedItem().toString();
 			}
 		});
-        jmonth.setFont(new Font("ËÎÌå",Font.PLAIN,16));
+        jmonth.setFont(new Font("å®‹ä½“",Font.PLAIN,16));
         jmonth.setBounds(580, 440, 25, 35);
-        day.setFont(new Font("ËÎÌå",Font.PLAIN,16));
+        day.setFont(new Font("å®‹ä½“",Font.PLAIN,16));
         day.setForeground(Color.BLUE);
         day.setBounds(605, 440, 55, 35);
         day.setBackground(Color.WHITE);
@@ -232,14 +232,14 @@ public class Register extends JFrame {
 				d=day.getSelectedItem().toString();
 			}
 		});
-        jday.setFont(new Font("ËÎÌå",Font.PLAIN,16));
+        jday.setFont(new Font("å®‹ä½“",Font.PLAIN,16));
         jday.setBounds(665, 440, 25, 35);
-        jLplace.setFont(new Font("ËÎÌå",Font.PLAIN,20));
+        jLplace.setFont(new Font("å®‹ä½“",Font.PLAIN,20));
         jLplace.setBounds(280, 501, 70, 50);
         jTplace.setBounds(355, 500, 220, 45);
-        jService.setFont(new Font("ËÎÌå",Font.PLAIN,14));
+        jService.setFont(new Font("å®‹ä½“",Font.PLAIN,14));
         jService.setBounds(355, 570, 250, 25);
-        jBregist.setFont(new Font("ËÎÌå",Font.BOLD,26));
+        jBregist.setFont(new Font("å®‹ä½“",Font.BOLD,26));
         jBregist.setBackground(Color.green);
         jBregist.setForeground(Color.white);
         jBregist.setBounds(355,600 , 200, 60);
@@ -255,43 +255,43 @@ public class Register extends JFrame {
 				else if((String.valueOf(jPass.getPassword()).trim().length())<6)
 				{
 					alertName.setText("");
-					alertPass.setText("ÃÜÂë³¤¶È²»ÄÜĞ¡ÓÚ6");
+					alertPass.setText("å¯†ç é•¿åº¦ä¸èƒ½å°äº6");
 					alertPass.setForeground(Color.RED);
 				}
 				else if((String.valueOf(jPass.getPassword()).trim().length())>16)
 				{
 					alertName.setText("");
 					alertPass.setForeground(Color.RED);
-					alertPass.setText("ÃÜÂë³¤¶È²»ÄÜ³¬¹ı16");
+					alertPass.setText("å¯†ç é•¿åº¦ä¸èƒ½è¶…è¿‡16");
 				}
 				else if(!((String.valueOf(jPass.getPassword()).trim()).equals(String.valueOf(jRepass.getPassword()).trim())))
 				{
 					alertName.setText("");
 					alertPass.setText("");
-					alertRePass.setText("Á½´ÎÊäÈëµÄÃÜÂë²»Ò»ÖÂ");
+					alertRePass.setText("ä¸¤æ¬¡è¾“å…¥çš„å¯†ç ä¸ä¸€è‡´");
 					alertRePass.setForeground(Color.RED);
-					//JOptionPane.showMessageDialog(jBregist, "Á½´ÎÊäÈëµÄÃÜÂë²»Ò»ÖÂ!");
+					//JOptionPane.showMessageDialog(jBregist, "ä¸¤æ¬¡è¾“å…¥çš„å¯†ç ä¸ä¸€è‡´!");
 				}
 				else if(sex==null)
 				{
 					alertName.setText("");
 					alertPass.setText("");
 					alertRePass.setText("");
-					JOptionPane.showMessageDialog(jBregist, "ÇëÑ¡ÔñÄãµÄĞÔ±ğ£¡");
+					JOptionPane.showMessageDialog(jBregist, "è¯·é€‰æ‹©ä½ çš„æ€§åˆ«ï¼");
 				}
 				else if(type==null||y==null||m==null||d==null)
 				{
 					alertName.setText("");
 					alertPass.setText("");
 					alertRePass.setText("");
-					JOptionPane.showMessageDialog(jBregist, "Çë×¢Òâ½«ÄãµÄÉúÈÕĞÅÏ¢Ñ¡ÔñÍêÕû£¡");
+					JOptionPane.showMessageDialog(jBregist, "è¯·æ³¨æ„å°†ä½ çš„ç”Ÿæ—¥ä¿¡æ¯é€‰æ‹©å®Œæ•´ï¼");
 				}
 				else	if(jTplace.getText().trim().length()==0)
 				{
 					alertName.setText("");
 					alertPass.setText("");
 					alertRePass.setText("");
-					JOptionPane.showMessageDialog(jBregist, "ËùÔÚµØ²»ÄÜÎª¿Õ£¡");
+					JOptionPane.showMessageDialog(jBregist, "æ‰€åœ¨åœ°ä¸èƒ½ä¸ºç©ºï¼");
 				}
 		
 				else
@@ -299,20 +299,20 @@ public class Register extends JFrame {
 					 userName=jTname.getText().trim();
 					 userPass=String.valueOf(jPass.getPassword()).trim();
 					 address=jTplace.getText();
-					 birth=type+"-"+y+"Äê"+m+"ÔÂ"+d+"ÈÕ";
+					 birth=type+"-"+y+"å¹´"+m+"æœˆ"+d+"æ—¥";
 						try {
 							InetAddress ip=InetAddress.getByName("192.168.20.1");
 							int port=(6544);
 							socket=new Socket(ip,port);
-							System.out.println("Óë·şÎñÆ÷¿ªÊ¼Á¬½Ó");
+							System.out.println("ä¸æœåŠ¡å™¨å¼€å§‹è¿æ¥");
 						} catch (IOException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
-							System.out.println("·şÎñÆ÷¶Ë¿Ú´ò¿ª³ö´í");
+							System.out.println("æœåŠ¡å™¨ç«¯å£æ‰“å¼€å‡ºé”™");
 						}
 						if(socket!=null)
 						{
-							System.out.println("Óë·şÎñÆ÷Á¬½Ó³É¹¦");
+							System.out.println("ä¸æœåŠ¡å™¨è¿æ¥æˆåŠŸ");
 							InetAddress userIp = null ;
 							int userPort;
 							try {
@@ -348,8 +348,8 @@ public class Register extends JFrame {
 								}
 								if(judge.equals("registerFail"))
 								{
-									System.out.println("×¢²áÊ§°Ü£¡");
-									JOptionPane.showMessageDialog(jBregist,"×¢²áÊ§°Ü£¬ÇëÖØĞÂ×¢²á");
+									System.out.println("æ³¨å†Œå¤±è´¥ï¼");
+									JOptionPane.showMessageDialog(jBregist,"æ³¨å†Œå¤±è´¥ï¼Œè¯·é‡æ–°æ³¨å†Œ");
 								}
 							} catch (IOException e1) {
 								// TODO Auto-generated catch block

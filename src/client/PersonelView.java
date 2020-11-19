@@ -56,83 +56,83 @@ import common.FriendLabel;
 import common.UserBean;
 import common.UserInfo;
 
-/*Ö÷½çÃæ*/
+/*ä¸»ç•Œé¢*/
 public class PersonelView extends JFrame implements Runnable{
-	/*-------------------------------------½çÃæÉè¼Æ---------------------------------------------------*/
-	JPanel jPtop=new JPanel();//ÖÃÓÚ¶¥²¿
-	JPanel jPcentre=new JPanel();//ÖÃÓÚÖĞ¼ä´æ·ÅºÃÓÑÁĞ±í
-	//¶¥²¿
+	/*-------------------------------------ç•Œé¢è®¾è®¡---------------------------------------------------*/
+	JPanel jPtop=new JPanel();//ç½®äºé¡¶éƒ¨
+	JPanel jPcentre=new JPanel();//ç½®äºä¸­é—´å­˜æ”¾å¥½å‹åˆ—è¡¨
+	//é¡¶éƒ¨
 	JLabel jLtitle=new JLabel("ISTORM");
-	//QQÍ·Ïñ³ß´ç60*60
+	//QQå¤´åƒå°ºå¯¸60*60
 	JLabel jLportrait=new JLabel(new ImageIcon("src/file/personelView1.jpg"));
-	JLabel jLmyName=new JLabel("ÎÒÊÇÃ«Ã«³æ");
-	JLabel jLmySign=new JLabel("¸öĞÔÇ©Ãû");
-	JTextField jTfind=new JTextField("ÊäÈëISTORMÕËºÅ²éÕÒÁªÏµÈË");
-	ImageIcon imageFind=new ImageIcon("src/file/personelViewFind.jpg");//³ß´ç19*21
-	JButton jBfind=new JButton(imageFind);//²éÕÒÁªÏµÈË°´Å¥
-	//¹ı¶É
-	JLabel jLcenter1=new JLabel(new ImageIcon("src/file/personelViewCenter1.jpg"));//³ß´ç305*7
-	//ÖĞ²¿
-	JTabbedPane jTPchoose=new JTabbedPane();//Ñ¡Ïî°å
-	JPanel jPcentrefriend=new JPanel();//ÖÃÓÚÖĞ¼äµÄÖĞ¼ä´æ·ÅºÃÓÑÁĞ±í
-	JLabel j1=new JLabel(new ImageIcon("src/file/Äã²Â1.jpg"));
-	JLabel j2=new JLabel(new ImageIcon("src/file/Äã²Â2.jpg"));
-	JLabel j3=new JLabel(new ImageIcon("src/file/Äã²Â1.jpg"));
-	JLabel j4=new JLabel(new ImageIcon("src/file/Äã²Â2.jpg"));
+	JLabel jLmyName=new JLabel("æˆ‘æ˜¯æ¯›æ¯›è™«");
+	JLabel jLmySign=new JLabel("ä¸ªæ€§ç­¾å");
+	JTextField jTfind=new JTextField("è¾“å…¥ISTORMè´¦å·æŸ¥æ‰¾è”ç³»äºº");
+	ImageIcon imageFind=new ImageIcon("src/file/personelViewFind.jpg");//å°ºå¯¸19*21
+	JButton jBfind=new JButton(imageFind);//æŸ¥æ‰¾è”ç³»äººæŒ‰é’®
+	//è¿‡æ¸¡
+	JLabel jLcenter1=new JLabel(new ImageIcon("src/file/personelViewCenter1.jpg"));//å°ºå¯¸305*7
+	//ä¸­éƒ¨
+	JTabbedPane jTPchoose=new JTabbedPane();//é€‰é¡¹æ¿
+	JPanel jPcentrefriend=new JPanel();//ç½®äºä¸­é—´çš„ä¸­é—´å­˜æ”¾å¥½å‹åˆ—è¡¨
+	JLabel j1=new JLabel(new ImageIcon("src/file/ä½ çŒœ1.jpg"));
+	JLabel j2=new JLabel(new ImageIcon("src/file/ä½ çŒœ2.jpg"));
+	JLabel j3=new JLabel(new ImageIcon("src/file/ä½ çŒœ1.jpg"));
+	JLabel j4=new JLabel(new ImageIcon("src/file/ä½ çŒœ2.jpg"));
 	DefaultListModel listModel=new DefaultListModel();
 	JList userList=new JList(listModel);
 	JScrollPane jSuserList=new JScrollPane(userList);
-	//Ôö¼ÓÓÃ»§µÄ±êÇ©¡±·Ö×éÍâ¡°µÄµ¯³öÊ½²Ëµ¥
-	JMenuItem jM11=new JMenuItem("ÁĞ±íÏÔÊ¾");
-	JMenuItem jM12=new JMenuItem("Ë¢ĞÂºÃÓÑÁĞ±í");
-	JMenuItem jM13=new JMenuItem("ÏÔÊ¾ÔÚÏßÁªÏµÈË");
-	JMenuItem jM14=new JMenuItem("Ìí¼ÓÁªÏµÈË");
-	JMenuItem jM15=new JMenuItem("²éÕÒºÃÓÑ");
-	JMenuItem jM16=new JMenuItem("ºÃÓÑ¹ÜÀíÆ÷");
-	JMenuItem jM17=new JMenuItem("°ïÖú");
-	JMenuItem jM18=new JMenuItem("¹ØÓÚ");
+	//å¢åŠ ç”¨æˆ·çš„æ ‡ç­¾â€åˆ†ç»„å¤–â€œçš„å¼¹å‡ºå¼èœå•
+	JMenuItem jM11=new JMenuItem("åˆ—è¡¨æ˜¾ç¤º");
+	JMenuItem jM12=new JMenuItem("åˆ·æ–°å¥½å‹åˆ—è¡¨");
+	JMenuItem jM13=new JMenuItem("æ˜¾ç¤ºåœ¨çº¿è”ç³»äºº");
+	JMenuItem jM14=new JMenuItem("æ·»åŠ è”ç³»äºº");
+	JMenuItem jM15=new JMenuItem("æŸ¥æ‰¾å¥½å‹");
+	JMenuItem jM16=new JMenuItem("å¥½å‹ç®¡ç†å™¨");
+	JMenuItem jM17=new JMenuItem("å¸®åŠ©");
+	JMenuItem jM18=new JMenuItem("å…³äº");
 	JPopupMenu jPmenuser=new JPopupMenu();
-	//ºÃÓÑÁĞ±íµÄµ¯³öÊ½²Ëµ¥Ñ¡Ïî
-	JMenuItem jM1=new JMenuItem("·¢ËÍ¼´Ê±ÏûÏ¢");
-	JMenuItem jM2=new JMenuItem("·¢ËÍµç×ÓÓÊ¼ş");
-	JMenuItem jM3=new JMenuItem("·¢ËÍÎÄ¼ş");
-	JMenuItem jM4=new JMenuItem("É¾³ıºÃÓÑ");
-	JMenuItem jM5=new JMenuItem("¾Ù±¨´ËÓÃ»§");
-	JMenuItem jM6=new JMenuItem("ĞŞ¸Ä±¸×¢ĞÕÃû");
-	JMenuItem jM7=new JMenuItem("ÏûÏ¢¼ÇÂ¼");
-	JMenuItem jM8=new JMenuItem("²é¿´×ÊÁÏ");
+	//å¥½å‹åˆ—è¡¨çš„å¼¹å‡ºå¼èœå•é€‰é¡¹
+	JMenuItem jM1=new JMenuItem("å‘é€å³æ—¶æ¶ˆæ¯");
+	JMenuItem jM2=new JMenuItem("å‘é€ç”µå­é‚®ä»¶");
+	JMenuItem jM3=new JMenuItem("å‘é€æ–‡ä»¶");
+	JMenuItem jM4=new JMenuItem("åˆ é™¤å¥½å‹");
+	JMenuItem jM5=new JMenuItem("ä¸¾æŠ¥æ­¤ç”¨æˆ·");
+	JMenuItem jM6=new JMenuItem("ä¿®æ”¹å¤‡æ³¨å§“å");
+	JMenuItem jM7=new JMenuItem("æ¶ˆæ¯è®°å½•");
+	JMenuItem jM8=new JMenuItem("æŸ¥çœ‹èµ„æ–™");
 	JPopupMenu jPmenufriend=new JPopupMenu();
-	//µ×²¿
-	JLabel jLbase=new JLabel(new ImageIcon("src/file/personelView2.jpg"));//³ß´ç304*61
+	//åº•éƒ¨
+	JLabel jLbase=new JLabel(new ImageIcon("src/file/personelView2.jpg"));//å°ºå¯¸304*61
 	
-	/*-------------------------------------¹¦ÄÜÊµÏÖ---------------------------------------------------*/
-	private Hashtable friendInfoTable = new Hashtable();//´æ´¢ºÃÓÑÁĞ±í
-	Socket socket;//¶¨ÒåÌ×½Ó¿Ú
-	 BufferedReader in;//¶¨ÒåÊäÈëÁ÷
-	 PrintStream out;//¶¨ÒåÊä³öÁ÷
-	 InetAddress ip=null;//·şÎñÆ÷IP
-	 int port=0;//·şÎñÆ÷¶Ë¿ÚºÅ
-	 String userNum;//µÇÂ½ÓÃ»§×Ô¼ºµÄQQºÅ
-	 String userPass;//µÇÂ½ÓÃ»§×Ô¼ºµÄÃÜÂë
+	/*-------------------------------------åŠŸèƒ½å®ç°---------------------------------------------------*/
+	private Hashtable friendInfoTable = new Hashtable();//å­˜å‚¨å¥½å‹åˆ—è¡¨
+	Socket socket;//å®šä¹‰å¥—æ¥å£
+	 BufferedReader in;//å®šä¹‰è¾“å…¥æµ
+	 PrintStream out;//å®šä¹‰è¾“å‡ºæµ
+	 InetAddress ip=null;//æœåŠ¡å™¨IP
+	 int port=0;//æœåŠ¡å™¨ç«¯å£å·
+	 String userNum;//ç™»é™†ç”¨æˆ·è‡ªå·±çš„QQå·
+	 String userPass;//ç™»é™†ç”¨æˆ·è‡ªå·±çš„å¯†ç 
 	 HomePage login;
-	private int currentIndex=0;//Êó±êËùÖ¸µÄÁĞ±íË÷Òı
-	private String currentInfo="";//Êó±êËùÖ¸µÄÁĞ±íÖµ
-	private String currentUserNum=null;//Êó±êËùÖ¸ºÃÓÑµÄQQºÅÂë
-	private UserBean currentFriend=null;//Êó±êËùÖ¸ºÃÓÑµÄĞÅÏ¢Àà
-	private UserBean myInfo=new UserBean();//´æ´¢×Ô¼ºµÄĞÅÏ¢
-	UserBean findUserBean=new UserBean();//´æ´¢²éÕÒµ½µÄÓÃ»§µÄ»ù±¾ĞÅÏ¢
-	/*²ÉÓÃUDPĞ­Òé½øĞĞÍ¨ĞÅ*/
-	private DatagramSocket  receiveSocket=null;//ÉùÃ÷½ÓÊÕĞÅÏ¢µÄÊı¾İ°üÌ×½Ó×Ö
-	private DatagramPacket  receivePacket=null;//ÉùÃ÷½ÓÊÕĞÅÏ¢µÄÊı¾İ°ü
-	int udpPort=getUdpPort("udp.Port");//UDPµÄ³õÊ¼¶Ë¿ÚºÅ
+	private int currentIndex=0;//é¼ æ ‡æ‰€æŒ‡çš„åˆ—è¡¨ç´¢å¼•
+	private String currentInfo="";//é¼ æ ‡æ‰€æŒ‡çš„åˆ—è¡¨å€¼
+	private String currentUserNum=null;//é¼ æ ‡æ‰€æŒ‡å¥½å‹çš„QQå·ç 
+	private UserBean currentFriend=null;//é¼ æ ‡æ‰€æŒ‡å¥½å‹çš„ä¿¡æ¯ç±»
+	private UserBean myInfo=new UserBean();//å­˜å‚¨è‡ªå·±çš„ä¿¡æ¯
+	UserBean findUserBean=new UserBean();//å­˜å‚¨æŸ¥æ‰¾åˆ°çš„ç”¨æˆ·çš„åŸºæœ¬ä¿¡æ¯
+	/*é‡‡ç”¨UDPåè®®è¿›è¡Œé€šä¿¡*/
+	private DatagramSocket  receiveSocket=null;//å£°æ˜æ¥æ”¶ä¿¡æ¯çš„æ•°æ®åŒ…å¥—æ¥å­—
+	private DatagramPacket  receivePacket=null;//å£°æ˜æ¥æ”¶ä¿¡æ¯çš„æ•°æ®åŒ…
+	int udpPort=getUdpPort("udp.Port");//UDPçš„åˆå§‹ç«¯å£å·
 	InetAddress userIp = null ;
-	int usePort=getNextPort(udpPort);//µ±ÆÚÓÃ»§Ê¹ÓÃµÄ¶Ë¿ÚºÅ
-	public static final int BUFFER_SIZE=5120;//»º³åÊı×éµÄ´óĞ¡
-	private byte inBuf[];//½ÓÊÕÊı¾İµÄ»º³åÊı×é
-	//ÊµÏÖÁÄÌì¼ÇÂ¼
-	 BufferedReader bufr;//Íê³ÉÁÄÌì¼ÇÂ¼µÄ¶Á
+	int usePort=getNextPort(udpPort);//å½“æœŸç”¨æˆ·ä½¿ç”¨çš„ç«¯å£å·
+	public static final int BUFFER_SIZE=5120;//ç¼“å†²æ•°ç»„çš„å¤§å°
+	private byte inBuf[];//æ¥æ”¶æ•°æ®çš„ç¼“å†²æ•°ç»„
+	//å®ç°èŠå¤©è®°å½•
+	 BufferedReader bufr;//å®ŒæˆèŠå¤©è®°å½•çš„è¯»
 	 String path=null;
-	/*-------------------------------------¹¹Ôì·½·¨---------------------------------------------------*/
+	/*-------------------------------------æ„é€ æ–¹æ³•---------------------------------------------------*/
 	public PersonelView(String userNum,String userPass,HomePage login,InetAddress ip,int port) {
 		// TODO Auto-generated constructor stub
 		this.userNum=userNum;
@@ -148,19 +148,19 @@ public class PersonelView extends JFrame implements Runnable{
 		this.add(jLcenter1);
 		this.add(jLbase);
 		this.add(jTPchoose);
-		//*------------------------²ÉÓÃTCPĞ­ÒéÓë·şÎñÆ÷¿ªÊ¼Á¬½Ó£¬Íê³ÉµÇÂ½ÒÔ¼°ÆäËû¹¦ÄÜ---------------------------------------*/
+		//*------------------------é‡‡ç”¨TCPåè®®ä¸æœåŠ¡å™¨å¼€å§‹è¿æ¥ï¼Œå®Œæˆç™»é™†ä»¥åŠå…¶ä»–åŠŸèƒ½---------------------------------------*/
 		try
 		{
 			socket=new Socket(ip,port);
-		System.out.println("Óë·şÎñÆ÷¿ªÊ¼Á¬½Ó");
+		System.out.println("ä¸æœåŠ¡å™¨å¼€å§‹è¿æ¥");
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-			System.out.println("·şÎñÆ÷¶Ë¿Ú´ò¿ª³ö´í");
+			System.out.println("æœåŠ¡å™¨ç«¯å£æ‰“å¼€å‡ºé”™");
 		}
 		if(socket!=null)
 		{
-			System.out.println("Óë·şÎñÆ÷Á¬½Ó³É¹¦");
+			System.out.println("ä¸æœåŠ¡å™¨è¿æ¥æˆåŠŸ");
 			try {
 				userIp= InetAddress.getLocalHost();
 			} catch (UnknownHostException e2) {
@@ -176,31 +176,31 @@ public class PersonelView extends JFrame implements Runnable{
 				e1.printStackTrace();
 			}
 		}	
-		//*--------------------------------------UDPĞ­Òé£¬ÁÄÌìÄ£¿é-----------------------------------------*/
+		//*--------------------------------------UDPåè®®ï¼ŒèŠå¤©æ¨¡å—-----------------------------------------*/
 		try {
-			//´´½¨½ÓÊÕĞÅÏ¢µÄÊı¾İ°üÌ×½Ó×Ö
-		//	System.out.println("1ÎÒ½ÓÊÕÊı¾İµÄ¶Ë¿ÚºÅ:"+usePort);
+			//åˆ›å»ºæ¥æ”¶ä¿¡æ¯çš„æ•°æ®åŒ…å¥—æ¥å­—
+		//	System.out.println("1æˆ‘æ¥æ”¶æ•°æ®çš„ç«¯å£å·:"+usePort);
 			receiveSocket=new DatagramSocket(usePort);
-			//System.out.println("2ÎÒ½ÓÊÕÊı¾İµÄ¶Ë¿ÚºÅ:"+usePort);
+			//System.out.println("2æˆ‘æ¥æ”¶æ•°æ®çš„ç«¯å£å·:"+usePort);
 			inBuf=new byte[BUFFER_SIZE];
-			//´´½¨½ÓÊÕĞÅÏ¢µÄÊı¾İ±¨
+			//åˆ›å»ºæ¥æ”¶ä¿¡æ¯çš„æ•°æ®æŠ¥
 			receivePacket=new DatagramPacket(inBuf,BUFFER_SIZE);
 		} catch (SocketException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("¶Ë¿Ú´ò¿ª³ö´í");
+			System.out.println("ç«¯å£æ‰“å¼€å‡ºé”™");
 		}	
 		loadUserInfo();
-		//Æô¶¯Ïß³ÌÓÃÀ´Ë¢ĞÂºÃÓÑĞÅÏ¢
+		//å¯åŠ¨çº¿ç¨‹ç”¨æ¥åˆ·æ–°å¥½å‹ä¿¡æ¯
 		new Thread(this).start();
 		this.setVisible(true);
 	}
-	//»ñÈ¡ºÃÓÑĞÅÏ¢
+	//è·å–å¥½å‹ä¿¡æ¯
 		private void loadUserInfo()
 		{
 			if(login())
 			{
-			getFriendInfo();//»ñÈ¡ºÃÓÑĞÅÏ¢ÁĞ±í
+			getFriendInfo();//è·å–å¥½å‹ä¿¡æ¯åˆ—è¡¨
 			userList.setCellRenderer(new FriendLabel());
 			jLportrait.setIcon(new ImageIcon(myInfo.getPortrait()));
 			jLmyName.setText(myInfo.getUserName());
@@ -209,11 +209,11 @@ public class PersonelView extends JFrame implements Runnable{
 			else
 			{
 				login.loginFail();
-				System.out.println("»ñÈ¡ĞÅÏ¢Ê§°Ü£¡");
+				System.out.println("è·å–ä¿¡æ¯å¤±è´¥ï¼");
 				return;
 			}
 		}
-		//Ã¿¸ô10ÃëË¢ĞÂÒ»´ÎºÃÓÑĞÅÏ¢
+		//æ¯éš”10ç§’åˆ·æ–°ä¸€æ¬¡å¥½å‹ä¿¡æ¯
 		@Override
 		public void run() {
 			while(true)
@@ -224,47 +224,47 @@ public class PersonelView extends JFrame implements Runnable{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				//Ë¢ĞÂÓÃ»§ĞÅÏ¢
+				//åˆ·æ–°ç”¨æˆ·ä¿¡æ¯
 				loadUserInfo();
 			}
 			
 		}
 	public void init()
 	{
-		//¶¥²¿Ãæ°å
+		//é¡¶éƒ¨é¢æ¿
 		jPtop.setBounds(0, 0, 313, 110);
 		jPtop.setLayout(null);
 		jPtop.setBackground(Color.BLUE);
 		jLtitle.setForeground(Color.WHITE);
-		jLtitle.setFont(new Font("ºÚÌå",Font.BOLD,15));
+		jLtitle.setFont(new Font("é»‘ä½“",Font.BOLD,15));
 		jLtitle.setBounds(0, 0, 313, 25);
 		jLportrait.setBounds(5, 25, 60, 55);
 		
-		//Îª×Ô¼ºÍ·ÏñÉèÖÃ¼àÌı£¬²é¿´×Ô¼ºĞÅÏ¢
+		//ä¸ºè‡ªå·±å¤´åƒè®¾ç½®ç›‘å¬ï¼ŒæŸ¥çœ‹è‡ªå·±ä¿¡æ¯
 		jLportrait.addMouseListener(new PersonelView_jLportrait_mouseMotionAdapter());
 		jLmyName.setForeground(Color.WHITE);
-		jLmyName.setFont(new Font("ËÎÌå",Font.BOLD,17));
+		jLmyName.setFont(new Font("å®‹ä½“",Font.BOLD,17));
 		jLmyName.setBounds(80, 27, 180, 25);
-		//ÔÚ¸öÈË×ÊÁÏÉÏÌí¼Óµ¯³öÊ½²Ëµ¥
-		JMenuItem jMa=new JMenuItem("ĞŞ¸Ä¸öÈË×ÊÁÏ");
-		JMenuItem jMb=new JMenuItem("¸ü»»Í·Ïñ");
-		//JMenuItem jMc=new JMenuItem("ĞŞ¸ÄÃÜÂë");
-		jMa.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		//åœ¨ä¸ªäººèµ„æ–™ä¸Šæ·»åŠ å¼¹å‡ºå¼èœå•
+		JMenuItem jMa=new JMenuItem("ä¿®æ”¹ä¸ªäººèµ„æ–™");
+		JMenuItem jMb=new JMenuItem("æ›´æ¢å¤´åƒ");
+		//JMenuItem jMc=new JMenuItem("ä¿®æ”¹å¯†ç ");
+		jMa.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jMa.setForeground(Color.BLACK);
 		jMa.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-							ChangeMyInfo changemyInfo=new ChangeMyInfo(PersonelView.this, "ĞŞ¸Ä×ÊÁÏ", true, in, out, myInfo,PersonelView.this);
+							ChangeMyInfo changemyInfo=new ChangeMyInfo(PersonelView.this, "ä¿®æ”¹èµ„æ–™", true, in, out, myInfo,PersonelView.this);
 								changemyInfo.setVisible(true);
 				PersonelView.this.refreshMyInfo();
 			}
 			
 		});
-		jMb.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jMb.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jMb.setForeground(Color.BLACK);
-		jMb.addActionListener(new ActionListener(){//¸ü»»Í·Ïñ
+		jMb.addActionListener(new ActionListener(){//æ›´æ¢å¤´åƒ
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -274,7 +274,7 @@ public class PersonelView extends JFrame implements Runnable{
 			}
 			
 		});
-		//jMc.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		//jMc.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		//jMc.setForeground(Color.BLACK);
 		JPopupMenu jPmenuMy=new JPopupMenu();
 		jPmenuMy.add(jMa);
@@ -282,10 +282,10 @@ public class PersonelView extends JFrame implements Runnable{
 		//jPmenuMy.add(jMc);
 		jLmyName.setComponentPopupMenu(jPmenuMy);
 		jLmySign.setForeground(Color.WHITE);
-		jLmySign.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jLmySign.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jLmySign.setBounds(70, 55, 235, 25);
 		jLmySign.setComponentPopupMenu(jPmenuMy);
-		jTfind.setFont(new Font("ËÎÌå",Font.BOLD,12));
+		jTfind.setFont(new Font("å®‹ä½“",Font.BOLD,12));
 		jTfind.setForeground(Color.GRAY);
 		jTfind.setBounds(3, 85, 260, 25);
 		jBfind.setBounds(267, 87, 19, 21);
@@ -306,10 +306,10 @@ public class PersonelView extends JFrame implements Runnable{
 		jPtop.add(jLportrait);
 		jPtop.add(jLtitle);
 		jPtop.add(jLtitle);
-		//¹ı¶É
+		//è¿‡æ¸¡
 		jLcenter1.setBounds(0, 110, 313, 7);
-		//ÖĞ¼ä
-		/*--------------------------Ôö¼Óµ¯³öÊ½²Ëµ¥---------------------*/
+		//ä¸­é—´
+		/*--------------------------å¢åŠ å¼¹å‡ºå¼èœå•---------------------*/
 		jPmenufriend.add(jM1);
 		jPmenufriend.add(jM2);
 		jPmenufriend.add(jM3);
@@ -322,7 +322,7 @@ public class PersonelView extends JFrame implements Runnable{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				path="src/ÁÄÌì¼ÇÂ¼/"+myInfo.getUserNum()+"-"+currentFriend.getUserNum()+".txt";
+				path="src/èŠå¤©è®°å½•/"+myInfo.getUserNum()+"-"+currentFriend.getUserNum()+".txt";
 				 try {
 					bufr=new BufferedReader(
 								new InputStreamReader(new FileInputStream(
@@ -331,11 +331,11 @@ public class PersonelView extends JFrame implements Runnable{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				SaveChat save=new SaveChat(PersonelView.this, "ÁÄÌì¼ÇÂ¼", true, bufr);
+				SaveChat save=new SaveChat(PersonelView.this, "èŠå¤©è®°å½•", true, bufr);
 				save.setVisible(true);
 			}});
 		jPmenufriend.add(jM8);
-		jM1.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jM1.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jM1.setForeground(Color.BLUE);
 		jM1.addActionListener(new ActionListener(){
 
@@ -346,25 +346,25 @@ public class PersonelView extends JFrame implements Runnable{
 			}
 			
 		});
-		jM2.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jM2.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jM2.setForeground(Color.BLUE);
-		jM3.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jM3.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jM3.setForeground(Color.BLUE);
-		jM4.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jM4.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jM4.setForeground(Color.BLUE);
 		jM4.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				int option=JOptionPane.showConfirmDialog(PersonelView.this, "Ç×£¬ÄãÈ·¶¨ÒªÉ¾³ı´ËºÃÓÑÃ´£¿");
+				int option=JOptionPane.showConfirmDialog(PersonelView.this, "äº²ï¼Œä½ ç¡®å®šè¦åˆ é™¤æ­¤å¥½å‹ä¹ˆï¼Ÿ");
 				if(option==JOptionPane.YES_OPTION)
 				{
 					int index=userList.getSelectedIndex();
 					String friendNum=null;
 					if(index==-1)
 					{
-						JOptionPane.showMessageDialog(PersonelView.this, "Çëµ¥»÷Ñ¡ÔñÒ»¸öÓÃ»§£¡");
+						JOptionPane.showMessageDialog(PersonelView.this, "è¯·å•å‡»é€‰æ‹©ä¸€ä¸ªç”¨æˆ·ï¼");
 					}
 					else 
 					{
@@ -373,49 +373,49 @@ public class PersonelView extends JFrame implements Runnable{
 							friendNum=friendInfo.substring(friendInfo.indexOf("<")+1,friendInfo.indexOf(">") );
 							UserBean deleteFriend=(UserBean)friendInfoTable.get(friendNum);
 							String myUserNum=myInfo.getUserNum();
-							//Ïò·şÎñÆ÷·¢ËÍÉ¾³ıºÃÓÑÇëÇó
+							//å‘æœåŠ¡å™¨å‘é€åˆ é™¤å¥½å‹è¯·æ±‚
 							out.println("deleteFriend");
 							out.flush();
-							//·¢ËÍ×Ô¼ºQQ
+							//å‘é€è‡ªå·±QQ
 							out.println(myUserNum);
 							out.flush();
-							//·¢ËÍºÃÓÑQQ
+							//å‘é€å¥½å‹QQ
 							out.println(friendNum);
 							out.flush();
 							String judge_delete=in.readLine();
 							if(judge_delete.equals("deleteFriendOver"))
 							{
-								JOptionPane.showMessageDialog(PersonelView.this, "ºÃÓÑ <"+deleteFriend.getUserName()+"> ÒÑ±»³É¹¦É¾³ı !");
+								JOptionPane.showMessageDialog(PersonelView.this, "å¥½å‹ <"+deleteFriend.getUserName()+"> å·²è¢«æˆåŠŸåˆ é™¤ !");
 								listModel.remove(index);
 							}
 							else if(judge_delete.equals("deleteFriendFail"))
 							{
-								JOptionPane.showMessageDialog(PersonelView.this, "ÏµÍ³·±Ã¦,ÇëÉÔºóÔÙÊÔ£¡");
+								JOptionPane.showMessageDialog(PersonelView.this, "ç³»ç»Ÿç¹å¿™,è¯·ç¨åå†è¯•ï¼");
 							}
 						} catch (IOException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
-							JOptionPane.showMessageDialog(PersonelView.this, "ÏµÍ³·±Ã¦Î¬»¤ÖĞ£¡");
+							JOptionPane.showMessageDialog(PersonelView.this, "ç³»ç»Ÿç¹å¿™ç»´æŠ¤ä¸­ï¼");
 						}
 					}
 				}
 			}
 			
 		});
-		jM5.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jM5.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jM5.setForeground(Color.BLUE);
-		jM6.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jM6.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jM6.setForeground(Color.BLUE);
-		jM7.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jM7.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jM7.setForeground(Color.BLUE);
-		jM8.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jM8.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jM8.setForeground(Color.BLUE);
 		jM8.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				UserInfo friendInfo=new UserInfo(PersonelView.this,"ºÃÓÑ×ÊÁÏ",true,currentFriend);
+				UserInfo friendInfo=new UserInfo(PersonelView.this,"å¥½å‹èµ„æ–™",true,currentFriend);
 				friendInfo.setVisible(true);
 			}
 			
@@ -423,16 +423,16 @@ public class PersonelView extends JFrame implements Runnable{
 		userList.setComponentPopupMenu(jPmenufriend);
 		jTPchoose.setForeground(Color.DARK_GRAY);
 		jTPchoose.setBackground(Color.WHITE);
-		jTPchoose.setFont(new Font("ËÎÌå",Font.PLAIN,11));
-		jTPchoose.addTab("ÁªÏµÈË", jPcentre);
-		jTPchoose.addTab("Ìû×Ó", j1);
-		jTPchoose.addTab("ÓÎÏ·", j2);
-		/*jTPchoose.addTab("ÅóÓÑ", j3);
-		jTPchoose.addTab("Î¢²©", j4);*/
+		jTPchoose.setFont(new Font("å®‹ä½“",Font.PLAIN,11));
+		jTPchoose.addTab("è”ç³»äºº", jPcentre);
+		jTPchoose.addTab("å¸–å­", j1);
+		jTPchoose.addTab("æ¸¸æˆ", j2);
+		/*jTPchoose.addTab("æœ‹å‹", j3);
+		jTPchoose.addTab("å¾®åš", j4);*/
 	    jTPchoose.setBounds(0, 117, 313, 382);
 	    jPcentre.setLayout(new BorderLayout());
-	    JLabel test=new JLabel("ÎÒ µÄ ºÃ ÓÑ");
-	    test.setFont(new Font("ËÎÌå",Font.PLAIN,14));
+	    JLabel test=new JLabel("æˆ‘ çš„ å¥½ å‹");
+	    test.setFont(new Font("å®‹ä½“",Font.PLAIN,14));
 	    test.setSize(313, 30);
 	    test.setForeground(Color.BLACK);
 		jPmenuser.add(jM11);
@@ -443,47 +443,47 @@ public class PersonelView extends JFrame implements Runnable{
 		jPmenuser.add(jM16);
 		jPmenuser.add(jM17);
 		jPmenuser.add(jM18);
-		jM11.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jM11.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jM11.setForeground(Color.DARK_GRAY);
-		jM12.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jM12.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jM12.setForeground(Color.DARK_GRAY);
-		jM13.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jM13.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jM13.setForeground(Color.DARK_GRAY);
-		jM14.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jM14.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jM14.setForeground(Color.DARK_GRAY);
 		jM14.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				PrintNumFindUser printNum=new PrintNumFindUser(PersonelView.this,"Ìí¼ÓÁªÏµÈË",false,PersonelView.this);
+				PrintNumFindUser printNum=new PrintNumFindUser(PersonelView.this,"æ·»åŠ è”ç³»äºº",false,PersonelView.this);
 				printNum.setVisible(true);
 			}
 		});
-		jM15.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jM15.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jM15.setForeground(Color.DARK_GRAY);
 		jM15.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				PrintNumFindUser printNum=new PrintNumFindUser(PersonelView.this,"²éÕÒÓÃ»§",false,PersonelView.this);
+				PrintNumFindUser printNum=new PrintNumFindUser(PersonelView.this,"æŸ¥æ‰¾ç”¨æˆ·",false,PersonelView.this);
 				printNum.setVisible(true);
 			}
 			
 		});
-		jM16.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jM16.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jM16.setForeground(Color.DARK_GRAY);
-		jM17.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jM17.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jM17.setForeground(Color.DARK_GRAY);
-		jM18.setFont(new Font("¿¬Ìå",Font.PLAIN,14));
+		jM18.setFont(new Font("æ¥·ä½“",Font.PLAIN,14));
 		jM18.setForeground(Color.DARK_GRAY);
 		jM18.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				AboutMy a=new AboutMy(PersonelView.this, "¹ØÓÚQQ", true);
+				AboutMy a=new AboutMy(PersonelView.this, "å…³äºQQ", true);
 				a.setVisible(true);
 			}
 			
@@ -495,10 +495,10 @@ public class PersonelView extends JFrame implements Runnable{
 	   userList.addMouseMotionListener(new PersonelView_userList_mouseMotionAdapter());
 	   jPcentre.add(BorderLayout.NORTH,test);
     jPcentre.add(jSuserList);
-		//µ×²¿
+		//åº•éƒ¨
 		jLbase.setBounds(0, 499, 304, 51);
 	}
-	//ÓÃÓÚµÇÂ¼ºó¶ÁÈ¡×Ô¼ººÍºÃÓÑĞÅÏ¢
+	//ç”¨äºç™»å½•åè¯»å–è‡ªå·±å’Œå¥½å‹ä¿¡æ¯
 	private Boolean login()
 	{
 		String judge = null;
@@ -513,9 +513,9 @@ public class PersonelView extends JFrame implements Runnable{
 			out.println(userIp);
 			out.flush();
 			out.println(usePort);
-			//System.out.println("·¢ËÍ¸øÊı¾İ¿âÎÒµÄ¶Ë¿ÚºÅ"+usePort);
+			//System.out.println("å‘é€ç»™æ•°æ®åº“æˆ‘çš„ç«¯å£å·"+usePort);
 			out.flush();
-			//¶ÁÈ¡×Ô¼ºĞÅÏ¢
+			//è¯»å–è‡ªå·±ä¿¡æ¯
 			 judge=in.readLine();
 			 if(judge.equals("loginFail"))
 			 {
@@ -540,14 +540,14 @@ public class PersonelView extends JFrame implements Runnable{
 						myInfo.setStatus(Integer.valueOf(in.readLine()));
 						myInfo.setPort(Integer.valueOf(in.readLine()));
 						myInfo.setIp(in.readLine());
-						//×Ô¼ºĞÅÏ¢¶ÁÈ¡Íê±Ï£¬·şÎñÆ÷·¢ËÍloginSuccess£¬¿ªÊ¼¶ÁÈ¡ºÃÓÑĞÅÏ¢
+						//è‡ªå·±ä¿¡æ¯è¯»å–å®Œæ¯•ï¼ŒæœåŠ¡å™¨å‘é€loginSuccessï¼Œå¼€å§‹è¯»å–å¥½å‹ä¿¡æ¯
 				 }
 			 }
-			//×Ô¼ºĞÅÏ¢¶ÁÈ¡Íê±Ï£¬·şÎñÆ÷·¢ËÍloginSuccess£¬¿ªÊ¼¶ÁÈ¡ºÃÓÑĞÅÏ¢
+			//è‡ªå·±ä¿¡æ¯è¯»å–å®Œæ¯•ï¼ŒæœåŠ¡å™¨å‘é€loginSuccessï¼Œå¼€å§‹è¯»å–å¥½å‹ä¿¡æ¯
 			 String flag_3=in.readLine();
 			 if(flag_3.equals("loginSuccess"))
 					{
-					/*-----------------¿ªÊ¼´Ó·şÎñÆ÷¶Ë¶ÁÈ¡ºÃÓÑĞÅÏ¢--------------------------*/
+					/*-----------------å¼€å§‹ä»æœåŠ¡å™¨ç«¯è¯»å–å¥½å‹ä¿¡æ¯--------------------------*/
 						friendInfoTable.clear();
 						String flag2="";
 							do
@@ -588,16 +588,16 @@ public class PersonelView extends JFrame implements Runnable{
 		}
 	return true;
 	}
-	//»ñµÃºÃÓÑĞÅÏ¢ÒÔ´´½¨ÁĞ±í
+	//è·å¾—å¥½å‹ä¿¡æ¯ä»¥åˆ›å»ºåˆ—è¡¨
 	private void getFriendInfo()
 	{
 		listModel.removeAllElements();
-		//ÊµÏÖ Enumeration ½Ó¿ÚµÄ¶ÔÏó£¬Éú³ÉÒ»ÏµÁĞÔªËØ£¬Ò»´ÎÉú³ÉÒ»¸ö¡£Á¬Ğøµ÷ÓÃ nextElement ·½·¨½«·µ»ØÒ»ÏµÁĞµÄÁ¬ĞøÔªËØ¡£ 
+		//å®ç° Enumeration æ¥å£çš„å¯¹è±¡ï¼Œç”Ÿæˆä¸€ç³»åˆ—å…ƒç´ ï¼Œä¸€æ¬¡ç”Ÿæˆä¸€ä¸ªã€‚è¿ç»­è°ƒç”¨ nextElement æ–¹æ³•å°†è¿”å›ä¸€ç³»åˆ—çš„è¿ç»­å…ƒç´ ã€‚ 
 		 Enumeration it = friendInfoTable.elements();
 		 String name="";
 		 String num="";
 		 String portrait="";
-		 String friendinfo="";//Ã¿Ò»¸öºÃÓÑµÄÏÔÊ¾ĞÅÏ¢
+		 String friendinfo="";//æ¯ä¸€ä¸ªå¥½å‹çš„æ˜¾ç¤ºä¿¡æ¯
 		 int status=0;
 		 while(it.hasMoreElements())
 		 {
@@ -611,7 +611,7 @@ public class PersonelView extends JFrame implements Runnable{
 		 }
 		 
 	}	
-	//¶ÁÈ¡¶Ë¿ÚºÅ
+	//è¯»å–ç«¯å£å·
 	private int getUdpPort(String key)
 	{
 		int myport=0;
@@ -619,7 +619,7 @@ public class PersonelView extends JFrame implements Runnable{
 		try {
 			FileInputStream in=new FileInputStream("src/file/udp.txt");
 		FileOutputStream out=new FileOutputStream("src/file/udp.txt",true);
-		p.load(in);//´ÓÊäÈëÁ÷ÖĞ¶ÁÈ¡ÊôĞÔÁĞ±í
+		p.load(in);//ä»è¾“å…¥æµä¸­è¯»å–å±æ€§åˆ—è¡¨
 		myport=Integer.parseInt(p.getProperty(key));
 		myport=myport+1;
 		p.setProperty("udp.Port", new Integer(myport).toString());
@@ -637,7 +637,7 @@ public class PersonelView extends JFrame implements Runnable{
 		int nextport=port;
 		Boolean flag=true;
 		DatagramSocket testsocket=null;
-		//¼ì²â¶Ë¿ÚÊÇ·ñ±»Õ¼ÓÃ
+		//æ£€æµ‹ç«¯å£æ˜¯å¦è¢«å ç”¨
 		while(true)
 		{
 			flag=true;
@@ -666,9 +666,9 @@ public class PersonelView extends JFrame implements Runnable{
 			exit();
 		}
 	}
-	public void exit()//´¦ÀíÓÃ»§ÏÂÏß
+	public void exit()//å¤„ç†ç”¨æˆ·ä¸‹çº¿
 	{
-		int option=JOptionPane.showConfirmDialog(PersonelView.this, "Ç×£¬ÄãÈ·¶¨ÒªÍË³öÃ´£¿");
+		int option=JOptionPane.showConfirmDialog(PersonelView.this, "äº²ï¼Œä½ ç¡®å®šè¦é€€å‡ºä¹ˆï¼Ÿ");
 		if(option==JOptionPane.YES_OPTION)
 		{
 			try {
@@ -696,7 +696,7 @@ public class PersonelView extends JFrame implements Runnable{
 			}
 		}
 	}
-	//ÏìÓ¦ºÃÓÑÍ·ÏñÉÏµÄÊó±êË«»÷ÊÂ¼ş
+	//å“åº”å¥½å‹å¤´åƒä¸Šçš„é¼ æ ‡åŒå‡»äº‹ä»¶
 	class PersonelView_userList_mouseAdapter extends MouseAdapter
 	{
 		public void mouseClicked(MouseEvent e)
@@ -708,20 +708,20 @@ public class PersonelView extends JFrame implements Runnable{
 			}
 		}
 	}
-	//´¦ÀíÓÃ»§½«Êó±êÒÆ¶¯µ½Ä³Ò»¸öÍ·ÏñÉÏ
+	//å¤„ç†ç”¨æˆ·å°†é¼ æ ‡ç§»åŠ¨åˆ°æŸä¸€ä¸ªå¤´åƒä¸Š
 	class PersonelView_userList_mouseMotionAdapter extends MouseMotionAdapter
 	{
 		public void mouseMoved(MouseEvent e)
 		{
 			if(!(listModel.isEmpty()))
 			{
-				currentIndex=userList.locationToIndex(e.getPoint());//»ñµÃµ±Ç°ËùÔÚÁĞ±íµÄË÷Òı
-				currentInfo=listModel.getElementAt(currentIndex).toString();//»ñµÃµ±Ç°ÁĞ±íµÄÖµ
+				currentIndex=userList.locationToIndex(e.getPoint());//è·å¾—å½“å‰æ‰€åœ¨åˆ—è¡¨çš„ç´¢å¼•
+				currentInfo=listModel.getElementAt(currentIndex).toString();//è·å¾—å½“å‰åˆ—è¡¨çš„å€¼
 				currentUserNum=currentInfo.substring(currentInfo.indexOf("<")+1,currentInfo.indexOf(">"));
-				//¸ù¾İºÃÓÑµÄQQºÅ²éÕÒºÃÓÑµÄĞÅÏ¢
+				//æ ¹æ®å¥½å‹çš„QQå·æŸ¥æ‰¾å¥½å‹çš„ä¿¡æ¯
 				currentFriend=(UserBean)friendInfoTable.get(currentUserNum);
 				String friendSign=currentFriend.getSign();
-				userList.setToolTipText(friendSign);//ÉèÖÃÌáÊ¾ĞÅÏ¢£¬ÏÔÊ¾ºÃÓÑµÄ¸öĞÔÇ©Ãû
+				userList.setToolTipText(friendSign);//è®¾ç½®æç¤ºä¿¡æ¯ï¼Œæ˜¾ç¤ºå¥½å‹çš„ä¸ªæ€§ç­¾å
 		}
 	}
 }
@@ -729,12 +729,12 @@ public class PersonelView extends JFrame implements Runnable{
 	{
 		public void mouseEntered(MouseEvent e)
 		{
-			jLportrait.setCursor(new Cursor(Cursor.HAND_CURSOR));//½«½øÈë×Ô¼ºÍ·ÏñÊ±£¬±äÎªÊÖ×´¹â±êÀàĞÍ¡£
+			jLportrait.setCursor(new Cursor(Cursor.HAND_CURSOR));//å°†è¿›å…¥è‡ªå·±å¤´åƒæ—¶ï¼Œå˜ä¸ºæ‰‹çŠ¶å…‰æ ‡ç±»å‹ã€‚
 		}
 		public void mousePressed(MouseEvent e)
 		{
 				
-				UserInfo userInfo=new UserInfo(PersonelView.this,"ÎÒµÄ×ÊÁÏ",true,myInfo);
+				UserInfo userInfo=new UserInfo(PersonelView.this,"æˆ‘çš„èµ„æ–™",true,myInfo);
 			userInfo.setVisible(true);
 		}
 	}
@@ -749,11 +749,11 @@ public class PersonelView extends JFrame implements Runnable{
 			String judge_find=in.readLine();
 			if(judge_find.equals("noUser"))
 			{
-				JOptionPane.showMessageDialog(PersonelView.this, "Ç×£¬ÄãÊäÈëµÄÓÃ»§²»´æÔÚÄØ£¡");
+				JOptionPane.showMessageDialog(PersonelView.this, "äº²ï¼Œä½ è¾“å…¥çš„ç”¨æˆ·ä¸å­˜åœ¨å‘¢ï¼");
 			}
 			else if(judge_find.equals("queryUserFail"))
 			{
-				JOptionPane.showMessageDialog(PersonelView.this, "²éÕÒÓÃ»§Ê§°Ü");
+				JOptionPane.showMessageDialog(PersonelView.this, "æŸ¥æ‰¾ç”¨æˆ·å¤±è´¥");
 			}
 			else
 			{
@@ -767,13 +767,13 @@ public class PersonelView extends JFrame implements Runnable{
 				findUserBean.setStatus(Integer.valueOf(in.readLine()));
 				findUserBean.setPort(Integer.valueOf(in.readLine()));
 				findUserBean.setIp(in.readLine());
-				FindUser find=new FindUser(PersonelView.this,"ÓÃ»§×ÊÁÏ",true,findUserBean,PersonelView.this);
+				FindUser find=new FindUser(PersonelView.this,"ç”¨æˆ·èµ„æ–™",true,findUserBean,PersonelView.this);
 				find.setVisible(true);
 			}
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-			JOptionPane.showMessageDialog(PersonelView.this, "ÏµÍ³ÕıÔÚÎ¬»¤ÖĞ£¡");
+			JOptionPane.showMessageDialog(PersonelView.this, "ç³»ç»Ÿæ­£åœ¨ç»´æŠ¤ä¸­ï¼");
 		}
 		
 	}
@@ -787,11 +787,11 @@ public class PersonelView extends JFrame implements Runnable{
 			String  friendinfo= status + name + "<" + num + ">" + "*" + portrait+"^";
 			if(listModel.contains(friendinfo))
 			{
-				JOptionPane.showMessageDialog(PersonelView.this, "¸ÃÓÃ»§ÒÑ´æÔÚºÃÓÑÁĞ±íÖĞ");
+				JOptionPane.showMessageDialog(PersonelView.this, "è¯¥ç”¨æˆ·å·²å­˜åœ¨å¥½å‹åˆ—è¡¨ä¸­");
 			}
 			else
 			{
-			//Ïò·şÎñÆ÷·¢ËÍÌí¼ÓºÃÓÑÇëÇó
+			//å‘æœåŠ¡å™¨å‘é€æ·»åŠ å¥½å‹è¯·æ±‚
 			out.println("addFriend");
 			out.flush();
 			out.println(myInfo.getUserNum());
@@ -801,15 +801,15 @@ public class PersonelView extends JFrame implements Runnable{
 			String judge_add=in.readLine();
 			if(judge_add.equals("addFriendOver"))
 			{
-				//½«ĞÂÌí¼ÓµÄºÃÓÑĞÅÏ¢´æÈëµ½¹şÏ£±íÖĞ
+				//å°†æ–°æ·»åŠ çš„å¥½å‹ä¿¡æ¯å­˜å…¥åˆ°å“ˆå¸Œè¡¨ä¸­
 				friendInfoTable.put(findUserBean.getUserNum().trim(), findUserBean);
-				//ÔÚÁĞ±íÖĞÏÔÊ¾ĞÂÌí¼ÓµÄºÃÓÑ
+				//åœ¨åˆ—è¡¨ä¸­æ˜¾ç¤ºæ–°æ·»åŠ çš„å¥½å‹
 					listModel.addElement(friendinfo);
-					JOptionPane.showMessageDialog(PersonelView.this, "Ìí¼Ó³É¹¦");
+					JOptionPane.showMessageDialog(PersonelView.this, "æ·»åŠ æˆåŠŸ");
 			}
 			else if(judge_add.equals("addFriendFail"))
 			{
-				JOptionPane.showMessageDialog(PersonelView.this, "Ìí¼ÓºÃÓÑÊ§°Ü");
+				JOptionPane.showMessageDialog(PersonelView.this, "æ·»åŠ å¥½å‹å¤±è´¥");
 			}
 			}
 		
@@ -819,7 +819,7 @@ public class PersonelView extends JFrame implements Runnable{
 		}
 		
 	}
-	//¸üĞÂ×Ô¼ºµÄÍ·Ïñ
+	//æ›´æ–°è‡ªå·±çš„å¤´åƒ
 	public void refreshMyProtrait()
 	{
 		jLportrait.setIcon(new ImageIcon(myInfo.getPortrait()));
@@ -831,7 +831,7 @@ public class PersonelView extends JFrame implements Runnable{
 	}
 	public void changHead()
 	{
-		ChangeHead changeHead=new ChangeHead(PersonelView.this,"¸ü»»Í·Ïñ",true,myInfo,in,out,PersonelView.this);
+		ChangeHead changeHead=new ChangeHead(PersonelView.this,"æ›´æ¢å¤´åƒ",true,myInfo,in,out,PersonelView.this);
 		changeHead.setVisible(true);
 		PersonelView.this.refreshMyProtrait();
 	}

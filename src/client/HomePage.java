@@ -19,23 +19,23 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-/*µÇÂ½Ä£¿é*/
+/*ç™»é™†æ¨¡å—*/
 public class HomePage extends JFrame{
 	JLabel jLtitle=new JLabel(new ImageIcon("src/file/Title.png"));
 	JLabel jLhead=new JLabel(new ImageIcon("src/file/1-1.png"));
-	//JLabel jLRegist=new JLabel("×¢²áÕËºÅ");
-	//JLabel jLFindPass= new JLabel("ÕÒ»ØÃÜÂë");
-	JTextField jTusernumber=new JTextField();//ÕËºÅÊäÈë¿ò
-	JPasswordField jPassword=new JPasswordField();//ÃÜÂëÊäÈë¿ò
-	JCheckBox rememberPass=new JCheckBox("¼Ç×¡ÃÜÂë");
-	JCheckBox Autologon =new JCheckBox("×Ô¶¯µÇÂ¼",true);
-	JButton jBmore=new JButton(">¶àÕËºÅ");
-	JButton jBset=new JButton("ÉèÖÃ");
-	JButton jBenter=new JButton("µÇÂ½");
+	//JLabel jLRegist=new JLabel("æ³¨å†Œè´¦å·");
+	//JLabel jLFindPass= new JLabel("æ‰¾å›å¯†ç ");
+	JTextField jTusernumber=new JTextField();//è´¦å·è¾“å…¥æ¡†
+	JPasswordField jPassword=new JPasswordField();//å¯†ç è¾“å…¥æ¡†
+	JCheckBox rememberPass=new JCheckBox("è®°ä½å¯†ç ");
+	JCheckBox Autologon =new JCheckBox("è‡ªåŠ¨ç™»å½•",true);
+	JButton jBmore=new JButton(">å¤šè´¦å·");
+	JButton jBset=new JButton("è®¾ç½®");
+	JButton jBenter=new JButton("ç™»é™†");
 	Register register;
 	PersonelView personelView;
 	HomePage h;
-	Boolean pass=true;//ÓÃÓÚ±êÊ¶µÇÂ½ÊÇ·ñ³É¹¦
+	Boolean pass=true;//ç”¨äºæ ‡è¯†ç™»é™†æ˜¯å¦æˆåŠŸ
 	HomePage enter;
 	public HomePage()
 	{
@@ -67,19 +67,19 @@ public class HomePage extends JFrame{
 		jLtitle.setBounds(0 ,0, 380, 105);
 		jTusernumber.setBounds(120, 110, 160, 28);
 		jPassword.setBounds(120, 145, 160, 28);
-		rememberPass.setFont(new Font("ËÎÌå",Font.PLAIN,10));
+		rememberPass.setFont(new Font("å®‹ä½“",Font.PLAIN,10));
 		rememberPass.setForeground(Color.BLACK);
 		rememberPass.setBounds(148, 175, 70, 25);
-		Autologon.setFont(new Font("ËÎÌå",Font.PLAIN,10));
+		Autologon.setFont(new Font("å®‹ä½“",Font.PLAIN,10));
 		Autologon.setForeground(Color.BLACK);
 		Autologon.setBounds(220, 175, 70, 25);
 		jLhead.setBounds(20, 105, 87, 90);
-		jBmore.setFont(new Font("ËÎÌå",Font.PLAIN,10));
+		jBmore.setFont(new Font("å®‹ä½“",Font.PLAIN,10));
 		jBmore.setForeground(Color.BLACK);
 		jBmore.setBounds(10, 225, 70, 23);
-		jBset.setFont(new Font("ËÎÌå",Font.PLAIN,10));
+		jBset.setFont(new Font("å®‹ä½“",Font.PLAIN,10));
 		jBset.setBounds(95, 225, 55, 23);
-		jBenter.setFont(new Font("ËÎÌå",Font.PLAIN,10));
+		jBenter.setFont(new Font("å®‹ä½“",Font.PLAIN,10));
 		jBenter.setBounds(300, 225, 55, 23);
 		jBenter.addActionListener(new ActionListener(){
 
@@ -92,12 +92,12 @@ public class HomePage extends JFrame{
 				int port = 0;
 				if(userName.equals(""))
 				{
-					JOptionPane.showMessageDialog(jBenter, "ÇëÄúÊäÈëÕËºÅºóÔÙµÇÂ½");
+					JOptionPane.showMessageDialog(jBenter, "è¯·æ‚¨è¾“å…¥è´¦å·åå†ç™»é™†");
 					jTusernumber.requestFocus();
 				}
 				else if(userPass.equals(""))
 				{
-					JOptionPane.showMessageDialog(jBenter, "ÇëÄúÊäÈëÃÜÂëºóÔÙµÇÂ½");
+					JOptionPane.showMessageDialog(jBenter, "è¯·æ‚¨è¾“å…¥å¯†ç åå†ç™»é™†");
 					jPassword.requestFocus();
 				}
 				else
@@ -115,7 +115,7 @@ public class HomePage extends JFrame{
 				if(!pass)
 				{
 					personelView.setVisible(false);
-					JOptionPane.showMessageDialog(null, "ÄúÊäÈëµÄÕËºÅÓëÃÜÂë²»Æ¥Åä£¬Çë¼ì²é");
+					JOptionPane.showMessageDialog(null, "æ‚¨è¾“å…¥çš„è´¦å·ä¸å¯†ç ä¸åŒ¹é…ï¼Œè¯·æ£€æŸ¥");
 					if(enter==null)
 					{
 					enter=new HomePage();
@@ -127,7 +127,7 @@ public class HomePage extends JFrame{
 			
 			
 		});
-		//Ìí¼Ó×¢²áÕËºÅ±êÇ©£¬²¢ÎªÆäÌí¼ÓäÖÈ¾Æ÷
+		//æ·»åŠ æ³¨å†Œè´¦å·æ ‡ç­¾ï¼Œå¹¶ä¸ºå…¶æ·»åŠ æ¸²æŸ“å™¨
 		class JlRegist extends JLabel
 		{
 			private boolean isSupported;
@@ -171,12 +171,12 @@ public class HomePage extends JFrame{
 			      setText("<html><font color=blue><u>" + regist);
 			  }
 			}
-	     JlRegist jLRegist=new JlRegist("×¢²áÕËºÅ");
-			jLRegist.setFont(new Font("ËÎÌå",Font.PLAIN,13));
+	     JlRegist jLRegist=new JlRegist("æ³¨å†Œè´¦å·");
+			jLRegist.setFont(new Font("å®‹ä½“",Font.PLAIN,13));
 			jLRegist.setForeground(Color.BLUE);
 			jLRegist.setBounds(283, 110, 60, 28);
 			this.add(jLRegist);
-			//Ìí¼ÓÕÒ»ØÃÜÂë±êÇ©£¬²¢ÎªÆäÌí¼ÓäÖÈ¾Æ÷
+			//æ·»åŠ æ‰¾å›å¯†ç æ ‡ç­¾ï¼Œå¹¶ä¸ºå…¶æ·»åŠ æ¸²æŸ“å™¨
 			class JlFindPass extends JLabel
 			{
 				private boolean isSupported;
@@ -219,8 +219,8 @@ public class HomePage extends JFrame{
 				      setText("<html><font color=blue><u>" + findPass);
 				  }
 			}
-			JlFindPass jLfindPass=new JlFindPass("ÕÒ»ØÃÜÂë");
-			jLfindPass.setFont(new Font("ËÎÌå",Font.PLAIN,13));
+			JlFindPass jLfindPass=new JlFindPass("æ‰¾å›å¯†ç ");
+			jLfindPass.setFont(new Font("å®‹ä½“",Font.PLAIN,13));
 			jLfindPass.setForeground(Color.BLUE);
 			jLfindPass.setBounds(283,145, 60, 28);
 			this.add(jLfindPass);
