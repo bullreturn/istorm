@@ -17,7 +17,8 @@ public class ConnectionDao {
 			System.out.println("加载驱动失败");
 		}
 		try{
-			String url="jdbc:mysql://localhost:3306/test?user=root&password=123456";
+			// Who cares :(
+			String url="jdbc:mysql://ecs.cnstl.tech:13306/test?user=root&password=123456";
 		    conn=DriverManager.getConnection(url);	
 			System.out.print("连接成功");
 			return conn;
