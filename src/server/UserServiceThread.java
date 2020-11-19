@@ -1,14 +1,11 @@
 package server;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.io.PrintStream;
 import java.net.Socket;
+import java.net.SocketTimeoutException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,36 +23,57 @@ import java.util.Vector;
  * 7.用户下线
  * 8.修改头像
  * 9.文件传输*/
-public class Server extends Thread{
-	private Socket socket=null;//套接字
+public class UserServiceThread extends Thread{
+	private Socket socket;
 	private BufferedReader in=null;//输入流
 	private PrintStream out=null;//输出流
-	private Connection con=null;//数据库连接 
-	private Boolean flag=true;//控制服务器线程的启动与停止
+	private Connection con=null;//数据库连接
+
+	private final SWT_Callback sys;
+
+	// Manager thread check this flag and decide to delete it.
+	public Boolean _shouldExit =false;//控制服务器线程的启动与停止
 	/*-------------------传送文件----------------------------*/
 	//ServerThread father=null;
 	/*-----------------------------------------------------------*/
 	//public Server(Socket socket,ServerThread father)
-	public Server(Socket socket){
-		// TODO Auto-generated constructor stub
+	public UserServiceThread(Socket socket, SWT_Callback sys, Connection dbc){
 		this.socket=socket;
-//		this.father=father;
+		this.con=dbc;
+		this.sys=sys;
+		// TODO Auto-generated constructor stub
+		//套接字
 		try {
+			socket.setSoTimeout(1000);
 			in=new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			out=new PrintStream(socket.getOutputStream());
-			con=ConnectionDao.getConnection();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+
+	public void stopThreadSocket(){
+		try {
+			in.close();
+			out.close();
+			socket.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	//本线程的主方法，根据客户端发送的命令，调用对应的方法执行
 	public void run()
 	{
-		try {
-			while(flag)
-			{
+		System.out.printf("UserServiceThread started: "+this.getId()+"\n");
+		while(!_shouldExit)
+		{
+			try {
 				String str=in.readLine();
+				if(str==null){	// client socket closed
+					break;
+				}
 				if(str.equals("end"))
 				{
 					break;
@@ -97,23 +115,29 @@ public class Server extends Thread{
 //				{
 //					sendFile();
 //				}
+			} catch (SocketTimeoutException e){	// normal timeout, for stopping thread
+				// do nothing
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
+
+		sys.unregisterSession(this);
+		stopThreadSocket();
+		System.out.printf("UserServiceThread exited: "+this.getId()+"\n");
 	}
 	public void registNewUser()
 	{
-		String sql1="INSERT INTO UserInformation (UserNum,UserName,Password,Sex,Birth,Address,Sign,Portrait,Status) values(?,?,?,?,?,?,?,?,?)";
-		String sql2="select UserNum from QQNum where Mark = 1";
+		String sql1="INSERT INTO userinformation (usernum,username,password,sex,birth,address,sign,portrait,status) values(?,?,?,?,?,?,?,?,?)";
+		String sql2="select usernum from qqnum where mark = 1";
 		Statement stmt1=null,stmt2=null;
 		ResultSet rs=null;
 		try {
 			stmt1=con.createStatement();
 			rs=stmt1.executeQuery(sql2);
 			rs.next();
-			String userNum=rs.getString("UserNum");//从QQNum表获取一个合法QQ号	
+			String userNum=rs.getString("usernum");//从QQNum表获取一个合法QQ号
 		
 			PreparedStatement pstmt=con.prepareStatement(sql1);
 			String userName=in.readLine();
@@ -134,7 +158,7 @@ public class Server extends Thread{
 			pstmt.close();
 			//修改QQNum中的Mark值，改为0，表示该QQ已被用户注册
 			System.out.println(userNum);
-			String sql3="UPDATE QQNum SET Mark = 0 where UserNum = '"+userNum+"'";
+			String sql3="UPDATE qqnum SET mark = 0 where usernum = '"+userNum+"'";
 			stmt2=con.createStatement();
 			stmt2.executeUpdate(sql3);
 			out.println("registerOver");//注册完毕
@@ -164,7 +188,7 @@ public class Server extends Thread{
 			String password=in.readLine();
 			String ip=in.readLine();
 			String port=in.readLine();
-			String sql1="select * from UserInformation where UserNum= '"+userNum+"' and Password = '"+password+"'";
+			String sql1="select * from userinformation where usernum= '"+userNum+"' and password = '"+password+"'";
 			stmt1=con.createStatement();
 			rs=stmt1.executeQuery(sql1);
 			//System.out.println(userNum+password+ip+port);
@@ -173,9 +197,9 @@ public class Server extends Thread{
 			{
 		      //String ip=String.valueOf(socket.getInetAddress().getLocalHost());
 				//int port=socket.getLocalPort();
-				String sql2="UPDATE UserInformation SET Status = 1,IP = '"+ip+"', Port = "+port+" where UserNum ='"+userNum+"'";
+				String sql2="UPDATE userinformation SET status = 1,ip = '"+ip+"', port = "+port+" where usernum ='"+userNum+"'";
 				System.out.println(sql2);
-				System.out.println(port);	
+				System.out.println(port);
 				stmt2=con.createStatement();
 				stmt2.executeUpdate(sql2);
 				out.println("sendUserInfo");
@@ -209,41 +233,41 @@ public class Server extends Thread{
 		ResultSet rs2=null;
 		Vector friendNum=new Vector();//此向量用于存储好友的QQ号码
 		try {
-			String sql1="select FriendNum from UserFriend where UserNum = "+userNum;
+			String sql1="select friendnum from userfriend where usernum = "+userNum;
 			stmt1=con.createStatement();
 			rs1=stmt1.executeQuery(sql1);
 			while(rs1.next())
 			{
-				friendNum.addElement(rs1.getString("FriendNum"));
+				friendNum.addElement(rs1.getString("friendnum"));
 			}
 			rs1.close();
 			stmt1.close();
 			for(int i=0;i<friendNum.size();i++)
 			{
 				String friend=(String) friendNum.elementAt(i);
-				String sql2="select * from UserInformation where UserNum ='"+friend+"'";
+				String sql2="select * from userinformation where usernum ='"+friend+"'";
 				stmt2=con.createStatement();
 				rs2=stmt2.executeQuery(sql2);
 				rs2.next();
 				out.println(friend);//QQ号码
 				out.flush();
-				out.println(rs2.getString("UserName"));
+				out.println(rs2.getString("username"));
 				out.flush();
-				out.println(rs2.getString("Sex"));
+				out.println(rs2.getString("sex"));
 				out.flush();
-				out.println(rs2.getString("Birth"));
+				out.println(rs2.getString("birth"));
 				out.flush();
-				out.println(rs2.getString("Address"));
+				out.println(rs2.getString("address"));
 				out.flush();
-				out.println(rs2.getString("Sign"));
+				out.println(rs2.getString("sign"));
 				out.flush();
-				out.println(rs2.getString("Portrait"));
+				out.println(rs2.getString("portrait"));
 				out.flush();
-				out.println(rs2.getString("Status"));
+				out.println(rs2.getString("status"));
 				out.flush();
-				out.println(rs2.getString("Port"));
+				out.println(rs2.getString("port"));
 				out.flush();
-				out.println(rs2.getString("IP"));
+				out.println(rs2.getString("ip"));
 				out.flush();
 				rs2.close();
 				stmt2.close();
@@ -260,30 +284,30 @@ public class Server extends Thread{
 		Statement stmt=null;
 		ResultSet rs=null;
 		try {
-			String sql="select * from UserInformation where UserNum = '"+userNum+"'";
+			String sql="select * from userinformation where usernum = '"+userNum+"'";
 			stmt=con.createStatement();
 			rs=stmt.executeQuery(sql);
 			if(rs.next())
 			{
 				out.println(userNum);//QQ号码
 				out.flush();
-				out.println(rs.getString("UserName"));
+				out.println(rs.getString("username"));
 				out.flush();
-				out.println(rs.getString("Sex"));
+				out.println(rs.getString("sex"));
 				out.flush();
-				out.println(rs.getString("Birth"));
+				out.println(rs.getString("birth"));
 				out.flush();
-				out.println(rs.getString("Address"));
+				out.println(rs.getString("address"));
 				out.flush();
-				out.println(rs.getString("Sign"));
+				out.println(rs.getString("sign"));
 				out.flush();
-				out.println(rs.getString("Portrait"));
+				out.println(rs.getString("portrait"));
 				out.flush();
-				out.println(rs.getInt("Status"));
+				out.println(rs.getInt("status"));
 				out.flush();
-				out.println(rs.getInt("Port"));
+				out.println(rs.getInt("port"));
 				out.flush();
-				out.println(rs.getString("IP"));
+				out.println(rs.getString("ip"));
 				out.flush();
 			}
 			else
@@ -309,7 +333,7 @@ public class Server extends Thread{
 	public void addFriend()
 	{
 		try {
-			String sql="INSERT INTO UserFriend (UserNum,FriendNum) values (?,?)";
+			String sql="INSERT INTO userfriend (usernum,friendnum) values (?,?)";
 			PreparedStatement pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, in.readLine());
 			pstmt.setString(2, in.readLine());
@@ -327,7 +351,7 @@ public class Server extends Thread{
 	public void deleteFriend()
 	{
 		try {
-			String sql="DELETE FROM UserFriend WHERE UserNum = '"+in.readLine()+"' and FriendNum = '"+in.readLine()+"'";
+			String sql="DELETE FROM userfriend WHERE usernum = '"+in.readLine()+"' and friendnum = '"+in.readLine()+"'";
 			PreparedStatement pstmt=con.prepareStatement(sql);
 			pstmt.execute();
 			out.println("deleteFriendOver");
@@ -343,7 +367,7 @@ public class Server extends Thread{
 	public void updateOwnInformation()
 	{
 		try {
-			String sql="UPDATE UserInformation SET UserName = ? , Sex = ? , Birth = ?, Address = ? , Sign = ? where UserNum ='"+in.readLine()+"'";
+			String sql="UPDATE UserInformation SET username = ? , sex = ? , birth = ?, address = ? , sign = ? where usernum ='"+in.readLine()+"'";
 			PreparedStatement pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, in.readLine());
 			pstmt.setString(2, in.readLine());
@@ -364,7 +388,7 @@ public class Server extends Thread{
 	public void logout()
 	{
 		try {
-			String sql="UPDATE UserInformation SET Status = 0 , IP = null , Port = 0 where UserNum = '"+in.readLine()+"'";
+			String sql="UPDATE UserInformation SET status = 0 , ip = null , port = 0 where usernum = '"+in.readLine()+"'";
 			PreparedStatement pstmt=con.prepareStatement(sql);
 			pstmt.executeUpdate();
 			out.println("logOut");
@@ -383,7 +407,7 @@ public class Server extends Thread{
 			String num=in.readLine();
 			String image=in.readLine();
 			//System.out.println("修改头像了哈"+num+image);
-			String sql="UPDATE UserInformation SET Portrait = '"+image+"' where UserNum = '"+num+"'";
+			String sql="UPDATE userinformation SET portrait = '"+image+"' where usernum = '"+num+"'";
 			PreparedStatement pstmt=con.prepareStatement(sql);
 			pstmt.executeUpdate();
 			out.println("updateMyportraitOver");

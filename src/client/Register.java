@@ -301,7 +301,7 @@ public class Register extends JFrame {
 					 address=jTplace.getText();
 					 birth=type+"-"+y+"年"+m+"月"+d+"日";
 						try {
-							InetAddress ip=InetAddress.getByName("192.168.20.1");
+							InetAddress ip=InetAddress.getByName("127.0.0.1");
 							int port=(6544);
 							socket=new Socket(ip,port);
 							System.out.println("与服务器开始连接");

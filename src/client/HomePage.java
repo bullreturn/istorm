@@ -104,7 +104,7 @@ public class HomePage extends JFrame{
 				{
 					HomePage.this.setVisible(false);
 						try {
-						ip=InetAddress.getByName("192.168.20.1");
+						ip=InetAddress.getByName("127.0.0.1");
 						port=(6544);
 						} catch (IOException e1) {
 							// TODO Auto-generated catch block

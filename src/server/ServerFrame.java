@@ -3,8 +3,8 @@ package server;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -32,7 +32,6 @@ public class ServerFrame extends JFrame {
 	JLabel jLtime=new JLabel();
 	JButton jBgetInfo=new JButton("查看信息");
 	JButton jBkickOut=new JButton("踢出");
-	JButton jBpauseServer=new JButton("暂停服务");
 	JButton jBexit=new JButton("退出");
 	DefaultListModel listModel=new DefaultListModel();
 	JList userList=new JList(listModel);
@@ -40,7 +39,8 @@ public class ServerFrame extends JFrame {
 	JTextArea jTServerLog=new JTextArea();
 	JScrollPane jServerLog=new JScrollPane(jTServerLog);
 	private Connection con=null;
-	ServerThread serverThread=null;
+	ServerWorkingThread serverWorkingThread =null;
+	java.util.Timer showtimeTimer;
 	private Hashtable userTable= new Hashtable();//将UserBean的对象统一存储到HashTable中
 	public ServerFrame()
 	{
@@ -59,16 +59,15 @@ public class ServerFrame extends JFrame {
 		this.add(jCount);
 		this.add(jshowServerLog);
 		this.add(jServerLog);
-		this.add(jBpauseServer);
 		this.add(jBexit);
 		this.add(jLtime);
-	   serverThread=new ServerThread(jTServerLog);//启动ServerSocket套接字，并做好等待客户端连接的准备
-		serverThread.start();
+	   serverWorkingThread =new ServerWorkingThread(jTServerLog,con);//启动ServerSocket套接字，并做好等待客户端连接的准备
+		serverWorkingThread.start();
 		//使jLtime动态显示时间
-		java.util.Timer myTime=new java.util.Timer();
+		showtimeTimer =new java.util.Timer();
 		java.util.TimerTask task_showtime=new ShowTimeTask(jLtime);
-		myTime.schedule(task_showtime, 0,1000);
-		java.util.Timer time=new java.util.Timer();
+		showtimeTimer.schedule(task_showtime, 0,1000);
+		/*java.util.Timer time=new java.util.Timer();
 		java.util.TimerTask task_time=new LoginUser(listModel,userList,jCount,userTable,con);
 		time.schedule(task_time, 0,10000);//每10秒刷新一次
 		try {
@@ -76,7 +75,7 @@ public class ServerFrame extends JFrame {
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 	}
 	//布置服务器主界面
 	public void init()
@@ -143,28 +142,6 @@ public class ServerFrame extends JFrame {
 		jshowServerLog.setBounds(220, 10, 150, 25);
 		jshowServerLog.setFont(new Font("宋体",Font.PLAIN,11));
 		jServerLog.setBounds(210, 40, 575, 550);
-		jBpauseServer.setBounds(340, 595, 90, 25);
-		jBpauseServer.setFont(new Font("宋体",Font.PLAIN,11));
-		//暂停服务按钮监听
-		jBpauseServer.addActionListener(new ActionListener(){
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				String command=e.getActionCommand();
-				if(command.equals("暂停服务"))
-				{
-					serverThread.pauseThread();
-					jBpauseServer.setText("恢复服务");
-				}
-				else if(command.equals("恢复服务"))
-				{
-					serverThread.reStartThread();
-					jBpauseServer.setText("暂停服务");
-				}
-			}
-			
-		});
 		jBexit.setBounds(470, 595, 60, 25);
 		jBexit.setFont(new Font("宋体",Font.PLAIN,11));
 		//退出按钮监听
@@ -176,40 +153,42 @@ public class ServerFrame extends JFrame {
 				int option=JOptionPane.showConfirmDialog(jBexit, "亲，你确定要退出吗？");
 				if(option==JOptionPane.YES_OPTION)
 				{
-					try {
-						con.close();//关闭数据库连接
-						//关闭服务器线程的数据库连接
-						System.exit(0);
-					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
+					dispose();	// close window
 				}
 			}
 			
 		});
 		jLtime.setBounds(600, 615, 250, 50);
 		jLtime.setFont(new Font("宋体",Font.PLAIN,12));
+
 	}
-	//窗口关闭前，先确定用户操作，再关闭数据库连接
-//	protected void processWindowEvent(WindowEvent e)
-//	{
-//		if(e.getID()==WindowEvent.WINDOW_CLOSED)
-//		{
-//			int option=JOptionPane.showConfirmDialog(new ServerFrame(), "亲，你确定要退出吗？");
-//			if(option==JOptionPane.YES_OPTION)
-//			{
-//				try {
-//					con.close();//关闭数据库连接
-//					//关闭服务器线程的数据库连接
-//					System.exit(0);
-//				} catch (SQLException e1) {
-//					// TODO Auto-generated catch block
-//					e1.printStackTrace();
-//				}
-//			}
-//		}
-//	}
+
+	public void deinit(){
+		showtimeTimer.cancel();
+		serverWorkingThread._shouldExit=true;	// flag at first
+		serverWorkingThread.stopServerSocket();	// this will cause thread exit (UGLY)
+		//serverWorkingThread.interrupt();	// this one should, but doesn't work. Use the above one instead
+		try {
+			// TODO: UI展示正在停止服务 可以先关闭当前窗口
+			serverWorkingThread.join();	// Wait thread stopping
+			con.close();//关闭数据库连接
+			System.out.printf("数据库连接关闭\n");
+
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+	// ONLY deinit() HERE!
+	protected void processWindowEvent(WindowEvent e)
+	{
+		if(e.getID()==WindowEvent.WINDOW_CLOSED)
+		{
+			deinit();
+		}else if(e.getID()==WindowEvent.WINDOW_CLOSING){
+			dispose();
+		}
+	}
 	//踢出用户，在数据库中把Status及用户状态改为0
 	public void removeUser(String userNum)
 	{
