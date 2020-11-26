@@ -367,7 +367,7 @@ public class UserServiceThread extends Thread{
 	public void updateOwnInformation()
 	{
 		try {
-			String sql="UPDATE UserInformation SET username = ? , sex = ? , birth = ?, address = ? , sign = ? where usernum ='"+in.readLine()+"'";
+			String sql="UPDATE userinformation SET username = ? , sex = ? , birth = ?, address = ? , sign = ? where usernum ='"+in.readLine()+"'";
 			PreparedStatement pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, in.readLine());
 			pstmt.setString(2, in.readLine());
