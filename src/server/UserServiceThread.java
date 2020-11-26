@@ -388,7 +388,7 @@ public class UserServiceThread extends Thread{
 	public void logout()
 	{
 		try {
-			String sql="UPDATE UserInformation SET status = 0 , ip = null , port = 0 where usernum = '"+in.readLine()+"'";
+			String sql="UPDATE userinformation SET status = 0 , ip = null , port = 0 where usernum = '"+in.readLine()+"'";
 			PreparedStatement pstmt=con.prepareStatement(sql);
 			pstmt.executeUpdate();
 			out.println("logOut");
