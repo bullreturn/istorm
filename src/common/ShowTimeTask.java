@@ -18,10 +18,10 @@ public class ShowTimeTask extends java.util.TimerTask {
         String timeInfo = format.format(time);
         showTime.setText("现在时间：" + timeInfo + "    ");
         try {
-			Thread.sleep(1000); 
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
-    }
+}

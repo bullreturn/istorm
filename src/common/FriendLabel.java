@@ -20,8 +20,8 @@ public class FriendLabel extends JLabel implements ListCellRenderer {
     }
 
     public Component getListCellRendererComponent(JList list, Object value,
-                                                  int index, boolean isSelected,
-                                                  boolean cellHasFocus) {
+            int index, boolean isSelected,
+            boolean cellHasFocus) {
         String s = value.toString();
         int beginIndex = s.indexOf("*src/head/");// 返回指定子字符串在此字符串中第一次出现处的索引。
         //在线用户的头像
