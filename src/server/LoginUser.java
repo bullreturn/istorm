@@ -10,8 +10,8 @@ import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
 
-import common.FriendLabel;
-import common.UserBean;
+import UI.FriendLabel;
+import user.UserBean;
 
 /*管理登陆用户模块，将目前登陆的用户情况显示到ServerFrame中*/
 public class LoginUser extends TimerTask {

@@ -1,7 +1,5 @@
 package server;
 
-import client.Forum.Forum;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -71,7 +69,7 @@ public class UserServiceThread extends Thread {
         while(!_shouldExit) {
             try {
                 String str=in.readLine();
-                if(str==null) {	// client socket closed
+                if(str==null) {	// UI socket closed
                     break;
                 }
                 if(str.equals("end")) {
@@ -152,14 +150,14 @@ public class UserServiceThread extends Thread {
     }
     public void registNewUser() {
         String sql1="INSERT INTO userinformation (usernum,username,password,sex,birth,address,sign,portrait,status,mibao,mibaodaan) values(?,?,?,?,?,?,?,?,?,?,?)";
-        String sql2="select usernum from qqnum where mark = 1";
+        String sql2="select usernum from account where mark = 1";
         Statement stmt1=null,stmt2=null;
         ResultSet rs=null;
         try {
             stmt1=con.createStatement();
             rs=stmt1.executeQuery(sql2);
             rs.next();
-            String userNum=rs.getString("usernum");//从QQNum表获取一个合法QQ号
+            String userNum=rs.getString("usernum");//从account表获取一个合法QQ号
 
             PreparedStatement pstmt=con.prepareStatement(sql1);
             String userName=in.readLine();
@@ -182,9 +180,9 @@ public class UserServiceThread extends Thread {
             pstmt.setString(11, mibaodaan);
             pstmt.executeUpdate();//向UerInformation中插入信息结束
             pstmt.close();
-            //修改QQNum中的Mark值，改为0，表示该QQ已被用户注册
+            //修改account中的Mark值，改为0，表示该QQ已被用户注册
             System.out.println(userNum);
-            String sql3="UPDATE qqnum SET mark = 0 where usernum = '"+userNum+"'";
+            String sql3="UPDATE account SET mark = 0 where usernum = '"+userNum+"'";
             stmt2=con.createStatement();
             stmt2.executeUpdate(sql3);
             out.println("registerOver");//注册完毕
