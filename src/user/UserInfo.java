@@ -155,7 +155,7 @@ public class UserInfo extends JDialog {
         jLaddress.setText("所在地: "+user.getAddress());
         jLlocation.setText("地  址: "+user.getAddress());
         jLhead.setIcon(new ImageIcon(user.getPortrait()));
-        age=String.valueOf((2012-Integer.valueOf(user.getBirth().substring(user.getBirth().indexOf("-")+1,user.getBirth().indexOf("年")))));
+        age=String.valueOf((2020-Integer.valueOf(user.getBirth().substring(user.getBirth().indexOf("-")+1,user.getBirth().indexOf("年")))));
         System.out.println(age);
         jLage.setText("年  龄: "+age);
         month=Integer.valueOf(user.getBirth().substring(user.getBirth().indexOf("年")+1,user.getBirth().indexOf("月")));

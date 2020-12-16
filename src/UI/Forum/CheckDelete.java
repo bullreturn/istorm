@@ -56,6 +56,9 @@ public class CheckDelete extends JFrame {
                         if (ok.equals("DeletePostOver")){
                             delete.model1.removeRow(index);
                             delete.postlist.setModel(delete.model1);
+                            Forum.forum_x.model2.removeRow(index);
+                            Forum.forum_x.My.setModel(Forum.forum_x.model2);
+                            Forum.forum_x.postid2.remove(index);
                             String t = new String();
                             t = "删除成功";
                             Success success = new Success(t);

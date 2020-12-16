@@ -478,10 +478,21 @@ public class UserServiceThread extends Thread {
             pstmt.setString(4, content);
             pstmt.setString(5, time);
             pstmt.executeUpdate();
+            String sql2 = "select postid from post where usernum='"+userid+"' and title='"+title+"'";
             pstmt.close();
             stmt.close();
+            Statement statement =null;
+            ResultSet resultSet = null;
+            statement=con.createStatement();
+            resultSet=statement.executeQuery(sql2);
+            resultSet.next();
+            String post = resultSet.getString("postid");
             out.println("PostOver");
             out.flush();
+            out.println(post);
+            out.flush();
+            statement.close();
+            resultSet.close();
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

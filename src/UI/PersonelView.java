@@ -748,6 +748,13 @@ public class PersonelView extends JFrame implements Runnable {
                 out.flush();
                 out.println(findUserBean.getUserNum());
                 out.flush();
+                String judge_ad=in.readLine();
+                out.println("addFriend");
+                out.flush();
+                out.println(findUserBean.getUserNum());
+                out.flush();
+                out.println(myInfo.getUserNum());
+                out.flush();
                 String judge_add=in.readLine();
                 if(judge_add.equals("addFriendOver")) {
                     //将新添加的好友信息存入到哈希表中

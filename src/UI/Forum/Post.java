@@ -134,6 +134,7 @@ public class Post extends JFrame{
                 out.flush();
                 String judge=in.readLine();
                 if(judge.equals("PostOver")) {
+                    String postid = in.readLine();
                     forum.row2.clear();
                     forum.row2.add(titletext);
                     forum.row2.add(date);
@@ -141,6 +142,7 @@ public class Post extends JFrame{
                     forum.row2.clear();
                     forum.model2 = new DefaultTableModel(forum.data2,forum.column2);
                     forum.My.setModel(forum.model2);
+                    forum.postid2.add(postid);
                     String t = new String();
                     t = "发表成功";
                     Success success = new Success(t);

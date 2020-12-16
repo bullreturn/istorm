@@ -19,6 +19,7 @@ import java.util.Hashtable;
 import java.util.Vector;
 
 public class Forum extends JFrame {
+    public static Forum forum_x;
     JLabel Background = new JLabel(new ImageIcon("src/file/ForumBackground.jpg"));
     JButton PostSign = new JButton("发帖");
     JButton DeleteSign = new JButton("删帖/评论");
@@ -41,7 +42,7 @@ public class Forum extends JFrame {
     UserBean userBean = null;
 
     private String[] postid1;
-    private String[] postid2;
+    public Vector postid2 = new Vector();
     private String[] postuserid;
     public Vector data1 = new Vector();
     public Vector column1 = new Vector();
@@ -56,6 +57,7 @@ public class Forum extends JFrame {
         this.in = in;
         this.out = out;
         this.userBean = myInfo;
+        this.forum_x = this;
         this.setSize(800, 700);
         this.setLocationRelativeTo(null);
         this.setLayout(null);
@@ -179,12 +181,21 @@ public class Forum extends JFrame {
                     HotTopicList.setBounds(100, 80, 300, 500);
                     HotTopicList.setFont(new Font("宋体", Font.PLAIN, 11));
                     this.add(HotTopicList);
+                }else{
+                    column1.add("帖子");
+                    column1.add("作者");
+                    column1.add("发布时间");
+                    model1 = new DefaultTableModel(data1,column1);
+                    HotTopic.setModel(model1);
+                    HotTopicList = new JScrollPane(HotTopic);
+                    HotTopicList.setBounds(100, 80, 300, 500);
+                    HotTopicList.setFont(new Font("宋体", Font.PLAIN, 11));
+                    this.add(HotTopicList);
                 }
 
                 String Count2 = in.readLine();
                 count2 = Integer.parseInt(Count2);
                 if (count2>0) {
-                    postid2 = new String[count2];
                     for(int i=0;i<count2;i++)
                     {
                         for(int j=0;j<2;j++)
@@ -193,20 +204,12 @@ public class Forum extends JFrame {
                         }
                         data2.add(row2.clone());
                         row2.clear();
-                        postid2[i] = in.readLine();
+                        postid2.add(in.readLine());
                     }
                     column2.add("帖子");
                     column2.add("发布时间");
                     model2 = new DefaultTableModel(data2,column2);
                     My.setModel(model2);
-                    My.addMouseListener(new MouseAdapter() {
-                        @Override
-                        public void mouseClicked(MouseEvent e) {
-                            int r = My.getSelectedRow();
-                            LookupPost lookupPost = new LookupPost(postid2[r],userBean,in,out,userBean.getUserNum());
-                            lookupPost.setVisible(true);
-                        }
-                    });
                     MyList = new JScrollPane(My);
                     MyList.setBounds(450, 80, 250, 500);
                     MyList.setFont(new Font("宋体", Font.PLAIN, 11));
@@ -227,6 +230,15 @@ public class Forum extends JFrame {
                 Error error = new Error(t);
                 error.setVisible(true);
             }
+            My.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    int r = My.getSelectedRow();
+                    String i = (String) postid2.elementAt(r);
+                    LookupPost lookupPost = new LookupPost(i,userBean,in,out,userBean.getUserNum());
+                    lookupPost.setVisible(true);
+                }
+            });
         } catch (IOException e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
