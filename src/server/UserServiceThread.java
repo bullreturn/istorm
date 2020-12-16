@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
+import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -138,6 +139,8 @@ public class UserServiceThread extends Thread {
                 
             } catch (SocketTimeoutException e) {	// normal timeout, for stopping thread
                 // do nothing
+            }catch (SocketException e){
+                _shouldExit=true;
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
