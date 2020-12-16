@@ -70,10 +70,10 @@ public class FindPass extends JDialog implements ActionListener {
         jLmibao.setFont(new Font("宋体",Font.PLAIN,12));
         jCmibao.setBounds(_base_layout_w_L+_base_layout_w_T, _calculated_layout_h_L[1], 180, 30);
         jCmibao.setFont(new Font("宋体",Font.PLAIN,12));
-        jCmibao.addItem(new String("1"));
-        jCmibao.addItem(new String("2"));
-        jCmibao.addItem(new String("3"));
-        jCmibao.addItem(new String("4"));
+        jCmibao.addItem(new String("你最喜欢的课程"));
+        jCmibao.addItem(new String("你父亲的名字"));
+        jCmibao.addItem(new String("你的出生城市"));
+        jCmibao.addItem(new String("你的第一只宠物的名字"));
 
         jLmibaodaan.setBounds(_base_layout_w_L, _calculated_layout_h_L[2], 80, 30);
         jLmibaodaan.setFont(new Font("宋体",Font.PLAIN,12));

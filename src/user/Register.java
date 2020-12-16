@@ -165,10 +165,10 @@ public class Register extends JFrame {
         jLmibao.setBounds(_base_layout_w_L, _calculated_layout_h_L[4], 220, 50);
         jCmibao.setFont(new Font("宋体",Font.PLAIN,20));
         jCmibao.setBounds(_base_layout_w_L+_base_layout_w_T, jLmibao.getY(), 220, 45);
-        jCmibao.addItem(new String("1"));
-        jCmibao.addItem(new String("2"));
-        jCmibao.addItem(new String("3"));
-        jCmibao.addItem(new String("4"));
+        jCmibao.addItem(new String("你最喜欢的课程"));
+        jCmibao.addItem(new String("你父亲的名字"));
+        jCmibao.addItem(new String("你的出生城市"));
+        jCmibao.addItem(new String("你的第一只宠物的名字"));
         mibao=jCmibao.getSelectedItem().toString();
         jCmibao.addItemListener(new ItemListener() {
 
