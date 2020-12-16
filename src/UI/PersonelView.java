@@ -22,6 +22,7 @@ import java.util.Properties;
 
 /*主界面*/
 public class PersonelView extends JFrame implements Runnable {
+    ChatView chatview;
     /*-------------------------------------界面设计---------------------------------------------------*/
     JPanel jPtop=new JPanel();//置于顶部
     JPanel jPcentre=new JPanel();//置于中间存放好友列表
@@ -326,7 +327,11 @@ public class PersonelView extends JFrame implements Runnable {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
-                new Thread(new ChatView(myInfo,currentFriend,PersonelView.this,usePort,receiveSocket,receivePacket,friendInfoTable,in,out)).start();
+                if(chatview ==null){
+                    chatview=new ChatView(myInfo,currentFriend,PersonelView.this,usePort,receiveSocket,receivePacket,friendInfoTable,in,out);
+                    new Thread(chatview).start();
+                }
+                chatview.setVisible(true);
             }
 
         });
@@ -475,6 +480,9 @@ public class PersonelView extends JFrame implements Runnable {
         jPcentre.add(jSuserList);
         //底部
         jLbase.setBounds(0, 499, 304, 51);
+
+        chatview=new ChatView(myInfo,currentFriend,PersonelView.this,usePort,receiveSocket,receivePacket,friendInfoTable,in,out);
+        new Thread(chatview).start();
     }
     //用于登录后读取自己和好友信息
     private Boolean login() {
@@ -650,8 +658,11 @@ public class PersonelView extends JFrame implements Runnable {
     class PersonelView_userList_mouseAdapter extends MouseAdapter {
         public void mouseClicked(MouseEvent e) {
             if(e.getClickCount()==2&&e.getButton()==MouseEvent.BUTTON1) {
-                new Thread(new ChatView(myInfo,currentFriend,PersonelView.this,usePort,receiveSocket,receivePacket,friendInfoTable,in,out)).start();
-
+                if(chatview ==null){
+                    chatview=new ChatView(myInfo,currentFriend,PersonelView.this,usePort,receiveSocket,receivePacket,friendInfoTable,in,out);
+                    new Thread(chatview).start();
+                }
+                chatview.setVisible(true);
             }
         }
     }
