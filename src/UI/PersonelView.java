@@ -208,7 +208,16 @@ public class PersonelView extends JFrame implements Runnable {
         forumbuttom.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Forum forum = new Forum(myInfo,in,out);
+                BufferedReader br = null;
+                PrintStream ps = null;
+                try{
+                    Socket ee=new Socket(ip,port);
+                    br=new BufferedReader(new InputStreamReader(ee.getInputStream()));
+                    ps=new PrintStream(ee.getOutputStream());
+                }catch (Exception ee){
+                    // pass
+                }
+                Forum forum = new Forum(myInfo,br,ps);
                 forum.setVisible(true);
             }
         });
