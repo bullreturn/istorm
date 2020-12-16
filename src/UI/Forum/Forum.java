@@ -212,6 +212,16 @@ public class Forum extends JFrame {
                     MyList.setFont(new Font("宋体", Font.PLAIN, 11));
                     this.add(MyList);
                 }
+                else{
+                    column2.add("帖子");
+                    column2.add("发布时间");
+                    model2 = new DefaultTableModel(data2,column2);
+                    My.setModel(model2);
+                    MyList = new JScrollPane(My);
+                    MyList.setBounds(450, 80, 250, 500);
+                    MyList.setFont(new Font("宋体", Font.PLAIN, 11));
+                    this.add(MyList);
+                }
             } else {
                 String t = "论坛初始化失败！";
                 Error error = new Error(t);

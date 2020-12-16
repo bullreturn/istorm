@@ -177,7 +177,7 @@ public class ChatView extends JFrame implements Runnable,ActionListener,KeyListe
         //设置顶部面板
         jPfriend.setBounds(0, 0, 540, 82);
         jPfriend.setLayout(null);
-        jPfriend.setBackground(Color.PINK);
+        jPfriend.setBackground(new Color(30,144,255));
         jLfriendPortrait.setIcon(new ImageIcon (currentFriend.getPortrait()));
         jLfriendPortrait.setBounds(5, 5, 60, 60);
         jPfriend.add(jLfriendPortrait);
@@ -192,13 +192,13 @@ public class ChatView extends JFrame implements Runnable,ActionListener,KeyListe
         jLfriendSign.setBounds(75, 26, 400, 20);
         jPfriend.add(jLfriendSign);
         image1.setBounds(70,48, 26, 30);
-        image1.setBackground(Color.PINK);
+        image1.setBackground(new Color(30,144,255));
         jPfriend.add(image1);
         image2.setBounds(111, 48, 28, 28);
-        image2.setBackground(Color.PINK);
+        image2.setBackground(new Color(30,144,255));
         jPfriend.add(image2);
         image3.setBounds(154, 48, 28, 28);
-        image3.setBackground(Color.PINK);
+        image3.setBackground(new Color(30,144,255));
         image3.addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e) {
                 String temp=null;
@@ -240,13 +240,13 @@ public class ChatView extends JFrame implements Runnable,ActionListener,KeyListe
         });
         jPfriend.add(image3);
         image4.setBounds(197,48, 30, 32);
-        image4.setBackground(Color.PINK);
+        image4.setBackground(new Color(30,144,255));
         jPfriend.add(image4);
         image5.setBounds(242, 48, 32, 29);
-        image5.setBackground(Color.PINK);
+        image5.setBackground(new Color(30,144,255));
         jPfriend.add(image5);
         image6.setBounds(289, 48, 31, 32);
-        image6.setBackground(Color.PINK);
+        image6.setBackground(new Color(30,144,255));
         jPfriend.add(image6);
         //显示与好友的聊天信息
         point.setBounds(5, 85, 17, 19);

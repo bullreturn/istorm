@@ -199,7 +199,7 @@ public class PersonelView extends JFrame implements Runnable {
         //顶部面板
         jPtop.setBounds(0, 0, 313, 110);
         jPtop.setLayout(null);
-        jPtop.setBackground(Color.BLUE);
+        jPtop.setBackground(new Color(30,144,255));
         jLtitle.setForeground(Color.WHITE);
         jLtitle.setFont(new Font("黑体",Font.BOLD,15));
         jLtitle.setBounds(0, 0, 313, 25);
@@ -416,7 +416,7 @@ public class PersonelView extends JFrame implements Runnable {
         jTPchoose.setBackground(Color.WHITE);
         jTPchoose.setFont(new Font("宋体",Font.PLAIN,11));
         jTPchoose.addTab("联系人", jPcentre);
-        jTPchoose.addTab("帖子", j1);
+        //jTPchoose.addTab("帖子", j1);
         jTPchoose.addTab("游戏", j2);
         jTPchoose.addTab("论坛",forumbuttom);
         /*jTPchoose.addTab("朋友", j3);
