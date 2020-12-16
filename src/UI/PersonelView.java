@@ -480,9 +480,6 @@ public class PersonelView extends JFrame implements Runnable {
         jPcentre.add(jSuserList);
         //底部
         jLbase.setBounds(0, 499, 304, 51);
-
-        chatview=new ChatView(myInfo,currentFriend,PersonelView.this,usePort,receiveSocket,receivePacket,friendInfoTable,in,out);
-        new Thread(chatview).start();
     }
     //用于登录后读取自己和好友信息
     private Boolean login() {
