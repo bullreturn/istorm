@@ -157,7 +157,7 @@ public class ChatView extends JFrame implements Runnable,ActionListener,KeyListe
             e.printStackTrace();
             System.out.println("出现异常："+e.getMessage());
         }
-        //--------------------以自己QQ号+好友QQ号创建文件保存聊天记录------------------------------------------//
+        //--------------------以自己号+好友号创建文件保存聊天记录------------------------------------------//
         try {
             path="src/聊天记录/"+myInfo.getUserNum()+"-"+currentFriend.getUserNum()+".txt";
             bw=new BufferedWriter(
@@ -356,7 +356,7 @@ public class ChatView extends JFrame implements Runnable,ActionListener,KeyListe
 
                         try {
                             Desktop.getDesktop().browse(
-                                new java.net.URI("http://news.qihoo.com/zt/doomsday.html"));
+                                new java.net.URI(""));
                         } catch (Exception ex) {
                         }
                     }

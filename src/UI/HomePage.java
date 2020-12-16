@@ -38,8 +38,8 @@ public class HomePage extends JFrame {
     JPasswordField jPassword=new JPasswordField();//密码输入框
     JCheckBox rememberPass=new JCheckBox("记住密码");
     JCheckBox Autologon =new JCheckBox("自动登录",true);
-    JButton jBmore=new JButton(">多账号");
-    JButton jBset=new JButton("设置");
+   // JButton jBmore=new JButton(">多账号");
+ //   JButton jBset=new JButton("设置");
     JButton jBenter=new JButton("登陆");
     Register register;
     PersonelView personelView;
@@ -57,8 +57,8 @@ public class HomePage extends JFrame {
         this.add(jPassword);
         this.add(Autologon);
         this.add(rememberPass);
-        this.add(jBmore);
-        this.add(jBset);
+    //    this.add(jBmore);
+    //    this.add(jBset);
         this.add(jBenter);
         init();
     }
@@ -79,13 +79,13 @@ public class HomePage extends JFrame {
         Autologon.setForeground(Color.BLACK);
         Autologon.setBounds(220, 175, 70, 25);
         jLhead.setBounds(20, 105, 87, 90);
-        jBmore.setFont(new Font("宋体",Font.PLAIN,10));
-        jBmore.setForeground(Color.BLACK);
-        jBmore.setBounds(10, 225, 70, 23);
-        jBset.setFont(new Font("宋体",Font.PLAIN,10));
-        jBset.setBounds(95, 225, 55, 23);
+    //    jBmore.setFont(new Font("宋体",Font.PLAIN,10));
+    //    jBmore.setForeground(Color.BLACK);
+    //    jBmore.setBounds(10, 225, 70, 23);
+     //   jBset.setFont(new Font("宋体",Font.PLAIN,10));
+     //   jBset.setBounds(95, 225, 55, 23);
         jBenter.setFont(new Font("宋体",Font.PLAIN,10));
-        jBenter.setBounds(300, 225, 55, 23);
+        jBenter.setBounds(175, 225, 55, 23);
         jBenter.addActionListener(new ActionListener() {
 
             @Override

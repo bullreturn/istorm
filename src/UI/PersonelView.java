@@ -28,7 +28,7 @@ public class PersonelView extends JFrame implements Runnable {
     JPanel jPcentre=new JPanel();//置于中间存放好友列表
     //顶部
     JLabel jLtitle=new JLabel("ISTORM");
-    //QQ头像尺寸60*60
+    //头像尺寸60*60
     JLabel jLportrait=new JLabel(new ImageIcon("src/file/personelView1.jpg"));
     JLabel jLmyName=new JLabel("我是毛毛虫");
     JLabel jLmySign=new JLabel("个性签名");
@@ -50,22 +50,22 @@ public class PersonelView extends JFrame implements Runnable {
     JList userList=new JList(listModel);
     JScrollPane jSuserList=new JScrollPane(userList);
     //增加用户的标签”分组外“的弹出式菜单
-    JMenuItem jM11=new JMenuItem("列表显示");
-    JMenuItem jM12=new JMenuItem("刷新好友列表");
-    JMenuItem jM13=new JMenuItem("显示在线联系人");
+   // JMenuItem jM11=new JMenuItem("列表显示");
+  //  JMenuItem jM12=new JMenuItem("刷新好友列表");
+  //  JMenuItem jM13=new JMenuItem("显示在线联系人");
     JMenuItem jM14=new JMenuItem("添加联系人");
-    JMenuItem jM15=new JMenuItem("查找好友");
-    JMenuItem jM16=new JMenuItem("好友管理器");
-    JMenuItem jM17=new JMenuItem("帮助");
+   // JMenuItem jM15=new JMenuItem("查找好友");
+  //  JMenuItem jM16=new JMenuItem("好友管理器");
+  //  JMenuItem jM17=new JMenuItem("帮助");
     JMenuItem jM18=new JMenuItem("关于");
     JPopupMenu jPmenuser=new JPopupMenu();
     //好友列表的弹出式菜单选项
     JMenuItem jM1=new JMenuItem("发送即时消息");
-    JMenuItem jM2=new JMenuItem("发送电子邮件");
-    JMenuItem jM3=new JMenuItem("发送文件");
+   // JMenuItem jM2=new JMenuItem("发送电子邮件");
+   // JMenuItem jM3=new JMenuItem("发送文件");
     JMenuItem jM4=new JMenuItem("删除好友");
-    JMenuItem jM5=new JMenuItem("举报此用户");
-    JMenuItem jM6=new JMenuItem("修改备注姓名");
+  //  JMenuItem jM5=new JMenuItem("举报此用户");
+  //  JMenuItem jM6=new JMenuItem("修改备注姓名");
     JMenuItem jM7=new JMenuItem("消息记录");
     JMenuItem jM8=new JMenuItem("查看资料");
     JPopupMenu jPmenufriend=new JPopupMenu();
@@ -80,7 +80,7 @@ public class PersonelView extends JFrame implements Runnable {
     PrintStream out;//定义输出流
     InetAddress ip=null;//服务器IP
     int port=0;//服务器端口号
-    String userNum;//登陆用户自己的QQ号
+    String userNum;//登陆用户自己的号
 
     public void setUserPass(String userPass) {
         this.userPass = userPass;
@@ -90,7 +90,7 @@ public class PersonelView extends JFrame implements Runnable {
     HomePage login;
     private int currentIndex=0;//鼠标所指的列表索引
     private String currentInfo="";//鼠标所指的列表值
-    private String currentUserNum=null;//鼠标所指好友的QQ号码
+    private String currentUserNum=null;//鼠标所指好友的号码
     private UserBean currentFriend=null;//鼠标所指好友的信息类
     private UserBean myInfo=new UserBean();//存储自己的信息
     UserBean findUserBean=new UserBean();//存储查找到的用户的基本信息
@@ -304,11 +304,11 @@ public class PersonelView extends JFrame implements Runnable {
         //中间
         /*--------------------------增加弹出式菜单---------------------*/
         jPmenufriend.add(jM1);
-        jPmenufriend.add(jM2);
-        jPmenufriend.add(jM3);
+   //     jPmenufriend.add(jM2);
+    //    jPmenufriend.add(jM3);
         jPmenufriend.add(jM4);
-        jPmenufriend.add(jM5);
-        jPmenufriend.add(jM6);
+    //    jPmenufriend.add(jM5);
+    //    jPmenufriend.add(jM6);
         jPmenufriend.add(jM7);
         jM7.addActionListener(new ActionListener() {
 
@@ -344,10 +344,10 @@ public class PersonelView extends JFrame implements Runnable {
             }
 
         });
-        jM2.setFont(new Font("楷体",Font.PLAIN,14));
-        jM2.setForeground(Color.BLUE);
-        jM3.setFont(new Font("楷体",Font.PLAIN,14));
-        jM3.setForeground(Color.BLUE);
+    //    jM2.setFont(new Font("楷体",Font.PLAIN,14));
+    //    jM2.setForeground(Color.BLUE);
+    //    jM3.setFont(new Font("楷体",Font.PLAIN,14));
+     //   jM3.setForeground(Color.BLUE);
         jM4.setFont(new Font("楷体",Font.PLAIN,14));
         jM4.setForeground(Color.BLUE);
         jM4.addActionListener(new ActionListener() {
@@ -370,10 +370,10 @@ public class PersonelView extends JFrame implements Runnable {
                             //向服务器发送删除好友请求
                             out.println("deleteFriend");
                             out.flush();
-                            //发送自己QQ
+                            //发送自己
                             out.println(myUserNum);
                             out.flush();
-                            //发送好友QQ
+                            //发送好友
                             out.println(friendNum);
                             out.flush();
                             String judge_delete=in.readLine();
@@ -393,10 +393,10 @@ public class PersonelView extends JFrame implements Runnable {
             }
 
         });
-        jM5.setFont(new Font("楷体",Font.PLAIN,14));
-        jM5.setForeground(Color.BLUE);
-        jM6.setFont(new Font("楷体",Font.PLAIN,14));
-        jM6.setForeground(Color.BLUE);
+   //     jM5.setFont(new Font("楷体",Font.PLAIN,14));
+   //     jM5.setForeground(Color.BLUE);
+    //    jM6.setFont(new Font("楷体",Font.PLAIN,14));
+   //     jM6.setForeground(Color.BLUE);
         jM7.setFont(new Font("楷体",Font.PLAIN,14));
         jM7.setForeground(Color.BLUE);
         jM8.setFont(new Font("楷体",Font.PLAIN,14));
@@ -423,24 +423,24 @@ public class PersonelView extends JFrame implements Runnable {
         jTPchoose.addTab("微博", j4);*/
         jTPchoose.setBounds(0, 117, 313, 382);
         jPcentre.setLayout(new BorderLayout());
-        JLabel test=new JLabel("我 的 好 友");
+        JLabel test=new JLabel("我的好友(右键查看功能)");
         test.setFont(new Font("宋体",Font.PLAIN,14));
         test.setSize(313, 30);
         test.setForeground(Color.BLACK);
-        jPmenuser.add(jM11);
-        jPmenuser.add(jM12);
-        jPmenuser.add(jM13);
+    //    jPmenuser.add(jM11);
+    //    jPmenuser.add(jM12);
+     //   jPmenuser.add(jM13);
         jPmenuser.add(jM14);
-        jPmenuser.add(jM15);
-        jPmenuser.add(jM16);
-        jPmenuser.add(jM17);
+   //     jPmenuser.add(jM15);
+    //    jPmenuser.add(jM16);
+   //     jPmenuser.add(jM17);
         jPmenuser.add(jM18);
-        jM11.setFont(new Font("楷体",Font.PLAIN,14));
-        jM11.setForeground(Color.DARK_GRAY);
-        jM12.setFont(new Font("楷体",Font.PLAIN,14));
-        jM12.setForeground(Color.DARK_GRAY);
-        jM13.setFont(new Font("楷体",Font.PLAIN,14));
-        jM13.setForeground(Color.DARK_GRAY);
+   //     jM11.setFont(new Font("楷体",Font.PLAIN,14));
+   //     jM11.setForeground(Color.DARK_GRAY);
+    //    jM12.setFont(new Font("楷体",Font.PLAIN,14));
+   //     jM12.setForeground(Color.DARK_GRAY);
+    //    jM13.setFont(new Font("楷体",Font.PLAIN,14));
+    //    jM13.setForeground(Color.DARK_GRAY);
         jM14.setFont(new Font("楷体",Font.PLAIN,14));
         jM14.setForeground(Color.DARK_GRAY);
         jM14.addActionListener(new ActionListener() {
@@ -452,9 +452,9 @@ public class PersonelView extends JFrame implements Runnable {
                 printNum.setVisible(true);
             }
         });
-        jM15.setFont(new Font("楷体",Font.PLAIN,14));
-        jM15.setForeground(Color.DARK_GRAY);
-        jM15.addActionListener(new ActionListener() {
+  //      jM15.setFont(new Font("楷体",Font.PLAIN,14));
+  //      jM15.setForeground(Color.DARK_GRAY);
+   /*     jM15.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -463,11 +463,11 @@ public class PersonelView extends JFrame implements Runnable {
                 printNum.setVisible(true);
             }
 
-        });
-        jM16.setFont(new Font("楷体",Font.PLAIN,14));
-        jM16.setForeground(Color.DARK_GRAY);
-        jM17.setFont(new Font("楷体",Font.PLAIN,14));
-        jM17.setForeground(Color.DARK_GRAY);
+        });*/
+   //     jM16.setFont(new Font("楷体",Font.PLAIN,14));
+   //     jM16.setForeground(Color.DARK_GRAY);
+    //    jM17.setFont(new Font("楷体",Font.PLAIN,14));
+    //   jM17.setForeground(Color.DARK_GRAY);
         jM18.setFont(new Font("楷体",Font.PLAIN,14));
         jM18.setForeground(Color.DARK_GRAY);
         jM18.addActionListener(new ActionListener() {
@@ -475,7 +475,7 @@ public class PersonelView extends JFrame implements Runnable {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
-                AboutMy a=new AboutMy(PersonelView.this, "关于QQ", true);
+                AboutMy a=new AboutMy(PersonelView.this, "关于我们", true);
                 a.setVisible(true);
             }
 

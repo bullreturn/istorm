@@ -27,13 +27,13 @@ public class ChangeHead extends JDialog {
     PrintStream out;//定义输出流
     UserBean myInfo;
     JLabel jLtop=new JLabel(new ImageIcon("src/file/changeHeadtop.jpg"));//530*25
-    JButton jB1=new JButton(new ImageIcon("src/file/changeHead1.jpg"));//75*20自定义头像
+  //  JButton jB1=new JButton(new ImageIcon("src/file/changeHead1.jpg"));//75*20自定义头像
     JPanel jP=new JPanel();//显示系统头像模块
     //JScrollPane js=new JScrollPane(jP);
-    JButton jB2=new JButton(new ImageIcon("src/file/changeHead2.jpg"));//65*20系统头像
-    JButton jB3=new JButton(new ImageIcon("src/file/changeHead3.jpg"));//90*20会员头像
-    JButton jB4=new JButton(new ImageIcon("src/file/changeHead4.jpg"));//70*20会员头像
-    JLabel jLtop2=new JLabel(new ImageIcon("src/file/changeHeadtop2.jpg"));//140*20
+ //   JButton jB2=new JButton(new ImageIcon("src/file/changeHead2.jpg"));//65*20系统头像
+  //  JButton jB3=new JButton(new ImageIcon("src/file/changeHead3.jpg"));//90*20会员头像
+  //  JButton jB4=new JButton(new ImageIcon("src/file/changeHead4.jpg"));//70*20会员头像
+ //   JLabel jLtop2=new JLabel(new ImageIcon("src/file/changeHeadtop2.jpg"));//140*20
     JLabel jLshow=new JLabel("推荐头像");
     JLabel jLprepare=new JLabel("预览");
     JButton jBsure=new JButton(new ImageIcon("src/file/changeHeadSure.jpg"));//65*20
@@ -53,11 +53,11 @@ public class ChangeHead extends JDialog {
         this.setLayout(null);
         init();
         this.add(jLtop);
-        this.add(jB1);
-        this.add(jB2);
-        this.add(jB3);
-        this.add(jB4);
-        this.add(jLtop2);
+    //    this.add(jB1);
+    //    this.add(jB2);
+      //  this.add(jB3);
+     //   this.add(jB4);
+     //   this.add(jLtop2);
         this.add(jP);
         this.add(jLshow);
         this.add(jLprepare);
@@ -67,15 +67,15 @@ public class ChangeHead extends JDialog {
     }
     public void init() {
         jLtop.setBounds(0, 0, 530, 25);
-        jB1.setBounds(0, 25, 75, 20);
-        jB2.setBounds(75, 25, 65, 20);
+     //   jB1.setBounds(0, 25, 75, 20);
+    //    jB2.setBounds(75, 25, 65, 20);
         jP.setBounds(0, 70, 400, 500);
         jP.setBackground(Color.WHITE);
         jP.setLayout(new FlowLayout());
         makeIcon();
-        jB3.setBounds(140, 25, 90, 20);
-        jB4.setBounds(230, 25, 70, 20);
-        jLtop2.setBounds(300, 25, 100, 20);
+    //    jB3.setBounds(140, 25, 90, 20);
+    //    jB4.setBounds(230, 25, 70, 20);
+     //   jLtop2.setBounds(300, 25, 100, 20);
         jLshow.setFont(new Font("楷体",Font.PLAIN,14));
         jLshow.setForeground(Color.BLACK);
         jLshow.setBounds(10,45, 400, 25);

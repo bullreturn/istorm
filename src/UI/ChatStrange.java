@@ -111,7 +111,7 @@ public class ChatStrange extends JDialog {
 
                         try {
                             Desktop.getDesktop().browse(
-                                new java.net.URI("http://news.qihoo.com/zt/doomsday.html"));
+                                new java.net.URI(""));
                         } catch (Exception ex) {
                         }
                     }

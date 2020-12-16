@@ -38,12 +38,12 @@ public class ChangeMyInfo extends JDialog {
     JButton jBchange=new JButton(new ImageIcon("src/file/CMchange.jpg"));//77*18
     JLabel jLmyName=new JLabel("我是毛毛虫");
     JLabel jLmyNum=new JLabel("593253716");
-    JLabel jLmySign=new JLabel("嘿嘿，叫我姐的孩子注意了，不要叫我丹姐，学姐・・・・・・Please call me 丹丹姐~~~");
+    JLabel jLmySign=new JLabel("嘿嘿");
     JLabel jLmyother=new JLabel("女   20岁   成都");
     JButton jBsave=new JButton(new ImageIcon("src/file/CMsave.jpg"));//63*19
     JButton jBclose=new JButton(new ImageIcon("src/file/CMclose.jpg"));//62*19
     JLabel jLsign=new JLabel("个性签名：");
-    JTextArea jTsign=new JTextArea("嘿嘿，叫我姐的孩子注意了，不要叫我丹姐，学姐・・・・・・Please call me 丹丹姐~~~");
+    JTextArea jTsign=new JTextArea("嘿嘿");
     JLabel jLName=new JLabel("昵称：");
     JTextField jTname=new JTextField("我是毛毛虫");
     JLabel jLenglishName=new JLabel("英文名：");

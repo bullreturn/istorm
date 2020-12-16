@@ -28,8 +28,8 @@ public class ReceiveFile {
         this.currentFriend=currentFriend;
     }
     public void receive() {
-        String receiveQQ=null;//我是属于接收方
-        String sendQQ=null;
+        String re=null;//我是属于接收方
+        String se=null;
         String fileName=null;
         String judge=null;
         //String fileContent=null;
@@ -42,13 +42,13 @@ public class ReceiveFile {
             System.out.println("客户端：传送文件"+judge);
             if(judge.equals("FILE")) {
                 System.out.println("客户端：传送文件已经执行到这里了");
-                receiveQQ=in.readLine();
-                System.out.println("接收人ISTORM号："+receiveQQ);
+                re=in.readLine();
+                System.out.println("接收人ISTORM号："+re);
                 System.out.println("我的ISTORM号："+myInfo.getUserNum());
                 System.out.println("好友的ISTORM号："+currentFriend.getUserNum());
-                if(receiveQQ.equals(myInfo.getUserNum())) {
-                    sendQQ=in.readLine();
-                    System.out.println("发送方ISTORM："+sendQQ);
+                if(re.equals(myInfo.getUserNum())) {
+                    se=in.readLine();
+                    System.out.println("发送方ISTORM："+se);
                     fileName=in.readLine();
                     System.out.println("文件名："+fileName);
                     BufferedWriter bw=new BufferedWriter(
@@ -69,7 +69,7 @@ public class ReceiveFile {
                     } while(!j.equals("All"));
                     bw.flush();
                     bw.close();
-                    father.getjTAshowChat().append(" "+sendQQ+"  "+timeInfo+line_separator);
+                    father.getjTAshowChat().append(" "+se+"  "+timeInfo+line_separator);
                     father.getjTAshowChat().append("文件已成功接收"+line_separator+line_separator);
                     father.getjTAshowChat().append(line_separator);
                 }
