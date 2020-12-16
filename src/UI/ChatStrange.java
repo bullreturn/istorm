@@ -56,7 +56,7 @@ public class ChatStrange extends JDialog {
         jLname.setForeground(Color.WHITE);
         jLname.setFont(new Font("楷体",Font.BOLD,16));
         jLname.setSize(400, 25);
-        jP1.setBackground(Color.PINK);
+        jP1.setBackground(new Color(30,144,255));
         jP1.setBounds(0, 0, 408, 50);
         jP1.setLayout(new BorderLayout());
         jP1.add(BorderLayout.NORTH,jLshow);

@@ -141,7 +141,7 @@ public class ChangeMyInfo extends JDialog {
         month.setModel((ComboBoxModel) monthModel);
         day.setModel((ComboBoxModel)dayModel);
         jp1.setLayout(null);
-        jp1.setBackground(Color.PINK);
+        jp1.setBackground(new Color(30,144,255));
         jp1.setBounds(0, 0, 455, 120);
         jLmyPortrait.setBounds(10, 30, 60, 60);
         jBchange.setBounds(5, 100, 77, 18);
@@ -367,7 +367,7 @@ public class ChangeMyInfo extends JDialog {
         jLmyName.setText(myInfo.getUserName());
         jLmyNum.setText(myInfo.getUserNum());
         jLmySign.setText(myInfo.getSign());
-        age=String.valueOf((2012-Integer.valueOf(myInfo.getBirth().substring(myInfo.getBirth().indexOf("-")+1,myInfo.getBirth().indexOf("年")))));
+        age=String.valueOf((2020-Integer.valueOf(myInfo.getBirth().substring(myInfo.getBirth().indexOf("-")+1,myInfo.getBirth().indexOf("年")))));
         jLmyother.setText(myInfo.getSex()+" "+age+" "+myInfo.getAddress());
         jTsign.setText(myInfo.getSign());
         jTname.setText(myInfo.getUserName());

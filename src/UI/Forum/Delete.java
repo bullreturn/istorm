@@ -36,7 +36,6 @@ public class Delete extends JFrame{
 
     JLabel jLtime=new JLabel();
     JLabel Background = new JLabel(new ImageIcon("src/file/ForumBackground.jpg"));
-    JLabel tip = new JLabel("提示：双击删除！");
     JLabel post = new JLabel("我发布过的帖子");
     JLabel comment =new JLabel("我发布过的评论");
     JTable postlist = new JTable();
@@ -51,7 +50,6 @@ public class Delete extends JFrame{
         this.setLayout(null);
         this.setTitle("删除");
         init();
-        this.add(tip);
         this.add(jLtime);
         this.add(post);
         this.add(comment);
@@ -140,9 +138,6 @@ public class Delete extends JFrame{
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
-
-        tip.setBounds(100,25,150,25);
-        tip.setFont(new Font("宋体", Font.PLAIN, 11));
 
         post.setBounds(100,50,100,25);
         post.setFont(new Font("宋体", Font.PLAIN, 11));
